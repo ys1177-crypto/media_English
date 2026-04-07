@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Conflict Is Driving Hunger — Reading Companion</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.7; color: #1a1a1a; background: #f5f4f0; }
+.app { max-width: 900px; margin: 0 auto; padding: 0 0 80px; }
+
+/* ── Header ── */
+.header { background: #2C3E30; color: white; padding: 18px 28px; }
+.header .label { font-size: 11px; color: #9DBB9E; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 4px; }
+.header h1 { font-size: 20px; font-weight: 700; }
+.header .sub { font-size: 12px; color: #9DBB9E; margin-top: 3px; }
+
+/* ── Top Tab Nav (PRE-READING / READING) ── */
+.top-nav { display: flex; background: #1e2c22; }
+.top-btn { flex: 1; padding: 13px 10px; font-size: 13px; font-weight: 600; border: none; cursor: pointer; color: #9DBB9E; background: none; border-bottom: 3px solid transparent; transition: all 0.2s; letter-spacing: 0.3px; }
+.top-btn.active { color: #fff; border-bottom-color: #7FBA84; background: rgba(255,255,255,0.05); }
+
+/* ── Section Nav (within Reading) ── */
+.sec-nav { display: flex; background: white; border-bottom: 2px solid #ddd; overflow-x: auto; }
+.sec-btn { padding: 10px 16px; font-size: 12.5px; border: none; background: none; cursor: pointer; color: #777; border-bottom: 3px solid transparent; margin-bottom: -2px; white-space: nowrap; transition: all 0.2s; }
+.sec-btn.active { color: #2C3E30; border-bottom-color: #2C3E30; font-weight: 700; }
+.sec-btn.done { color: #3a7a40; }
+.sec-btn:hover:not(.active) { background: #f5f5f5; }
+
+/* ── Panels ── */
+.top-panel { display: none; }
+.top-panel.active { display: block; }
+.sec-panel { display: none; }
+.sec-panel.active { display: block; }
+
+/* ── Article block ── */
+.article-block { background: white; border-left: 4px solid #2C3E30; padding: 22px 26px; }
+.article-block .art-meta { font-size: 12px; color: #888; margin-bottom: 10px; }
+.article-block h2 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+.article-block h3 { font-size: 14px; font-weight: 400; color: #555; margin-bottom: 18px; }
+.article-block p { font-size: 14.5px; line-height: 1.9; color: #222; margin-bottom: 14px; }
+.article-block p:last-child { margin-bottom: 0; }
+.art-source { font-size: 11.5px; color: #aaa; margin-top: 10px; }
+
+/* ── Section label strip ── */
+.strip { background: #2C3E30; color: white; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 26px; font-weight: 700; }
+.strip.yellow { background: #7a5c00; }
+.strip.blue { background: #1a3a5c; }
+.strip.red { background: #5c1a1a; }
+
+/* ── Sentence Clinic ── */
+.clinic { background: #EDF4EE; padding: 20px 26px; border-top: 1px solid #cde0cd; }
+.clinic-title { font-size: 12px; color: #2C3E30; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px; }
+.sent-card { background: white; border-radius: 8px; padding: 18px 20px; margin-bottom: 14px; border: 1px solid #cde0cd; }
+.sent-text { font-size: 14.5px; font-style: italic; color: #1a1a1a; margin-bottom: 12px; line-height: 1.75; border-left: 3px solid #7FBA84; padding-left: 12px; }
+.analysis-btn { font-size: 12px; background: #2C3E30; color: white; border: none; padding: 6px 14px; border-radius: 4px; cursor: pointer; margin-right: 8px; margin-bottom: 6px; }
+.analysis-btn:hover { background: #3d5440; }
+.analysis-content { display: none; margin-top: 12px; background: #f8fbf8; border-radius: 6px; padding: 14px 16px; border: 1px solid #cde0cd; }
+.analysis-content.open { display: block; }
+.tag { display: inline-block; padding: 1px 7px; border-radius: 3px; font-size: 12px; font-weight: 700; margin: 0 2px 3px; }
+.tag-s { background: #D4EDDA; color: #155724; }
+.tag-v { background: #D1ECF1; color: #0c5460; }
+.tag-o { background: #FFF3CD; color: #856404; }
+.tag-m { background: #F8D7DA; color: #721c24; }
+.tag-c { background: #E2D9F3; color: #4a235a; }
+.tag-p { background: #FDEBD0; color: #784212; }
+.atxt { font-size: 13.5px; color: #2a2a2a; line-height: 1.8; margin-top: 10px; }
+.atxt strong { color: #2C3E30; }
+.kr-toggle { font-size: 11.5px; background: none; border: 1px solid #aaa; color: #555; padding: 4px 10px; border-radius: 4px; cursor: pointer; margin-bottom: 6px; }
+.kr-box { display: none; background: #F1FAF1; border: 1px solid #b8ddb9; border-radius: 6px; padding: 13px 15px; margin-top: 8px; font-size: 13.2px; line-height: 1.85; color: #1e3a20; }
+.kr-box.open { display: block; }
+
+/* ── Questions area ── */
+.questions { padding: 22px 26px; background: white; border-top: 1px solid #eee; }
+.q-header { font-size: 12px; color: #2C3E30; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #eee; }
+.question { margin-bottom: 22px; }
+.q-num { font-weight: 700; color: #2C3E30; font-size: 13px; margin-bottom: 6px; }
+.q-text { font-size: 14px; color: #2a2a2a; margin-bottom: 10px; line-height: 1.7; }
+
+/* MC */
+.choices { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 6px; }
+@media(max-width:580px){ .choices { grid-template-columns: 1fr; } }
+.choice { padding: 10px 13px; border: 1.5px solid #ccc; border-radius: 6px; cursor: pointer; font-size: 13px; color: #2a2a2a; background: white; text-align: left; transition: all 0.15s; line-height: 1.5; }
+.choice:hover:not(:disabled) { border-color: #2C3E30; background: #f0f4f1; }
+.choice.correct { border-color: #28a745; background: #d4edda; color: #155724; }
+.choice.wrong   { border-color: #dc3545; background: #f8d7da; color: #721c24; }
+.fb { font-size: 13px; margin-top: 5px; min-height: 18px; }
+.fb.ok { color: #155724; }
+.fb.no { color: #721c24; }
+
+/* T/F/NG */
+.tfrow { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px; }
+.tfstmt { flex: 1; font-size: 13.5px; line-height: 1.6; }
+.tfbtns { display: flex; gap: 4px; flex-shrink: 0; }
+.tfbtn { padding: 5px 10px; border: 1.5px solid #ccc; border-radius: 4px; cursor: pointer; font-size: 12px; background: white; font-weight: 700; }
+.tfbtn:hover { background: #f0f0f0; }
+.tfbtn.correct { background: #d4edda; border-color: #28a745; color: #155724; }
+.tfbtn.wrong   { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+
+/* Short answer */
+.short-ans { width: 100%; padding: 10px 12px; border: 1.5px solid #ccc; border-radius: 6px; font-size: 13.5px; font-family: inherit; resize: vertical; min-height: 72px; }
+.short-ans:focus { outline: none; border-color: #2C3E30; }
+.check-btn { padding: 8px 18px; background: #2C3E30; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 13px; margin-top: 8px; }
+.check-btn:hover { background: #3d5440; }
+.reveal { display: none; background: #f0f4f1; border-left: 3px solid #2C3E30; padding: 11px 14px; margin-top: 8px; font-size: 13.5px; line-height: 1.75; border-radius: 0 6px 6px 0; }
+.reveal.open { display: block; }
+
+/* Fill-in-blank */
+.fill-q { font-size: 14px; line-height: 2.2; margin-bottom: 8px; }
+.fi { border: none; border-bottom: 1.5px solid #888; padding: 2px 5px; font-size: 14px; font-family: inherit; width: 150px; background: transparent; }
+.fi:focus { outline: none; border-bottom-color: #2C3E30; }
+.fi.ok  { border-bottom-color: #28a745; color: #155724; }
+.fi.no  { border-bottom-color: #dc3545; color: #721c24; }
+
+/* Next button */
+.next-wrap { text-align: center; padding: 24px; background: #f9f9f9; border-top: 1px solid #eee; }
+.next-btn { padding: 12px 36px; background: #2C3E30; color: white; border: none; border-radius: 6px; font-size: 15px; font-weight: 600; cursor: pointer; }
+.next-btn:hover { background: #3d5440; }
+
+/* Completion */
+.completion { text-align: center; padding: 60px 30px; background: white; }
+.completion h2 { font-size: 22px; color: #2C3E30; margin-bottom: 10px; }
+.completion p { font-size: 14px; color: #555; }
+
+/* ────── PRE-READING styles ────── */
+.pre-inner { padding: 0; }
+.pre-tab-nav { display: flex; background: white; border-bottom: 2px solid #ddd; overflow-x: auto; }
+.pre-btn { padding: 11px 18px; font-size: 12.5px; border: none; background: none; cursor: pointer; color: #777; border-bottom: 3px solid transparent; margin-bottom: -2px; white-space: nowrap; transition: all 0.2s; }
+.pre-btn.active { color: #2C3E30; border-bottom-color: #2C3E30; font-weight: 700; }
+.pre-panel { display: none; }
+.pre-panel.active { display: block; }
+.pre-content { padding: 22px 26px; background: white; }
+
+.headline-box { background: #2C3E30; color: white; border-radius: 8px; padding: 18px 22px; margin-bottom: 20px; }
+.headline-box h3 { font-size: 18px; font-weight: 700; margin-bottom: 5px; }
+.headline-box p { font-size: 13px; color: #b5d6b7; }
+
+.bg-card { background: #f9fdf9; border: 1px solid #cde0cd; border-radius: 8px; padding: 16px 18px; margin-bottom: 14px; }
+.bg-card h4 { font-size: 14px; font-weight: 700; color: #2C3E30; margin-bottom: 8px; }
+.bg-card p { font-size: 13.5px; line-height: 1.75; color: #333; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-bottom: 20px; }
+@media(max-width:560px){ .stats-row { grid-template-columns: 1fr 1fr; } }
+.stat-card { background: white; border-radius: 8px; padding: 14px 10px; text-align: center; border: 1px solid #cde0cd; }
+.stat-num { font-size: 16px; font-weight: 700; color: #2C3E30; }
+.stat-desc { font-size: 11.5px; color: #555; margin-top: 3px; line-height: 1.4; }
+.stat-src { font-size: 10px; color: #aaa; margin-top: 3px; }
+
+.word-bank { background: #EAF2EB; border: 1px solid #bdd9be; border-radius: 8px; padding: 13px 17px; margin-bottom: 16px; font-size: 13.5px; }
+.word-bank strong { display: block; margin-bottom: 5px; color: #2C3E30; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.vocab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px; }
+@media(max-width:480px){ .vocab-grid { grid-template-columns: 1fr; } }
+.vi { background: white; border-radius: 5px; padding: 8px 12px; font-size: 13px; border: 1px solid #dde; }
+.vi .en { font-weight: 700; color: #2C3E30; }
+.vi .kr { color: #555; font-size: 12.5px; }
+
+.tbl-wrap { overflow-x: auto; margin-bottom: 14px; }
+table.data { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+table.data th { background: #2C3E30; color: white; padding: 9px 12px; text-align: left; font-weight: 600; }
+table.data td { padding: 9px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+table.data tr:hover td { background: #f7fbf7; }
+.td-input { width: 100%; border: none; border-bottom: 1.5px solid #bbb; padding: 3px 2px; font-size: 13px; font-family: inherit; background: transparent; }
+.td-input:focus { outline: none; border-bottom-color: #2C3E30; }
+
+.cause-tbl { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.cause-tbl th { background: #2C3E30; color: white; padding: 9px 12px; }
+.cause-tbl td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+.cause-tbl input[type=text] { width: 100%; border: none; border-bottom: 1.5px solid #bbb; padding: 3px 2px; font-size: 13px; font-family: inherit; background: transparent; }
+.cause-tbl input[type=number] { width: 56px; border: none; border-bottom: 1.5px solid #bbb; padding: 3px 2px; font-size: 13px; text-align: center; background: transparent; }
+.pred-input { width: 100%; padding: 10px 12px; border: 1.5px solid #ccc; border-radius: 6px; font-size: 13.5px; font-family: inherit; resize: vertical; min-height: 62px; }
+.pred-input:focus { outline: none; border-color: #2C3E30; }
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- HEADER -->
+<div class="header">
+  <div class="label">Media English Reading 6 · April 8, 2026</div>
+  <h1>How Conflict Is Driving Hunger</h1>
+  <div class="sub">Financial Times · Simon Kuper · Mar 26, 2026</div>
+</div>
+
+<!-- TOP NAV -->
+<div class="top-nav">
+  <button class="top-btn active" onclick="topTab('pre')">📋 Pre-Reading</button>
+  <button class="top-btn" onclick="topTab('reading')">📖 Reading + Questions</button>
+</div>
+
+<!-- ══════════════════════════════════════
+     PRE-READING PANEL
+══════════════════════════════════════ -->
+<div class="top-panel active" id="top-pre">
+  <div class="pre-tab-nav">
+    <button class="pre-btn active" onclick="preTab('pa')">A. Headline</button>
+    <button class="pre-btn" onclick="preTab('pb')">B. Background</button>
+    <button class="pre-btn" onclick="preTab('pc1')">C-1. Vocab</button>
+    <button class="pre-btn" onclick="preTab('pc2')">C-2. Vocab</button>
+    <button class="pre-btn" onclick="preTab('pd')">D. Pre-Read</button>
+    <button class="pre-btn" onclick="preTab('pe')">E. Countries</button>
+  </div>
+
+  <!-- A: Headline -->
+  <div class="pre-panel active" id="pre-pa">
+    <div class="strip">A — Headline Analysis · 헤드라인 분석 &amp; 내용 예측</div>
+    <div class="pre-content">
+      <div class="headline-box">
+        <h3>How Conflict Is Driving Hunger</h3>
+        <p>The Swede who runs the World Food Programme on its hardest year for decades</p>
+      </div>
+      <div class="question">
+        <div class="q-num">Q1</div>
+        <div class="q-text">The headline says conflict is "driving" hunger. What does this word choice suggest? What do you think 'conflict' here refers to?</div>
+        <textarea class="pred-input" placeholder="Your answer…"></textarea>
+        <button class="check-btn" onclick="rev('ha1')">예시 답안 보기</button>
+        <div class="reveal" id="ha1"><strong>Sample answer:</strong> "Driving" suggests conflict is the active, primary force pushing hunger forward — not just one of many factors, but the engine. "Conflict" likely refers to multiple ongoing wars (Iran, Sudan, Gaza, Lebanon, etc.) rather than a single conflict.</div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q2</div>
+        <div class="q-text">Which countries or regions do you think are most affected by the hunger crisis? How might rich countries respond to this issue?</div>
+        <textarea class="pred-input" placeholder="Your answer…"></textarea>
+        <button class="check-btn" onclick="rev('ha2')">예시 답안 보기</button>
+        <div class="reveal" id="ha2"><strong>Sample answer:</strong> Countries most affected are likely conflict zones such as Sudan, Gaza, Afghanistan, and Somalia, as well as climate-vulnerable regions like the Sahel. Rich countries could respond by increasing aid funding, pressuring warring parties to allow humanitarian access, investing in sustainable agriculture in vulnerable regions, and strengthening international institutions like the WFP. However, the article suggests political will — not resources — is the main obstacle.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- B: Background -->
+  <div class="pre-panel" id="pre-pb">
+    <div class="strip">B — Background Knowledge · 알아두면 도움이 되는 배경 지식</div>
+    <div class="pre-content">
+      <div class="bg-card"><h4>🌍 The World Food Programme (WFP)</h4><p>유엔 산하 식량 지원 기구로, 120개국 이상에서 활동하는 세계 최대 인도주의 기구입니다. 2020년 노벨 평화상을 수상했습니다. 예산은 거의 전액 정부·민간의 자발적 기부로 운영되며, 미국이 역사적으로 전체 예산의 약 1/3~40%를 부담해 왔습니다.</p></div>
+      <div class="bg-card"><h4>✂️ USAID &amp; The US Aid Cuts</h4><p>USAID는 미국의 대외 원조를 담당하는 정부 기관입니다. 트럼프 2기 행정부 출범 이후 대규모 예산 삭감이 이루어졌으며, WFP에 대한 미국의 지원금은 약 2/3(30억 달러) 삭감되었습니다.</p></div>
+      <div class="bg-card"><h4>⚖️ International Humanitarian Law</h4><p>국제 인도주의법(IHL)은 무력 충돌 시 민간인·구호 요원·전쟁 포로를 보호하는 규범으로, 제네바 협약이 핵심 법적 틀입니다. 최근 IHL 위반이 증가하면서 인도주의 업무가 매우 위험해지고 있습니다.</p></div>
+      <div class="bg-card"><h4>🌿 Fertiliser Prices &amp; Food Security</h4><p>질소 비료는 천연가스로 만들기 때문에 에너지 가격과 직결됩니다. 전쟁이 석유·가스 공급을 교란하면 비료값이 올라 식량 생산이 감소하고 식품 가격이 폭등합니다. 저소득국 사람들은 소득의 80~90%를 식비에 쓰기 때문에 이 충격에 특히 취약합니다.</p></div>
+    </div>
+  </div>
+
+  <!-- C-1: Vocab -->
+  <div class="pre-panel" id="pre-pc1">
+    <div class="strip">C-1 — Vocabulary · Word Bank Set 1</div>
+    <div class="pre-content">
+      <div class="word-bank"><strong>Word Bank</strong>disposable income · plight · soar · decimate · stave off · looming · emboldened · overlook</div>
+      <p style="font-size:13px;color:#555;margin-bottom:18px;"><em>Fill in the blanks. Change the form if necessary.</em></p>
+      <div class="question"><div class="q-num">1.</div><div class="fill-q">The global hunger crisis has largely been <input class="fi" id="v1_1" placeholder="…"> — it gets far less media attention than petrol prices in wealthy countries.</div><button class="check-btn" onclick="chk('v1_1',['overlooked'],'vf1_1')">Check</button><div class="fb" id="vf1_1"></div></div>
+      <div class="question"><div class="q-num">2.</div><div class="fill-q">Fertiliser costs have <input class="fi" id="v1_2" placeholder="…"> since the outbreak of war in Iran, pushing food prices higher.</div><button class="check-btn" onclick="chk('v1_2',['soared'],'vf1_2')">Check</button><div class="fb" id="vf1_2"></div></div>
+      <div class="question"><div class="q-num">3.</div><div class="fill-q">Skau rushed back knowing the new conflict would worsen Sudan's desperate <input class="fi" id="v1_3" placeholder="…">.</div><button class="check-btn" onclick="chk('v1_3',['plight'],'vf1_3')">Check</button><div class="fb" id="vf1_3"></div></div>
+      <div class="question"><div class="q-num">4.</div><div class="fill-q">People in poor countries spend 80–90% of their <input class="fi" id="v1_4" placeholder="…"> on food, leaving almost nothing for other needs.</div><button class="check-btn" onclick="chk('v1_4',['disposable income'],'vf1_4')">Check</button><div class="fb" id="vf1_4"></div></div>
+      <div class="question"><div class="q-num">5.</div><div class="fill-q">In 2022, when a famine was on the horizon, US-led international action managed to <input class="fi" id="v1_5a" placeholder="…"> a <input class="fi" id="v1_5b" placeholder="…"> Somali famine — but Skau fears that kind of coordinated response is unlikely to happen now.</div><button class="check-btn" onclick="chk2('v1_5a','stave off','v1_5b','looming','vf1_5')">Check</button><div class="fb" id="vf1_5"></div></div>
+      <div class="question"><div class="q-num">6.</div><div class="fill-q">Trump's administration has <input class="fi" id="v1_6" placeholder="…"> USAID, cutting its funding by about two-thirds.</div><button class="check-btn" onclick="chk('v1_6',['decimated'],'vf1_6')">Check</button><div class="fb" id="vf1_6"></div></div>
+      <div class="question"><div class="q-num">7.</div><div class="fill-q">With big powers challenging humanitarian law, local officials feel <input class="fi" id="v1_7" placeholder="…"> to do likewise.</div><button class="check-btn" onclick="chk('v1_7',['emboldened'],'vf1_7')">Check</button><div class="fb" id="vf1_7"></div></div>
+      <div style="margin-top:20px;border-top:1px solid #eee;padding-top:14px;"><div class="q-header">어휘 참고</div>
+        <div class="vocab-grid">
+          <div class="vi"><div class="en">disposable income</div><div class="kr">가처분 소득</div></div>
+          <div class="vi"><div class="en">plight</div><div class="kr">어려운 상황, 곤경</div></div>
+          <div class="vi"><div class="en">soar</div><div class="kr">급등하다, 치솟다</div></div>
+          <div class="vi"><div class="en">decimate</div><div class="kr">크게 줄이다, 초토화하다</div></div>
+          <div class="vi"><div class="en">stave off</div><div class="kr">막다, 방어하다</div></div>
+          <div class="vi"><div class="en">looming</div><div class="kr">다가오는, 임박한</div></div>
+          <div class="vi"><div class="en">emboldened</div><div class="kr">대담해진, 용기를 얻은</div></div>
+          <div class="vi"><div class="en">overlook</div><div class="kr">간과하다, 주목하지 않다</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C-2: Vocab -->
+  <div class="pre-panel" id="pre-pc2">
+    <div class="strip">C-2 — Vocabulary · Word Bank Set 2</div>
+    <div class="pre-content">
+      <div class="word-bank"><strong>Word Bank</strong>transactional · bandwidth · cash-strapped · extract · stunted · bizarre · famine · undernutrition · drought</div>
+      <p style="font-size:13px;color:#555;margin-bottom:18px;"><em>Fill in the blanks. Change the form if necessary.</em></p>
+      <div class="question"><div class="q-num">1.</div><div class="fill-q">The WFP declared two simultaneous <input class="fi" id="v2_1" placeholder="…"> — in Gaza and Sudan — for the first time this century.</div><button class="check-btn" onclick="chk('v2_1',['famines'],'vf2_1')">Check</button><div class="fb" id="vf2_1"></div></div>
+      <div class="question"><div class="q-num">2.</div><div class="fill-q">Gulf states have been described as particularly <input class="fi" id="v2_2" placeholder="…">, giving aid only when they expect something in return.</div><button class="check-btn" onclick="chk('v2_2',['transactional'],'vf2_2')">Check</button><div class="fb" id="vf2_2"></div></div>
+      <div class="question"><div class="q-num">3.</div><div class="fill-q">The public has <input class="fi" id="v2_3" placeholder="…"> for only 'one crisis at a time', making it hard to draw attention to multiple emergencies.</div><button class="check-btn" onclick="chk('v2_3',['bandwidth'],'vf2_3')">Check</button><div class="fb" id="vf2_3"></div></div>
+      <div class="question"><div class="q-num">4.</div><div class="fill-q">France's government had little money to spare, yet Skau stopped in Paris anyway, hoping to <input class="fi" id="v2_4a" placeholder="…"> funds from a <input class="fi" id="v2_4b" placeholder="…"> administration that was already stretched thin.</div><button class="check-btn" onclick="chk2('v2_4a','extract','v2_4b','cash-strapped','vf2_4')">Check</button><div class="fb" id="vf2_4"></div></div>
+      <div class="question"><div class="q-num">5.</div><div class="fill-q">Children who suffer from <input class="fi" id="v2_5a" placeholder="…"> in early years often end up <input class="fi" id="v2_5b" placeholder="…">, with lifelong consequences.</div><button class="check-btn" onclick="chk2('v2_5a','undernutrition','v2_5b','stunted','vf2_5')">Check</button><div class="fb" id="vf2_5"></div></div>
+      <div class="question"><div class="q-num">6.</div><div class="fill-q">Somalia is a country heavily dependent on rain-fed agriculture, and when the rains fail for seasons at a time, recurring <input class="fi" id="v2_6" placeholder="…"> foretell famine and push millions to the edge of starvation.</div><button class="check-btn" onclick="chk('v2_6',['droughts'],'vf2_6')">Check</button><div class="fb" id="vf2_6"></div></div>
+      <div class="question"><div class="q-num">7.</div><div class="fill-q">Skau called the Houthi accusation <input class="fi" id="v2_7" placeholder="…"> — some detained staff had worked in Gaza and been shot at.</div><button class="check-btn" onclick="chk('v2_7',['bizarre'],'vf2_7')">Check</button><div class="fb" id="vf2_7"></div></div>
+      <div style="margin-top:20px;border-top:1px solid #eee;padding-top:14px;"><div class="q-header">어휘 참고</div>
+        <div class="vocab-grid">
+          <div class="vi"><div class="en">transactional</div><div class="kr">거래적인, 이해관계에 따른</div></div>
+          <div class="vi"><div class="en">bandwidth</div><div class="kr">처리 여력 (비유적)</div></div>
+          <div class="vi"><div class="en">cash-strapped</div><div class="kr">재정이 빡빡한</div></div>
+          <div class="vi"><div class="en">extract</div><div class="kr">끌어내다, 얻어내다</div></div>
+          <div class="vi"><div class="en">stunted</div><div class="kr">성장이 저해된, 발육부진의</div></div>
+          <div class="vi"><div class="en">bizarre</div><div class="kr">기이한, 황당한</div></div>
+          <div class="vi"><div class="en">famine</div><div class="kr">기근, 대기근</div></div>
+          <div class="vi"><div class="en">undernutrition</div><div class="kr">영양실조, 영양 부족</div></div>
+          <div class="vi"><div class="en">drought</div><div class="kr">가뭄</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- D: Pre-Read -->
+  <div class="pre-panel" id="pre-pd">
+    <div class="strip">D — Before You Read · 세계 기아 통계 &amp; 원인 예측</div>
+    <div class="pre-content">
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-num">7억 3,300만</div><div class="stat-desc">만성적 영양 부족</div><div class="stat-src">FAO 2025</div></div>
+        <div class="stat-card"><div class="stat-num">2억 9,500만</div><div class="stat-desc">심각한 식량 불안</div><div class="stat-src">GRFC 2025</div></div>
+        <div class="stat-card"><div class="stat-num">1억 4,800만</div><div class="stat-desc">기아로 발육 저해된 어린이</div><div class="stat-src">UNICEF 2025</div></div>
+        <div class="stat-card"><div class="stat-num">2030</div><div class="stat-desc">Zero Hunger 목표 달성 불투명</div><div class="stat-src">UN 2025</div></div>
+      </div>
+      <p style="font-size:13.5px;color:#333;margin-bottom:14px;">기아가 발생하는 원인과 추정 비중을 적고, 조원들과 비교해 보세요.</p>
+      <div class="tbl-wrap">
+        <table class="cause-tbl">
+          <tr><th>#</th><th>기아의 원인 (Cause of hunger)</th><th>추정 비중 (%)</th><th>근거 / 이유</th></tr>
+          <tr><td>1</td><td><input type="text" placeholder="원인…"></td><td><input type="number" min="0" max="100" placeholder="%"></td><td><input type="text" placeholder="이유…"></td></tr>
+          <tr><td>2</td><td><input type="text" placeholder="원인…"></td><td><input type="number" min="0" max="100" placeholder="%"></td><td><input type="text" placeholder="이유…"></td></tr>
+          <tr><td>3</td><td><input type="text" placeholder="원인…"></td><td><input type="number" min="0" max="100" placeholder="%"></td><td><input type="text" placeholder="이유…"></td></tr>
+          <tr><td>4</td><td><input type="text" placeholder="원인…"></td><td><input type="number" min="0" max="100" placeholder="%"></td><td><input type="text" placeholder="이유…"></td></tr>
+          <tr style="background:#f0f4f1;"><td colspan="2" style="font-weight:700;color:#2C3E30;">합계</td><td style="font-weight:700;">100%</td><td></td></tr>
+        </table>
+      </div>
+      <p style="font-size:12px;color:#888;margin-top:6px;">※ 기사를 읽은 후 본인의 예측과 비교해 보세요.</p>
+    </div>
+  </div>
+
+  <!-- E: Countries -->
+  <div class="pre-panel" id="pre-pe">
+    <div class="strip">E — Countries &amp; Organisations · 국가·기관 현황 정리</div>
+    <div class="pre-content">
+      <div class="q-header" style="margin-bottom:12px;">E-1. Crisis zones · 기사에 언급된 위기 지역</div>
+      <div class="tbl-wrap">
+        <table class="data">
+          <tr><th style="width:22%;">Region</th><th style="width:40%;">Situation (기사 내용)</th><th>Key concern / risk</th></tr>
+          <tr><td><strong>Sudan</strong></td><td><input class="td-input" placeholder="…"></td><td><input class="td-input" placeholder="…"></td></tr>
+          <tr><td><strong>Gaza</strong></td><td><input class="td-input" placeholder="…"></td><td><input class="td-input" placeholder="…"></td></tr>
+          <tr><td><strong>Afghanistan</strong></td><td><input class="td-input" placeholder="…"></td><td><input class="td-input" placeholder="…"></td></tr>
+          <tr><td><strong>Somalia</strong></td><td><input class="td-input" placeholder="…"></td><td><input class="td-input" placeholder="…"></td></tr>
+          <tr><td><strong>Lebanon</strong></td><td><input class="td-input" placeholder="…"></td><td><input class="td-input" placeholder="…"></td></tr>
+          <tr><td><strong>Mozambique/Madagascar</strong></td><td><input class="td-input" placeholder="…"></td><td><input class="td-input" placeholder="…"></td></tr>
+        </table>
+      </div>
+      <button class="check-btn" onclick="rev('e1r')" style="margin-bottom:22px;">정답 예시 보기</button>
+      <div class="reveal" id="e1r">
+        <strong>Sudan:</strong> WFP reaches 5m/month; "hardest place to work"; plight worsening. Risk: ongoing famine.<br>
+        <strong>Gaza:</strong> Has exited famine; "hard to describe how destroyed it is." Risk: relapse.<br>
+        <strong>Afghanistan:</strong> Support fell from 8–10m → 1.52m after earthquakes + war with Pakistan. Risk: child malnutrition deaths.<br>
+        <strong>Somalia:</strong> Droughts foretell famine; 2022 action staved off — unlikely to recur. Risk: full famine.<br>
+        <strong>Lebanon:</strong> Skau's "main focus"; under attack from Israel. Risk: escalating food crisis.<br>
+        <strong>Mozambique/Madagascar:</strong> Flood-hit; Skau sees "no attention." Risk: invisible crisis.
+      </div>
+      <div class="q-header" style="margin-bottom:12px;border-top:1px solid #eee;padding-top:16px;">E-2. Donors &amp; funders · 공여국 현황</div>
+      <div class="tbl-wrap">
+        <table class="data">
+          <tr><th style="width:28%;">Donor</th><th style="width:36%;">Current stance</th><th>Key phrase from article</th></tr>
+          <tr><td><strong>US (Trump)</strong></td><td><input class="td-input" placeholder="…"></td><td><input class="td-input" placeholder="…"></td></tr>
+          <tr><td><strong>UK / Germany / Sweden</strong></td><td><input class="td-input" placeholder="…"></td><td><input class="td-input" placeholder="…"></td></tr>
+          <tr><td><strong>Gulf states</strong></td><td><input class="td-input" placeholder="…"></td><td><input class="td-input" placeholder="…"></td></tr>
+          <tr><td><strong>China / emerging economies</strong></td><td><input class="td-input" placeholder="…"></td><td><input class="td-input" placeholder="…"></td></tr>
+          <tr><td><strong>Private sector / tech</strong></td><td><input class="td-input" placeholder="…"></td><td><input class="td-input" placeholder="…"></td></tr>
+        </table>
+      </div>
+      <button class="check-btn" onclick="rev('e2r')">정답 예시 보기</button>
+      <div class="reveal" id="e2r">
+        <strong>US:</strong> Cut WFP funding ~⅔ ($3bn); Trump seeking $200bn for war. → "decimated the programme"<br>
+        <strong>UK/Germany/Sweden:</strong> All slashed aid. → "slashed aid"<br>
+        <strong>Gulf states:</strong> Give only when expecting something back. → "transactional"<br>
+        <strong>China/emerging:</strong> Minimal contribution. → "barely fund the WFP"<br>
+        <strong>Private sector:</strong> Wealthy but not donating. → "it's not coming forward"
+      </div>
+    </div>
+  </div>
+</div><!-- end top-pre -->
+
+
+<!-- ══════════════════════════════════════
+     READING PANEL
+══════════════════════════════════════ -->
+<div class="top-panel" id="top-reading">
+  <div class="sec-nav">
+    <button class="sec-btn active" onclick="secTab(0)">Section 1</button>
+    <button class="sec-btn" id="sbtn1" onclick="secTab(1)" disabled>Section 2</button>
+    <button class="sec-btn" id="sbtn2" onclick="secTab(2)" disabled>Section 3</button>
+    <button class="sec-btn" id="sbtn3" onclick="secTab(3)" disabled>✓ Complete</button>
+  </div>
+
+  <!-- ─────────────── SECTION 1 (P1–3) ─────────────── -->
+  <div class="sec-panel active" id="sec0">
+    <div class="strip">Section 1 · Paragraphs 1–3 · Introduction &amp; Scale of the Crisis</div>
+
+    <div class="article-block">
+      <div class="art-meta">Geopolitics &amp; Humanitarian Crisis · Financial Times</div>
+      <h2>How Conflict Is Driving Hunger</h2>
+      <h3>The Swede who runs the World Food Programme on its hardest year for decades</h3>
+      <p>Carl Skau, the Swede who currently runs the World Food Programme, rushed back from a visit to Ukraine's front lines when war broke out in Iran. He knew the new conflict would worsen the largely overlooked global hunger crisis. Rising oil prices, he explains, "always" raise food prices. Some people in poor countries "spend 80 to 90 per cent of their disposable income on food" (yet get less attention than American motorists paying more for petrol). Hoping to extract funds from a cash-strapped French government, Skau dropped by Paris, where he met the local Anglo-American Press Association in a café. Sitting beside a blackboard displaying delicious dishes, he recounted how conflict is driving hunger.</p>
+      <p>Skau had called 2025 "probably the hardest year" for hunger in decades. For the first time this century, the WFP, the world's largest humanitarian organisation, declared two simultaneous famines, in the war zones of Gaza and Sudan. Gaza has since exited famine — though "it's hard to describe how destroyed it is", notes Skau, a frequent visitor — while Sudan's plight has worsened. "Every month we reach five million people in Sudan. It's the hardest place to work," he says.</p>
+      <p>Now, with new wars, and fertiliser prices soaring, the estimated total of 318 million people worldwide facing food insecurity could jump to a record, projects the WFP. "I think 70 to 80 per cent is conflict driven," says Skau.</p>
+    </div>
+
+    <!-- Sentence Clinic 1 -->
+    <div class="strip yellow">📝 Sentence Clinic</div>
+    <div class="clinic">
+
+      <div class="clinic-title">Sentence A</div>
+      <div class="sent-card">
+        <div class="sent-text">"Hoping to extract funds from a cash-strapped French government, Skau dropped by Paris, where he met the local Anglo-American Press Association in a café."</div>
+        <button class="analysis-btn" onclick="tog('s1a')">구조 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('s1k')">🇰🇷 한국어 설명</button>
+        <div class="analysis-content" id="s1a">
+          <span class="tag tag-p">Hoping to extract funds from a cash-strapped French government</span> 현재분사구 (목적·의도) &nbsp;
+          <span class="tag tag-s">Skau</span> 주어 &nbsp;
+          <span class="tag tag-v">dropped by</span> 동사구 &nbsp;
+          <span class="tag tag-o">Paris</span> 장소 &nbsp;
+          <span class="tag tag-c">, where he met the local Anglo-American Press Association in a café</span> 관계부사절 (계속적 용법)
+          <div class="atxt"><strong>분사구문 (Participial phrase):</strong> "Hoping to extract funds…" — 주절의 주어(Skau)와 동일한 주어가 생략되고 현재분사로 시작합니다. 의도·목적을 표현합니다.<br>= "자금을 끌어내기를 바라며, 스카우는 파리에 들렀다"<br><br>
+          <strong>관계부사 where (계속적 용법):</strong> 콤마(,) + where = "그리고 그곳에서" — 앞 명사(Paris)를 부연 설명합니다.<br><br>
+          <strong>cash-strapped</strong> = 재정이 빡빡한. strapped = (속어) 돈이 없는, 형편이 어려운. cash-strapped French government = 재정난에 처한 프랑스 정부.</div>
+        </div>
+        <div class="kr-box" id="s1k">
+          <strong>🇰🇷 분사구문 (Participial phrase):</strong><br><br>
+          <em><u>Hoping to extract funds from a cash-strapped French government</u>, Skau dropped by Paris…</em><br><br>
+          분사구문은 "접속사 + 절"을 현재분사/과거분사로 압축한 것입니다.<br>
+          완전한 절: <em>Because he hoped to extract funds…, Skau dropped by Paris.</em><br>
+          분사구문: <em>Hoping to extract funds…, Skau dropped by Paris.</em><br><br>
+          ✅ 분사구문의 주어 = 주절의 주어 (Skau). 두 주어가 같아야 분사구문이 가능합니다.<br><br>
+          <strong>📌 배경 정보 — 왜 프랑스 정부가 재정난인가?</strong><br>
+          2025~2026년 프랑스는 GDP 대비 재정 적자가 EU 기준(3%)을 크게 초과하여 긴축 재정 압박을 받고 있습니다. 이런 상황에서 WFP 지원금을 더 달라고 요청하는 것이 쉽지 않다는 맥락입니다.<br><br>
+          <strong>where (계속적 용법):</strong><br>
+          콤마(,) + where = "그리고 그곳에서"<br>
+          파리에 들렀다 → 그리고 그곳에서 앵글로-아메리칸 프레스 협회를 만났다.<br>
+          (계속적 용법은 앞 절의 내용에 추가 정보를 자연스럽게 이어줍니다)
+        </div>
+      </div>
+
+      <div class="clinic-title">Sentence B</div>
+      <div class="sent-card">
+        <div class="sent-text">"For the first time this century, the WFP, the world's largest humanitarian organisation, declared two simultaneous famines, in the war zones of Gaza and Sudan."</div>
+        <button class="analysis-btn" onclick="tog('s2a')">구조 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('s2k')">🇰🇷 한국어 설명</button>
+        <div class="analysis-content" id="s2a">
+          <span class="tag tag-m">For the first time this century</span> 부사구 (강조·배경) &nbsp;
+          <span class="tag tag-s">the WFP</span> 주어 &nbsp;
+          <span class="tag tag-m">, the world's largest humanitarian organisation,</span> 동격어구 &nbsp;
+          <span class="tag tag-v">declared</span> 동사 &nbsp;
+          <span class="tag tag-o">two simultaneous famines</span> 목적어 &nbsp;
+          <span class="tag tag-m">, in the war zones of Gaza and Sudan</span> 장소 수식어
+          <div class="atxt"><strong>"For the first time this century"를 문장 앞에 배치:</strong> 이 선언의 역사적 의미를 독자에게 먼저 각인시키는 전략입니다.<br><strong>simultaneous</strong> = 동시에 발생하는.<br><br>
+          <strong>📌 기근 선언(declare a famine)의 기준:</strong> 국제적으로 기근은 인구의 20% 이상이 극심한 식량 부족 상태이고, 사망률이 하루 1만 명당 2명 이상, 급성 영양실조율이 30% 이상일 때 공식 선언됩니다. 단순히 "식량이 부족하다"는 것이 아니라 매우 엄격한 기준을 충족해야 합니다.<br><br>
+          <strong>📌 Gaza has since exited famine — "exit famine"이란?</strong> 위의 3가지 기준이 더 이상 동시에 충족되지 않는 상태를 말합니다. 기근이 '해소'되었다는 의미이지만, 기사에서 Skau가 "how destroyed it is"라고 말하듯 현지 상황은 여전히 처참합니다.</div>
+        </div>
+        <div class="kr-box" id="s2k">
+          <strong>🇰🇷 문장 구조 포인트:</strong><br><br>
+          ① <em>For the first time this century</em> (이번 세기 처음으로) — 충격적 정보를 맨 앞에 두어 독자의 주의를 먼저 잡습니다.<br><br>
+          ② 동격어구: <em>the WFP, <u>the world's largest humanitarian organisation</u></em> — WFP의 규모를 상기시켜, 이 선언이 얼마나 중요한지 강조합니다.<br><br>
+          ③ <em>declared two simultaneous famines</em> — "선언(declare)"은 국제 기준(인구 20% 이상 극심한 식량 부족 + 사망률 기준 + 영양실조율 기준)을 모두 충족했을 때 내리는 공식 결정입니다.<br><br>
+          <strong>📌 Gaza의 "famine exit":</strong> 기근 선언 기준이 해소되었다는 뜻이지 상황이 좋아졌다는 뜻이 아닙니다. Skau가 "it's hard to describe how destroyed it is"라고 표현한 것처럼, 기근 기준 해소 ≠ 위기 종료입니다.<br><br>
+          <strong>전체 번역:</strong> "이번 세기 처음으로, 세계 최대 인도주의 기구인 WFP가 가자와 수단 전쟁 지역에서 두 건의 기근을 동시에 선언했다."
+        </div>
+      </div>
+
+      <div class="clinic-title">Sentence C</div>
+      <div class="sent-card">
+        <div class="sent-text">"Now, with new wars, and fertiliser prices soaring, the estimated total of 318 million people worldwide facing food insecurity could jump to a record, projects the WFP."</div>
+        <button class="analysis-btn" onclick="tog('s3a')">구조 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('s3k')">🇰🇷 한국어 설명</button>
+        <div class="analysis-content" id="s3a">
+          <span class="tag tag-m">Now</span> 시간 부사 &nbsp;
+          <span class="tag tag-m">with new wars, and fertiliser prices soaring</span> with + 명사 + 분사 (동시 상황) &nbsp;
+          <span class="tag tag-s">the estimated total of 318 million people worldwide facing food insecurity</span> 주어 (복잡한 명사구) &nbsp;
+          <span class="tag tag-v">could jump</span> 조동사 + 동사 &nbsp;
+          <span class="tag tag-o">to a record</span> &nbsp;
+          <span class="tag tag-m">, projects the WFP</span> 도치된 보도 동사구 (Inverted reporting clause)
+          <div class="atxt"><strong>"projects the WFP"</strong> — 동사(projects)와 주어(the WFP)가 뒤집혔습니다 (도치). 신문 문체에서 인용·예측 출처를 뒤에 붙일 때 자주 씁니다.<br>비교: "says he" / "notes Skau" / "projects the WFP" — 모두 같은 도치 패턴.<br><strong>with fertiliser prices soaring</strong> = 비료 가격이 치솟는 상황에서.</div>
+        </div>
+        <div class="kr-box" id="s3k">
+          <strong>🇰🇷 "with + 명사 + 분사" 구문:</strong><br><br>
+          <em>with fertiliser prices <u>soaring</u></em> → "비료 가격이 치솟는 상황에서"<br><br>
+          이 구조는 <strong>동시에 일어나는 배경 상황</strong>을 표현합니다.<br>
+          soaring = 현재분사 → "fertiliser prices"가 능동적으로 치솟고 있으므로 현재분사.<br><br>
+          <strong>도치 (Inversion): "projects the WFP"</strong><br>
+          일반 어순: "the WFP projects" (주어 + 동사)<br>
+          도치 어순: "projects the WFP" (동사 + 주어)<br>
+          → 신문·학술 문체에서 출처를 뒤에 붙여 문장 리듬을 살릴 때 씁니다.<br><br>
+          <strong>전체 번역:</strong> "이제, 새로운 전쟁들과 비료 가격 급등으로, 전 세계 식량 불안에 처한 3억 1800만 명이 사상 최고치로 뛸 수 있다고 WFP는 전망한다."
+        </div>
+      </div>
+    </div><!-- end clinic -->
+
+    <!-- Questions S1 (merged) -->
+    <div class="questions">
+      <div class="q-header">Comprehension — Section 1 · Q1–Q4</div>
+
+      <div class="question">
+        <div class="q-num">Q1</div>
+        <div class="q-text">Why did Carl Skau rush back from Ukraine when war broke out in Iran?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong','q1f')">He needed to attend an emergency WFP board meeting in Geneva.</button>
+          <button class="choice" onclick="mc(this,'wrong','q1f')">He was evacuating WFP staff from Ukraine's front lines.</button>
+          <button class="choice" onclick="mc(this,'correct','q1f')">He knew new conflict would drive oil prices up and worsen the global hunger crisis.</button>
+          <button class="choice" onclick="mc(this,'wrong','q1f')">He was heading to Paris at France's direct invitation to discuss funding.</button>
+        </div>
+        <div class="fb" id="q1f"></div>
+      </div>
+
+      <div class="question">
+        <div class="q-num">Q2</div>
+        <div class="q-text">True (T), False (F), or Not Given (NG)?</div>
+        <div style="margin-top:10px;">
+          <div class="tfrow">
+            <div class="tfstmt">(1) Gaza has exited famine, but Skau says it is hard to describe how destroyed it is.</div>
+            <div class="tfbtns">
+              <button class="tfbtn" onclick="tfng(this,'T','tf1a','T')">T</button>
+              <button class="tfbtn" onclick="tfng(this,'F','tf1a','T')">F</button>
+              <button class="tfbtn" onclick="tfng(this,'NG','tf1a','T')">NG</button>
+            </div>
+          </div>
+          <div class="fb" id="tf1a" style="margin-bottom:8px;"></div>
+          <div class="tfrow">
+            <div class="tfstmt">(2) Sudan's humanitarian situation has improved since the WFP's famine declaration.</div>
+            <div class="tfbtns">
+              <button class="tfbtn" onclick="tfng(this,'T','tf1b','F')">T</button>
+              <button class="tfbtn" onclick="tfng(this,'F','tf1b','F')">F</button>
+              <button class="tfbtn" onclick="tfng(this,'NG','tf1b','F')">NG</button>
+            </div>
+          </div>
+          <div class="fb" id="tf1b" style="margin-bottom:8px;"></div>
+          <div class="tfrow">
+            <div class="tfstmt">(3) The WFP has declared famines simultaneously in two regions before this century.</div>
+            <div class="tfbtns">
+              <button class="tfbtn" onclick="tfng(this,'T','tf1c','NG')">T</button>
+              <button class="tfbtn" onclick="tfng(this,'F','tf1c','NG')">F</button>
+              <button class="tfbtn" onclick="tfng(this,'NG','tf1c','NG')">NG</button>
+            </div>
+          </div>
+          <div class="fb" id="tf1c"></div>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="q-num">Q3</div>
+        <div class="q-text">According to Skau, approximately what share of global food insecurity is driven by conflict?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong','q3f')">About 30–40%.</button>
+          <button class="choice" onclick="mc(this,'wrong','q3f')">Almost 100%.</button>
+          <button class="choice" onclick="mc(this,'wrong','q3f')">About 50%.</button>
+          <button class="choice" onclick="mc(this,'correct','q3f')">About 70–80%.</button>
+        </div>
+        <div class="fb" id="q3f"></div>
+      </div>
+
+      <div class="question">
+        <div class="q-num">Q4</div>
+        <div class="q-text">Besides new wars, what other factor does the article mention as worsening food insecurity? Why does this factor matter?</div>
+        <textarea class="short-ans" placeholder="Write your answer…"></textarea>
+        <button class="check-btn" onclick="rev('q4r')">예시 답안 보기</button>
+        <div class="reveal" id="q4r">Soaring fertiliser prices. Fertiliser is produced using natural gas, so when wars disrupt energy supplies, fertiliser costs rise sharply. This reduces crop yields and pushes food prices higher — hitting low-income countries hardest, since people there already spend 80–90% of their income on food.</div>
+      </div>
+    </div>
+    <div class="next-wrap"><button class="next-btn" onclick="unlock(1)">Next Section →</button></div>
+  </div><!-- end sec0 -->
+
+  <!-- ─────────────── SECTION 2 (P4–5) ─────────────── -->
+  <div class="sec-panel" id="sec1">
+    <div class="strip">Section 2 · Paragraphs 4–5 · The Economics of Aid &amp; Donor Cuts</div>
+
+    <div class="article-block">
+      <p>Stopping starvation pays off. The World Bank estimates that $1 spent addressing undernutrition generates an expected return of $23, partly because stunted children rarely live productive lives. It's also affordable. A six-week treatment of high-calorie peanut paste costing less than $45 can save a child. But it's too much for rich countries. The US, the WFP's biggest donor, has cut funding by about two-thirds, or $3bn. Meanwhile Donald Trump is seeking another $200bn to fight his war with Iran. After Elon Musk boasted about "feeding USAID into the woodchipper", a paper in The Lancet projected more than 14 million additional deaths from those cuts by 2030. One measure of each US president is his global death toll. The often destructive George W Bush also saved an estimated 25 million lives, largely by funding HIV treatment in poor countries. Trump decimated the programme.</p>
+      <p>"It's not only the US," notes Skau. The UK, Germany and his native Sweden have slashed aid too. Gulf funders are particularly "transactional", he remarks. Emerging economies including China barely fund the WFP. Nor does the private sector. Skau says, "I was at the AI summit in India. There are certainly a lot of people with a lot of money. But it's not coming forward." His comment, "It's a bit unfortunate, isn't it?"</p>
+    </div>
+
+    <!-- Sentence Clinic 2 -->
+    <div class="strip yellow">📝 Sentence Clinic</div>
+    <div class="clinic">
+
+      <div class="clinic-title">Sentence D</div>
+      <div class="sent-card">
+        <div class="sent-text">"The World Bank estimates that $1 spent addressing undernutrition generates an expected return of $23, partly because stunted children rarely live productive lives."</div>
+        <button class="analysis-btn" onclick="tog('s4a')">구조 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('s4k')">🇰🇷 한국어 설명</button>
+        <div class="analysis-content" id="s4a">
+          <span class="tag tag-s">The World Bank</span> 주어 &nbsp;
+          <span class="tag tag-v">estimates</span> 동사 &nbsp;
+          <span class="tag tag-c">that …</span> 명사절 (목적어) 안에:<br>&nbsp;&nbsp;&nbsp;
+          <span class="tag tag-s">$1</span> 명사절 주어 &nbsp;
+          <span class="tag tag-p">spent addressing undernutrition</span> 과거분사구 (주어 뒤에서 수식) &nbsp;
+          <span class="tag tag-v">generates</span> 명사절 동사 &nbsp;
+          <span class="tag tag-o">an expected return of $23</span> &nbsp;<br>
+          <span class="tag tag-c">partly because stunted children rarely live productive lives</span> 이유 부사절
+          <div class="atxt"><strong>"$1 spent addressing undernutrition"</strong> — 과거분사 spent가 $1을 뒤에서 수식합니다.<br>= "영양실조 해결에 쓰인 1달러" (수동 → 과거분사)<br><strong>stunted</strong> = 발육이 저해된. 영양 부족으로 신체·인지 발달이 제대로 이루어지지 않은 상태.</div>
+        </div>
+        <div class="kr-box" id="s4k">
+          <strong>🇰🇷 과거분사의 명사 뒤 수식:</strong><br><br>
+          <em>$1 <u>spent</u> addressing undernutrition</em> → "영양실조 해결에 <strong>쓰인</strong> 1달러"<br><br>
+          분사구가 길어지면 명사 <strong>뒤에서</strong> 수식합니다. 한국어는 앞에서("쓰인 1달러"), 영어는 뒤에서("$1 spent…") 수식합니다.<br><br>
+          왜 <strong>과거분사(spent)</strong>인가?<br>
+          돈이 스스로 쓰는 게 아니라 "쓰여지는" 것 → 수동 → 과거분사.<br>
+          ❌ <em>money spending on food</em> (돈이 식비를 능동적으로 쓰는 게 아님)<br>
+          ✅ <em>money <strong>spent</strong> on food</em> (식비에 쓰여진 돈)<br><br>
+          <strong>전체 번역:</strong> "세계은행은, 영양실조 해결에 쓰인 1달러가 23달러의 기대 수익을 창출한다고 추산하는데, 이는 부분적으로 발육이 저해된 아이들이 생산적인 삶을 사는 경우가 드물기 때문이다."
+        </div>
+      </div>
+
+      <div class="clinic-title">Sentence E — Juxtaposition ($45 vs $200bn)</div>
+      <div class="sent-card">
+        <div class="sent-text">"A six-week treatment of high-calorie peanut paste costing less than $45 can save a child. … Meanwhile Donald Trump is seeking another $200bn to fight his war with Iran."</div>
+        <button class="analysis-btn" onclick="tog('s5a')">구조 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('s5k')">🇰🇷 한국어 설명 (수사학)</button>
+        <div class="analysis-content" id="s5a">
+          <span class="tag tag-p">costing less than $45</span> 현재분사구 (treatment 뒤에서 수식) &nbsp;
+          <span class="tag tag-m">Meanwhile</span> 대조 연결어 &nbsp;
+          <span class="tag tag-s">Donald Trump</span> 주어 &nbsp;
+          <span class="tag tag-v">is seeking</span> 현재진행형 (진행 중) &nbsp;
+          <span class="tag tag-o">another $200bn</span> 목적어 ("another" = 추가로) &nbsp;
+          <span class="tag tag-m">to fight his war with Iran</span> 목적의 to부정사
+          <div class="atxt"><strong>대조법(Juxtaposition):</strong> $45 vs $200,000,000,000 — 기자는 직접 비판하지 않고 숫자만 나란히 놓아 독자의 도덕적 판단을 유도합니다.<br><strong>"his war"</strong> — "the war"가 아닌 "his war" → 이 전쟁이 트럼프의 개인적 선택임을 암시.<br><strong>Meanwhile</strong> = "한편으로는" — 동시에 일어나는 대비적 사실을 연결합니다.</div>
+        </div>
+        <div class="kr-box" id="s5k">
+          <strong>🇰🇷 대조법(Juxtaposition):</strong><br><br>
+          💊 <em>"costing less than <strong>$45</strong>"</em> → 아이 한 명 살리는 비용<br>
+          💣 <em>"another <strong>$200bn</strong>"</em> → 전쟁 예산 (추가로)<br><br>
+          45달러 vs 2,000억 달러. 기자는 이 두 숫자를 나란히 배치함으로써 직접 논평 없이도 독자가 스스로 도덕적 판단을 내리도록 유도합니다. 이것이 저널리즘에서 대조법의 힘입니다.<br><br>
+          <strong>"his war":</strong> "the Iran war"나 "the war"가 아닌 <em>his</em>를 씁니다. 이 전쟁이 트럼프의 개인적 결정이라는 뉘앙스를 담아 중립적 보도와 저자의 시각이 미묘하게 섞입니다.<br><br>
+          <strong>현재진행형 "is seeking":</strong> 단순현재(seeks)가 아닌 진행형 → 지금 이 순간에도 진행 중인 행동을 강조합니다.
+        </div>
+      </div>
+
+      <div class="clinic-title">Sentence F — Complex Clause Structure</div>
+      <div class="sent-card">
+        <div class="sent-text">"After Elon Musk boasted about 'feeding USAID into the woodchipper', a paper in The Lancet projected more than 14 million additional deaths from those cuts by 2030."</div>
+        <button class="analysis-btn" onclick="tog('s5ba')">구조 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('s5bk')">🇰🇷 한국어 설명</button>
+        <div class="analysis-content" id="s5ba">
+          <span class="tag tag-c">After Elon Musk boasted about "feeding USAID into the woodchipper"</span> 시간 부사절 &nbsp;
+          <span class="tag tag-s">a paper in The Lancet</span> 주어 &nbsp;
+          <span class="tag tag-v">projected</span> 동사 &nbsp;
+          <span class="tag tag-o">more than 14 million additional deaths</span> 목적어 &nbsp;
+          <span class="tag tag-m">from those cuts</span> 원인 전치사구 &nbsp;
+          <span class="tag tag-m">by 2030</span> 시한 전치사구
+          <div class="atxt"><strong>boasted about "feeding USAID into the woodchipper":</strong> 은유(metaphor). 나무 파쇄기(woodchipper)에 넣어버린다 = 완전히 박살내다, 없애버리다. Musk가 USAID 해체를 자랑했다는 의미.<br><strong>The Lancet:</strong> 세계적으로 권위 있는 의학 학술지.<br><strong>projected:</strong> (데이터 기반으로) 추산·전망하다 — 단순 예측이 아닌 연구 결과에 근거한 수치임을 암시.</div>
+        </div>
+        <div class="kr-box" id="s5bk">
+          <strong>🇰🇷 이 문장의 핵심:</strong><br><br>
+          <strong>"feeding USAID into the woodchipper"</strong><br>
+          woodchipper = 나무를 갈아버리는 파쇄기. Musk가 USAID를 완전히 박살내는 것을 '자랑(boast)'했다는 은유적 표현입니다. 자랑스럽게 말했다는 "boasted"도 중요한 단어 — 자신의 파괴적 행동을 긍정적으로 여긴다는 함의입니다.<br><br>
+          <strong>The Lancet</strong> = 1823년 창간된 세계 최고 권위의 의학 학술지. 이 저널의 추산이라는 것은 단순한 정치적 주장이 아닌 과학적 근거가 있는 수치라는 의미를 담습니다.<br><br>
+          <strong>"projected more than 14 million additional deaths"</strong><br>
+          additional = 기존에 발생할 사망자 외에 '추가로' 발생할 사망 → 삭감이 없었다면 살 수 있었던 사람들의 수입니다.<br><br>
+          <strong>전체 번역:</strong> "일론 머스크가 'USAID를 파쇄기에 넣어버리는 것'을 자랑한 뒤, 《란셋》의 논문은 그 삭감으로 2030년까지 1,400만 명 이상의 추가 사망자가 발생할 것으로 전망했다."
+        </div>
+      </div>
+
+    </div><!-- end clinic -->
+
+    <div class="questions">
+      <div class="q-header">Comprehension — Section 2 · Q5–Q7</div>
+
+      <div class="question">
+        <div class="q-num">Q5</div>
+        <div class="q-text">The article says 'stopping starvation pays off.' What economic argument supports this claim?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong','q5f')">Preventing famine reduces military spending in conflict zones.</button>
+          <button class="choice" onclick="mc(this,'wrong','q5f')">Rich countries save on refugee costs by preventing the famines that drive displacement.</button>
+          <button class="choice" onclick="mc(this,'wrong','q5f')">Food aid creates local jobs and stimulates economies in recipient countries.</button>
+          <button class="choice" onclick="mc(this,'correct','q5f')">Every $1 spent on undernutrition generates ~$23 in return, as stunted children rarely live productive lives.</button>
+        </div>
+        <div class="fb" id="q5f"></div>
+      </div>
+
+      <div class="question">
+        <div class="q-num">Q6</div>
+        <div class="q-text">The article compares Trump to George W. Bush. What is the writer's main point?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong','q6f')">The writer argues all US presidents should be judged by their humanitarian records.</button>
+          <button class="choice" onclick="mc(this,'correct','q6f')">Even the 'destructive' Bush saved millions through aid — Trump has reversed that programme.</button>
+          <button class="choice" onclick="mc(this,'wrong','q6f')">Both presidents caused similar numbers of deaths through military campaigns.</button>
+          <button class="choice" onclick="mc(this,'wrong','q6f')">Trump's policy is more dangerous because it directly targets aid organisations.</button>
+        </div>
+        <div class="fb" id="q6f"></div>
+      </div>
+
+      <div class="question">
+        <div class="q-num">Q7</div>
+        <div class="q-text">Skau says Gulf funders are particularly 'transactional.' What does this reveal about their approach to humanitarian aid?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'correct','q7f')">They give aid only when they expect something in return.</button>
+          <button class="choice" onclick="mc(this,'wrong','q7f')">They donate food directly rather than giving cash to the WFP.</button>
+          <button class="choice" onclick="mc(this,'wrong','q7f')">Their contributions fluctuate with oil revenues, making them unreliable partners.</button>
+          <button class="choice" onclick="mc(this,'wrong','q7f')">They are the most generous donors but demand strict oversight of spending.</button>
+        </div>
+        <div class="fb" id="q7f"></div>
+      </div>
+    </div>
+    <div class="next-wrap"><button class="next-btn" onclick="unlock(2)">Next Section →</button></div>
+  </div><!-- end sec1 -->
+
+  <!-- ─────────────── SECTION 3 (P6–8) ─────────────── -->
+  <div class="sec-panel" id="sec2">
+    <div class="strip">Section 3 · Paragraphs 6–8 · Multiple Crises &amp; Humanitarian Danger</div>
+
+    <div class="article-block">
+      <p>With the WFP cutting 5,000 jobs, people will die. In 2024, Skau says, the organisation was supporting "eight to 10 million people" in Afghanistan. Now, after two major Afghan earthquakes and war with Pakistan, "We are reaching around 1.52 million. Children have died from malnutrition." He believes the world "kind of should be agreeing" that children shouldn't die. But absent that agreement, he appeals to rich countries' self-interest: "A hungry world is an unstable world."</p>
+      <p>While the public has bandwidth for only "one crisis at a time", Skau juggles several in his job. Operationally, his "main focus" is Lebanon, under attack from Israel. He's also "extremely worried" about Somalia, where droughts foretell famine. In 2022, US-led action staved off a looming Somali famine. That probably won't happen now. Skau sees "no attention" for flood-hit Mozambique and Madagascar. And when our conversation ends, he remarks, "We haven't even spoken about Myanmar, the DRC [Democratic Republic of Congo] or Haiti." Moreover, he says, "It's never been more dangerous to be a humanitarian." WFP staffers were killed in Sudan and Gaza. Yemen's Houthis have detained another 38, saying they conspired with Israel. Skau calls the accusation "bizarre". "Some of these colleagues had worked in Gaza and been shot at." One "young guy with no [underlying] condition" died in detention.</p>
+      <p>Skau says that with "big powers" challenging international humanitarian law, government officials in war zones feel emboldened to do likewise. "Three years ago, when I was having a tough conversation around access with a minister, there was tension in the room because they felt, 'These guys have strong backers.' Now the sense is more, 'Whatever. Who are you to tell us what to do, and what are you going to do about it?'"</p>
+      <p class="art-source">Source: Financial Times, March 26, 2026 · ft.com · © The Financial Times Limited 2026</p>
+    </div>
+
+    <!-- Sentence Clinic 3 -->
+    <div class="strip yellow">📝 Sentence Clinic</div>
+    <div class="clinic">
+
+      <div class="clinic-title">Sentence G — Implied Argument</div>
+      <div class="sent-card">
+        <div class="sent-text">"He believes the world 'kind of should be agreeing' that children shouldn't die. But absent that agreement, he appeals to rich countries' self-interest: 'A hungry world is an unstable world.'"</div>
+        <button class="analysis-btn" onclick="tog('s7a')">구조 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('s7k')">🇰🇷 한국어 설명 (수사학)</button>
+        <div class="analysis-content" id="s7a">
+          <span class="tag tag-m">absent that agreement</span> 전치사/분사구 (= in the absence of) &nbsp;
+          <span class="tag tag-s">he</span> 주어 &nbsp;
+          <span class="tag tag-v">appeals to</span> 동사구 &nbsp;
+          <span class="tag tag-o">rich countries' self-interest</span> &nbsp;
+          <span class="tag tag-c">: "A hungry world is an unstable world."</span> 콜론: 구체적 내용 제시
+          <div class="atxt"><strong>"absent that agreement"</strong> — absent가 전치사처럼 쓰여 "그 합의가 없는 상태에서"를 의미합니다. 격식체·법률·외교 문서에서 자주 씁니다.<br><strong>appeals to self-interest</strong> = 도덕적 호소 대신 이해타산에 호소하다.</div>
+        </div>
+        <div class="kr-box" id="s7k">
+          <strong>🇰🇷 수사학: 도덕적 호소 vs 이해타산 호소</strong><br><br>
+          스카우는 두 단계로 주장합니다:<br><br>
+          1단계 (도덕적 호소): <em>"kind of should be agreeing that children shouldn't die"</em><br>
+          → "kind of"는 헤징(hedging) — 직접 요구하지 않고 완곡하게 표현합니다.<br><br>
+          2단계 (이해타산 호소): <em>"A hungry world is an unstable world."</em><br>
+          → 도덕적 합의가 없더라도, 기아는 결국 부유한 나라에도 불안정을 가져온다는 현실적 논거입니다.<br><br>
+          <strong>"absent that agreement"</strong> = "그 합의가 없다면"<br>
+          격식체 표현: <em>in the absence of that agreement</em> = <em>absent that agreement</em>
+        </div>
+      </div>
+
+      <div class="clinic-title">Sentence H</div>
+      <div class="sent-card">
+        <div class="sent-text">"Skau says that with 'big powers' challenging international humanitarian law, government officials in war zones feel emboldened to do likewise."</div>
+        <button class="analysis-btn" onclick="tog('s6a')">구조 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('s6k')">🇰🇷 한국어 설명</button>
+        <div class="analysis-content" id="s6a">
+          <span class="tag tag-s">Skau</span> 주어 &nbsp;
+          <span class="tag tag-v">says</span> 동사 &nbsp;
+          <span class="tag tag-c">that …</span> 명사절 (목적어) 안에:<br>&nbsp;&nbsp;&nbsp;
+          <span class="tag tag-m">with 'big powers' challenging international humanitarian law</span> with+O+분사 (동시 상황) &nbsp;
+          <span class="tag tag-s">government officials in war zones</span> 명사절 주어 &nbsp;
+          <span class="tag tag-v">feel emboldened</span> 동사구 &nbsp;
+          <span class="tag tag-m">to do likewise</span> to부정사 (부연)
+          <div class="atxt"><strong>with + O + 현재분사:</strong> "O가 ~하는 상황에서" — big powers가 능동적으로 IHL에 도전하므로 현재분사(challenging) 사용.<br><strong>emboldened</strong> = feel emboldened to do = ~할 용기를 얻다.<br><strong>do likewise</strong> = 마찬가지로 하다 (= do the same).</div>
+        </div>
+        <div class="kr-box" id="s6k">
+          <strong>🇰🇷 "with + O + 분사" 구문:</strong><br><br>
+          <em>with 'big powers' <u>challenging</u> international humanitarian law</em><br>
+          → "강대국들이 국제 인도주의법에 도전하는 상황에서"<br><br>
+          <strong>현재분사 vs 과거분사 선택:</strong><br>
+          ✅ <em>with big powers <strong>challenging</strong></em> → 능동 → 현재분사<br>
+          ✅ <em>with the law <strong>being challenged</strong></em> → 수동 → 과거분사<br><br>
+          <strong>전체 번역:</strong> "스카우는, '강대국들'이 국제 인도주의법에 도전하는 상황에서 전쟁 지역의 정부 관리들도 마찬가지로 할 용기를 얻고 있다고 말한다."
+        </div>
+      </div>
+
+    </div><!-- end clinic -->
+
+    <div class="questions">
+      <div class="q-header">Comprehension — Section 3 · Q8–Q10</div>
+
+      <div class="question">
+        <div class="q-num">Q8</div>
+        <div class="q-text">Skau says 'a hungry world is an unstable world.' Why does he frame the argument this way rather than making a purely moral appeal?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong','q8f')">He is warning developing countries that food insecurity leads to political collapse.</button>
+          <button class="choice" onclick="mc(this,'wrong','q8f')">He believes rich countries respond better to arguments based on shared values.</button>
+          <button class="choice" onclick="mc(this,'correct','q8f')">He appeals to self-interest — instability from hunger eventually harms wealthy nations too.</button>
+          <button class="choice" onclick="mc(this,'wrong','q8f')">He is addressing the UN Security Council, which requires strategic arguments.</button>
+        </div>
+        <div class="fb" id="q8f"></div>
+      </div>
+
+      <div class="question">
+        <div class="q-num">Q9</div>
+        <div class="q-text">What did Yemen's Houthis accuse detained WFP staff of? How does Skau respond to this accusation?</div>
+        <textarea class="short-ans" placeholder="Write your answer…"></textarea>
+        <button class="check-btn" onclick="rev('q9r')">예시 답안 보기</button>
+        <div class="reveal" id="q9r">The Houthis accused the 38 detained WFP workers of conspiring with Israel. Skau calls this accusation "bizarre," pointing out that some of these colleagues had previously worked in Gaza and been shot at — making any suggestion of pro-Israel conspiracy deeply implausible. One young, healthy staff member even died in detention.</div>
+      </div>
+
+      <div class="question">
+        <div class="q-num">Q10</div>
+        <div class="q-text">How has the attitude of government ministers in war zones changed over the past three years? What has caused this shift, according to Skau?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong','q10f')">Ministers are now more willing to grant WFP access in exchange for greater funding.</button>
+          <button class="choice" onclick="mc(this,'wrong','q10f')">Ministers have become more cooperative as the WFP has grown more powerful.</button>
+          <button class="choice" onclick="mc(this,'wrong','q10f')">Ministers are more hostile only in regions directly affected by US aid cuts.</button>
+          <button class="choice" onclick="mc(this,'correct','q10f')">Ministers feel less accountable — big powers ignoring humanitarian law emboldens others to do likewise.</button>
+        </div>
+        <div class="fb" id="q10f"></div>
+      </div>
+    </div>
+    <div class="next-wrap"><button class="next-btn" onclick="unlock(3)">Finish →</button></div>
+  </div><!-- end sec2 -->
+
+  <!-- ─────────────── COMPLETE ─────────────── -->
+  <div class="sec-panel" id="sec3">
+    <div class="completion">
+      <div style="font-size:40px;margin-bottom:14px;">✓</div>
+      <h2>Reading Companion Complete</h2>
+      <p style="margin-top:8px;color:#555;">모든 섹션을 완료했습니다.<br>Pre-Reading 탭으로 돌아가 E. Countries 표를 채워보세요.</p>
+    </div>
+  </div>
+
+</div><!-- end top-reading -->
+</div><!-- end app -->
+
+<script>
+/* ── Top tab ── */
+function topTab(which) {
+  document.querySelectorAll('.top-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.top-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('top-' + which).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0,0);
+}
+
+/* ── Pre-Reading sub-tabs ── */
+function preTab(id) {
+  document.querySelectorAll('.pre-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.pre-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('pre-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+/* ── Section nav ── */
+let unlocked = [true,false,false,false];
+function secTab(n) {
+  if (!unlocked[n]) return;
+  document.querySelectorAll('.sec-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.sec-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('sec' + n).classList.add('active');
+  document.querySelectorAll('.sec-btn')[n].classList.add('active');
+  window.scrollTo(0,0);
+}
+function unlock(n) {
+  unlocked[n] = true;
+  const btn = document.querySelectorAll('.sec-btn')[n];
+  btn.disabled = false;
+  if (n === 3) btn.classList.add('done');
+  secTab(n);
+}
+
+/* ── Toggle ── */
+function tog(id) { document.getElementById(id).classList.toggle('open'); }
+function rev(id) { document.getElementById(id).classList.toggle('open'); }
+
+/* ── MC ── */
+function mc(btn, result, fbId) {
+  const parent = btn.closest('.question');
+  parent.querySelectorAll('.choice').forEach(c => { c.classList.remove('correct','wrong'); c.disabled = true; });
+  btn.classList.add(result);
+  const fb = document.getElementById(fbId);
+  if (result === 'correct') {
+    fb.textContent = '✅ Correct!'; fb.className = 'fb ok';
+  } else {
+    fb.textContent = '❌ Not quite — review the passage and try again.'; fb.className = 'fb no';
+    parent.querySelectorAll('.choice').forEach(c => c.disabled = false);
+    btn.disabled = true;
+  }
+}
+
+/* ── T/F/NG ── */
+function tfng(btn, chosen, fbId, correct) {
+  const row = btn.closest('.tfrow');
+  row.querySelectorAll('.tfbtn').forEach(b => b.classList.remove('correct','wrong'));
+  const fb = document.getElementById(fbId);
+  if (chosen === correct) {
+    btn.classList.add('correct'); fb.textContent = '✅ ' + correct; fb.className = 'fb ok';
+  } else {
+    btn.classList.add('wrong'); fb.textContent = '❌ Answer: ' + correct; fb.className = 'fb no';
+  }
+}
+
+/* ── Fill-in ── */
+function chk(id, accepted, fbId) {
+  const val = document.getElementById(id).value.trim().toLowerCase();
+  const fb = document.getElementById(fbId);
+  const ok = accepted.some(a => val === a.toLowerCase() || val.includes(a.toLowerCase()));
+  document.getElementById(id).classList.toggle('ok', ok);
+  document.getElementById(id).classList.toggle('no', !ok);
+  fb.textContent = ok ? '✅ Correct!' : '❌ Try again. (Hint: ' + accepted[0] + ')';
+  fb.className = 'fb ' + (ok ? 'ok' : 'no');
+}
+function chk2(id1, ans1, id2, ans2, fbId) {
+  const v1 = document.getElementById(id1).value.trim().toLowerCase();
+  const v2 = document.getElementById(id2).value.trim().toLowerCase();
+  const ok1 = v1.includes(ans1.toLowerCase());
+  const ok2 = v2.includes(ans2.toLowerCase());
+  document.getElementById(id1).classList.toggle('ok', ok1); document.getElementById(id1).classList.toggle('no', !ok1);
+  document.getElementById(id2).classList.toggle('ok', ok2); document.getElementById(id2).classList.toggle('no', !ok2);
+  const fb = document.getElementById(fbId);
+  fb.textContent = (ok1 && ok2) ? '✅ Both correct!' : '❌ Check: ' + ans1 + ' / ' + ans2;
+  fb.className = 'fb ' + ((ok1 && ok2) ? 'ok' : 'no');
+}
+</script>
+</body>
+</html>
