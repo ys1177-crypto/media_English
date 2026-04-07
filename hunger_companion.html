@@ -825,7 +825,7 @@ function preTab(id) {
 }
 
 /* ── Section nav ── */
-let unlocked = [true,false,false,false];
+let unlocked = [true,true,true,true];
 function secTab(n) {
   if (!unlocked[n]) return;
   document.querySelectorAll('.sec-panel').forEach(p => p.classList.remove('active'));
