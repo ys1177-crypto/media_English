@@ -142,9 +142,9 @@ body { font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 15px; line
 
 <div class="section-nav">
   <button class="nav-btn active" onclick="goSection(0)">Section 1<br><span style="font-size:10px">P1–P2</span></button>
-  <button class="nav-btn" onclick="goSection(1)" id="nav1" disabled>Section 2<br><span style="font-size:10px">P3</span></button>
-  <button class="nav-btn" onclick="goSection(2)" id="nav2" disabled>Section 3<br><span style="font-size:10px">P4–P5</span></button>
-  <button class="nav-btn" onclick="goSection(3)" id="nav3" disabled>Section 4<br><span style="font-size:10px">P6–P8</span></button>
+  <button class="nav-btn" onclick="goSection(1)" id="nav1">Section 2<br><span style="font-size:10px">P3</span></button>
+  <button class="nav-btn" onclick="goSection(2)" id="nav2">Section 3<br><span style="font-size:10px">P4–P5</span></button>
+  <button class="nav-btn" onclick="goSection(3)" id="nav3">Section 4<br><span style="font-size:10px">P6–P8</span></button>
 </div>
 
 <!-- ═══════════════ SECTION 1 ═══════════════ -->
@@ -719,7 +719,7 @@ body { font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 15px; line
 
 <script>
 const SECTIONS = 4;
-let unlocked = [true, false, false, false];
+let unlocked = [true, true, true, true];
 
 function goSection(i) {
   if (!unlocked[i]) return;
