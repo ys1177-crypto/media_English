@@ -275,7 +275,7 @@ table.data tr:hover td { background: #f7fbf7; }
       <div class="question"><div class="q-num">2.</div><div class="fill-q">Gulf states have been described as particularly <input class="fi" id="v2_2" placeholder="…">, giving aid only when they expect something in return.</div><button class="check-btn" onclick="chk('v2_2',['transactional'],'vf2_2')">Check</button><div class="fb" id="vf2_2"></div></div>
       <div class="question"><div class="q-num">3.</div><div class="fill-q">The public has <input class="fi" id="v2_3" placeholder="…"> for only 'one crisis at a time', making it hard to draw attention to multiple emergencies.</div><button class="check-btn" onclick="chk('v2_3',['bandwidth'],'vf2_3')">Check</button><div class="fb" id="vf2_3"></div></div>
       <div class="question"><div class="q-num">4.</div><div class="fill-q">France's government had little money to spare, yet Skau stopped in Paris anyway, hoping to <input class="fi" id="v2_4a" placeholder="…"> funds from a <input class="fi" id="v2_4b" placeholder="…"> administration that was already stretched thin.</div><button class="check-btn" onclick="chk2('v2_4a','extract','v2_4b','cash-strapped','vf2_4')">Check</button><div class="fb" id="vf2_4"></div></div>
-      <div class="question"><div class="q-num">5.</div><div class="fill-q">Children who suffer from <input class="fi" id="v2_5a" placeholder="…"> in early years often end up <input class="fi" id="v2_5b" placeholder="…">, with lifelong consequences.</div><button class="check-btn" onclick="chk2('v2_5a','undernutrition','v2_5b','being stunted','vf2_5')">Check</button><div class="fb" id="vf2_5"></div></div>
+      <div class="question"><div class="q-num">5.</div><div class="fill-q">Children who suffer from <input class="fi" id="v2_5a" placeholder="…"> in early years often end up <input class="fi" id="v2_5b" placeholder="…">, with lifelong consequences.</div><button class="check-btn" onclick="chk('v2_5a',['undernutrition'],'vf2_5a')">Check</button><button class="check-btn" onclick="chk('v2_5b',['stunted'],'vf2_5b')">Check</button><div class="fb" id="vf2_5a"></div><div class="fb" id="vf2_5b"></div></div>
       <div class="question"><div class="q-num">6.</div><div class="fill-q">Somalia depends heavily on rainfall for farming, and if rains fail for several seasons in a row, recurring <input class="fi" id="v2_6" placeholder="…"> would push millions toward starvation.</div><button class="check-btn" onclick="chk('v2_6',['droughts'],'vf2_6')">Check</button><div class="fb" id="vf2_6"></div></div>
       <div class="question"><div class="q-num">7.</div><div class="fill-q">Skau called the Houthi accusation <input class="fi" id="v2_7" placeholder="…"> — some detained staff had worked in Gaza and been shot at.</div><button class="check-btn" onclick="chk('v2_7',['bizarre'],'vf2_7')">Check</button><div class="fb" id="vf2_7"></div></div>
       <div style="margin-top:20px;border-top:1px solid #eee;padding-top:14px;"><div class="q-header">어휘 참고</div>
@@ -877,7 +877,7 @@ function tfng(btn, chosen, fbId, correct) {
 function chk(id, accepted, fbId) {
   const val = document.getElementById(id).value.trim().toLowerCase();
   const fb = document.getElementById(fbId);
-  const ok = accepted.some(a => val === a.toLowerCase() || val.includes(a.toLowerCase()));
+  const ok = accepted.some(a => val === a.toLowerCase());
   document.getElementById(id).classList.toggle('ok', ok);
   document.getElementById(id).classList.toggle('no', !ok);
   fb.textContent = ok ? '✅ Correct!' : '❌ Try again. (Hint: ' + accepted[0] + ')';
