@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How the Gulf's War Is Becoming Asia's Crisis Too — Reading Companion</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.7; color: #1a1a1a; background: #f5f4f0; }
+.app { max-width: 900px; margin: 0 auto; padding: 0 0 80px; }
+
+.header { background: #1a3a5c; color: white; padding: 18px 28px; }
+.header .label { font-size: 11px; color: #7fb3d5; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 4px; }
+.header h1 { font-size: 20px; font-weight: 700; }
+.header .sub { font-size: 12px; color: #7fb3d5; margin-top: 3px; }
+
+.top-nav { display: flex; background: #122a42; }
+.top-btn { flex: 1; padding: 13px 10px; font-size: 13px; font-weight: 600; border: none; cursor: pointer; color: #7fb3d5; background: none; border-bottom: 3px solid transparent; transition: all 0.2s; }
+.top-btn.active { color: #fff; border-bottom-color: #5ba3d0; background: rgba(255,255,255,0.05); }
+
+.sec-nav { display: flex; background: white; border-bottom: 2px solid #ddd; overflow-x: auto; }
+.sec-btn { padding: 10px 14px; font-size: 12px; border: none; background: none; cursor: pointer; color: #777; border-bottom: 3px solid transparent; margin-bottom: -2px; white-space: nowrap; transition: all 0.2s; }
+.sec-btn.active { color: #1a3a5c; border-bottom-color: #1a3a5c; font-weight: 700; }
+.sec-btn:hover:not(.active) { background: #f5f5f5; color: #333; }
+
+.top-panel { display: none; } .top-panel.active { display: block; }
+.sec-panel { display: none; } .sec-panel.active { display: block; }
+.pre-panel { display: none; } .pre-panel.active { display: block; }
+
+.article-block { background: white; border-left: 4px solid #1a3a5c; padding: 22px 26px; }
+.article-block .art-meta { font-size: 12px; color: #888; margin-bottom: 10px; }
+.article-block h2 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+.article-block h3 { font-size: 14px; font-weight: 400; color: #555; margin-bottom: 18px; }
+.article-block p { font-size: 14.5px; line-height: 1.9; color: #222; margin-bottom: 14px; }
+.article-block p:last-child { margin-bottom: 0; }
+.art-u { text-decoration: underline; text-decoration-color: #c0392b; text-underline-offset: 3px; font-weight: 600; color: #c0392b; }
+
+.strip { background: #1a3a5c; color: white; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 26px; font-weight: 700; }
+.strip.amber  { background: #7a5000; }
+.strip.teal   { background: #1a5c4a; }
+.strip.red    { background: #5c1a1a; }
+.strip.purple { background: #4a1a5c; }
+.strip.olive  { background: #4a5c1a; }
+
+/* Sentence Clinic */
+.clinic { background: #EDF4FB; padding: 20px 26px; border-top: 1px solid #b8d0e8; }
+.clinic-title { font-size: 12px; color: #1a3a5c; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+.sent-card { background: white; border-radius: 8px; padding: 18px 20px; margin-bottom: 16px; border: 1px solid #b8d0e8; }
+.sent-text { font-size: 14px; font-style: italic; color: #1a1a1a; margin-bottom: 12px; line-height: 1.8; border-left: 3px solid #5ba3d0; padding-left: 12px; }
+.analysis-btn { font-size: 12px; background: #1a3a5c; color: white; border: none; padding: 6px 14px; border-radius: 4px; cursor: pointer; margin-right: 8px; margin-bottom: 6px; }
+.analysis-btn:hover { background: #255080; }
+.analysis-content { display: none; margin-top: 12px; background: #f4f8fc; border-radius: 6px; padding: 14px 16px; border: 1px solid #b8d0e8; line-height: 1.85; }
+.analysis-content.open { display: block; }
+.tag { display: inline-block; padding: 1px 7px; border-radius: 3px; font-size: 12px; font-weight: 700; margin: 0 2px 3px; }
+.tag-s { background: #D4EDDA; color: #155724; }
+.tag-v { background: #D1ECF1; color: #0c5460; }
+.tag-o { background: #FFF3CD; color: #856404; }
+.tag-m { background: #F8D7DA; color: #721c24; }
+.tag-c { background: #E2D9F3; color: #4a235a; }
+.tag-p { background: #FDEBD0; color: #784212; }
+.atxt { font-size: 13.5px; color: #2a2a2a; line-height: 1.85; margin-top: 10px; }
+.atxt strong { color: #1a3a5c; }
+.kr-toggle { font-size: 11.5px; background: none; border: 1px solid #aaa; color: #555; padding: 4px 10px; border-radius: 4px; cursor: pointer; }
+.kr-box { display: none; background: #EDF4FB; border: 1px solid #b8d0e8; border-radius: 6px; padding: 13px 15px; margin-top: 8px; font-size: 13.2px; line-height: 1.9; color: #1a2a3a; }
+.kr-box.open { display: block; }
+
+/* Questions */
+.questions { padding: 22px 26px; background: white; border-top: 1px solid #eee; }
+.q-header { font-size: 12px; color: #1a3a5c; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #eee; }
+.question { margin-bottom: 24px; }
+.q-num { font-weight: 700; color: #1a3a5c; font-size: 13px; margin-bottom: 6px; }
+.q-text { font-size: 14px; color: #2a2a2a; margin-bottom: 10px; line-height: 1.7; }
+
+/* MC */
+.choices { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 6px; }
+@media(max-width:580px){ .choices { grid-template-columns: 1fr; } }
+.choice { padding: 10px 13px; border: 1.5px solid #ccc; border-radius: 6px; cursor: pointer; font-size: 13px; color: #2a2a2a; background: white; text-align: left; transition: all 0.15s; line-height: 1.5; }
+.choice:hover:not(.correct):not(.eliminated) { border-color: #1a3a5c; background: #f0f4f8; }
+.choice.correct  { border-color: #28a745; background: #d4edda; color: #155724; cursor: default; }
+.choice.eliminated { border-color: #dc3545; background: #f8d7da; color: #721c24; cursor: not-allowed; opacity: 0.6; }
+.fb { font-size: 13px; margin-top: 5px; min-height: 18px; }
+.fb.ok { color: #155724; } .fb.no { color: #721c24; }
+
+/* T/F/NG */
+.tfrow { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px; }
+.tfstmt { flex: 1; font-size: 13.5px; line-height: 1.6; }
+.tfbtns { display: flex; gap: 4px; flex-shrink: 0; }
+.tfbtn { padding: 5px 10px; border: 1.5px solid #ccc; border-radius: 4px; cursor: pointer; font-size: 12px; background: white; font-weight: 700; transition: all 0.15s; }
+.tfbtn:hover:not(:disabled) { background: #f0f0f0; }
+.tfbtn.correct { background: #d4edda; border-color: #28a745; color: #155724; }
+.tfbtn.wrong   { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+.tfbtn:disabled { cursor: default; }
+
+/* Inputs */
+.short-ans { width: 100%; padding: 10px 12px; border: 1.5px solid #ccc; border-radius: 6px; font-size: 13.5px; font-family: inherit; resize: vertical; min-height: 72px; }
+.short-ans:focus { outline: none; border-color: #1a3a5c; }
+.short-line { border: none; border-bottom: 1.5px solid #bbb; padding: 4px 6px; font-size: 13.5px; font-family: inherit; background: transparent; width: calc(100% - 32px); }
+.short-line:focus { outline: none; border-bottom-color: #1a3a5c; }
+.check-btn { padding: 8px 18px; background: #1a3a5c; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 13px; margin-top: 8px; }
+.check-btn:hover { background: #255080; }
+.reveal { display: none; background: #f0f5fa; border-left: 3px solid #1a3a5c; padding: 11px 14px; margin-top: 8px; font-size: 13.5px; line-height: 1.8; border-radius: 0 6px 6px 0; }
+.reveal.open { display: block; }
+.num-input { width: 80px; padding: 6px 10px; border: 1.5px solid #ccc; border-radius: 5px; font-size: 14px; font-family: inherit; text-align: center; }
+.num-input:focus { outline: none; border-color: #1a3a5c; }
+.num-input.ok { border-color: #28a745; background: #d4edda; color: #155724; }
+.num-input.no { border-color: #dc3545; background: #f8d7da; color: #721c24; }
+
+/* Tables */
+.tbl-wrap { overflow-x: auto; margin-bottom: 14px; }
+table.data { width: 100%; border-collapse: collapse; font-size: 13px; }
+table.data th { background: #1a3a5c; color: white; padding: 9px 12px; text-align: left; font-weight: 600; }
+table.data td { padding: 9px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+table.data tr:hover td { background: #f7fbff; }
+.td-input { width: 100%; border: none; border-bottom: 1.5px solid #bbb; padding: 3px 2px; font-size: 12.5px; font-family: inherit; background: transparent; }
+.td-input:focus { outline: none; border-bottom-color: #1a3a5c; }
+.td-pre { font-size: 12.5px; color: #555; font-style: italic; }
+table.ans th { background: #255080; color: white; padding: 8px 12px; text-align: left; font-size: 12px; }
+table.ans td { padding: 8px 12px; border-bottom: 1px solid #cde; vertical-align: top; font-size: 12.5px; }
+table.ans tr:nth-child(even) td { background: #f4f8fc; }
+
+/* Hedging */
+.hedge-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 14px 0; }
+.hedge-table th { background: #4a1a5c; color: white; padding: 9px 12px; text-align: left; font-weight: 600; }
+.hedge-table td { padding: 9px 12px; border-bottom: 1px solid #e0d8f0; vertical-align: top; line-height: 1.6; }
+.hedge-term { font-weight: 700; color: #4a1a5c; font-family: Georgia, serif; }
+.pair-box { background: #f8f4ff; border: 1px solid #c8b0e0; border-radius: 8px; padding: 14px 16px; margin-bottom: 14px; }
+.pair-label { font-size: 11px; color: #4a1a5c; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; }
+.pair-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+@media(max-width:500px){ .pair-row { grid-template-columns: 1fr; } }
+.pair-sent { background: white; border-radius: 6px; padding: 10px 13px; font-size: 13.5px; font-style: italic; border: 1px solid #c8b0e0; line-height: 1.6; }
+.pair-sent .sent-label { font-style: normal; font-size: 11px; font-weight: 700; color: #555; display: block; margin-bottom: 4px; }
+
+/* Pre-reading */
+.pre-tab-nav { display: flex; background: white; border-bottom: 2px solid #ddd; overflow-x: auto; }
+.pre-btn { padding: 11px 18px; font-size: 12.5px; border: none; background: none; cursor: pointer; color: #777; border-bottom: 3px solid transparent; margin-bottom: -2px; white-space: nowrap; transition: all 0.2s; }
+.pre-btn.active { color: #1a3a5c; border-bottom-color: #1a3a5c; font-weight: 700; }
+.pre-content { padding: 22px 26px; background: white; }
+.headline-box { background: #1a3a5c; color: white; border-radius: 8px; padding: 18px 22px; margin-bottom: 20px; }
+.headline-box h3 { font-size: 18px; font-weight: 700; margin-bottom: 5px; }
+.headline-box p { font-size: 13px; color: #7fb3d5; }
+.bg-card { background: #f4f8fc; border: 1px solid #b8d0e8; border-radius: 8px; padding: 16px 18px; margin-bottom: 14px; }
+.bg-card h4 { font-size: 14px; font-weight: 700; color: #1a3a5c; margin-bottom: 8px; }
+.bg-card p { font-size: 13.5px; line-height: 1.75; color: #333; }
+.vocab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+@media(max-width:480px){ .vocab-grid { grid-template-columns: 1fr; } }
+.vi { background: white; border-radius: 5px; padding: 10px 14px; font-size: 13px; border: 1px solid #dde; }
+.vi .en { font-weight: 700; color: #1a3a5c; font-size: 14px; }
+.vi .def { color: #333; margin-top: 2px; }
+.u-legend { background: #fff8f0; border: 1px solid #f0c090; padding: 8px 26px; font-size: 12.5px; color: #7a4000; }
+
+/* Next */
+.next-wrap { text-align: center; padding: 24px; background: #f9f9f9; border-top: 1px solid #eee; }
+.next-btn { padding: 12px 36px; background: #1a3a5c; color: white; border: none; border-radius: 6px; font-size: 15px; font-weight: 600; cursor: pointer; }
+.next-btn:hover { background: #255080; }
+.completion { text-align: center; padding: 60px 30px; background: white; }
+.completion h2 { font-size: 22px; color: #1a3a5c; margin-bottom: 10px; }
+</style>
+</head>
+<body>
+<div class="app">
+
+<div class="header">
+  <div class="label">Media English Reading 8 · April 15, 2026</div>
+  <h1>How the Gulf's War Is Becoming Asia's Crisis Too</h1>
+  <div class="sub">The Economist · April 1, 2026</div>
+</div>
+
+<div class="top-nav">
+  <button class="top-btn active" onclick="topTab('pre',this)">📋 Pre-Reading</button>
+  <button class="top-btn" onclick="topTab('reading',this)">📖 Reading + Questions</button>
+</div>
+
+<!-- ══════════════════════════════════ PRE-READING ══════════════════════════════════ -->
+<div class="top-panel active" id="top-pre">
+  <div class="pre-tab-nav">
+    <button class="pre-btn active" onclick="preTab('pa',this)">A. Headline</button>
+    <button class="pre-btn" onclick="preTab('pb',this)">B. Background</button>
+    <button class="pre-btn" onclick="preTab('pc',this)">C. Vocabulary</button>
+  </div>
+  <div class="pre-panel active" id="pre-pa">
+    <div class="pre-content">
+      <div class="headline-box">
+        <h3>How the Gulf's War Is Becoming Asia's Crisis Too</h3>
+        <p>Prices, debt, and scarcity will strike a blow against the world's workshop</p>
+      </div>
+      <p style="font-size:13.5px;color:#333;margin-bottom:18px;line-height:1.8;">헤드라인과 서브헤드라인을 읽고 아래 질문에 대해 생각해 보세요.</p>
+      <div class="question">
+        <div class="q-num">Headline Analysis &amp; Prediction</div>
+        <div class="q-text">Why do you think the Gulf's war is becoming Asia's crisis? The sub-headline calls Asia <em>"the world's workshop."</em> Why? Which countries or industries do you think are most vulnerable to an energy crisis?</div>
+        <textarea class="short-ans" placeholder="Your thoughts here..."></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="pre-panel" id="pre-pb">
+    <div class="pre-content">
+      <div class="bg-card"><h4>🚢 The Strait of Hormuz</h4><p>The Strait of Hormuz is a narrow sea route between Iran and Oman, connecting the Persian Gulf to the open ocean. About 20% of the world's oil and a large share of LNG (liquefied natural gas) passes through it. If the strait is blocked or disrupted by conflict, global energy prices can rise sharply.</p></div>
+      <div class="bg-card"><h4>🏭 Asia as the World's Factory</h4><p>Asia, especially East and Southeast Asia, manufactures a large share of the world's goods — from electronics and textiles to cars and chemicals. Since manufacturing requires a lot of energy, and most Asian countries import their energy, they are vulnerable to disruptions in global oil and gas supply chains.</p></div>
+      <div class="bg-card"><h4>⛽ The 1970s Oil Shocks</h4><p>In 1973, some Arab oil-producing nations stopped exporting oil to nations that supported Israel during the Yom Kippur War. Oil prices rose sharply, causing economic problems like recession, inflation, and fuel shortages. Another shock followed in 1979 after the Iranian Revolution. These crises forced many countries to build strategic oil reserves and diversify their energy supplies.</p></div>
+      <div class="bg-card"><h4>💰 Fuel Subsidies &amp; Government Balance Sheets</h4><p>Many Asian governments keep fuel prices affordable by providing subsidies. This helps people but costs a lot of money. When global oil prices surge, maintaining subsidies can increase the budget deficit. Countries under IMF programmes (e.g., Pakistan) face additional pressure to cut subsidies, which directly hurts consumers.</p></div>
+    </div>
+  </div>
+  <div class="pre-panel" id="pre-pc">
+    <div class="pre-content">
+      <p style="font-size:13px;color:#555;margin-bottom:16px;"><em>Choose the word closest in meaning to the bold word. Click to check.</em></p>
+      <div class="question"><div class="q-num">1. curtailed</div><div class="q-text">Bus and ferry services across Japan have been <strong>curtailed</strong> due to a lack of fuel supply.</div><div class="choices"><button class="choice" onclick="mc(this,'wrong')">① expanded</button><button class="choice" onclick="mc(this,'wrong')">② delayed</button><button class="choice" onclick="mc(this,'wrong')">③ prioritized</button><button class="choice" onclick="mc(this,'correct')">④ reduced</button></div><div class="fb"></div></div>
+      <div class="question"><div class="q-num">2. crimp</div><div class="q-text">Rising fuel prices will <strong>crimp</strong> economic growth.</div><div class="choices"><button class="choice" onclick="mc(this,'wrong')">① facilitate</button><button class="choice" onclick="mc(this,'wrong')">② measure</button><button class="choice" onclick="mc(this,'correct')">③ hinder</button><button class="choice" onclick="mc(this,'wrong')">④ trigger</button></div><div class="fb"></div></div>
+      <div class="question"><div class="q-num">3. ensnared</div><div class="q-text">The war has <strong>ensnared</strong> roughly a third of global seaborne fertiliser trade.</div><div class="choices"><button class="choice" onclick="mc(this,'correct')">① entangled</button><button class="choice" onclick="mc(this,'wrong')">② promoted</button><button class="choice" onclick="mc(this,'wrong')">③ absorbed</button><button class="choice" onclick="mc(this,'wrong')">④ rerouted</button></div><div class="fb"></div></div>
+      <div class="question"><div class="q-num">4. breaching</div><div class="q-text">Indonesia risks <strong>breaching</strong> fiscal rules that set a deficit limit of 3% of GDP.</div><div class="choices"><button class="choice" onclick="mc(this,'correct')">① violating</button><button class="choice" onclick="mc(this,'wrong')">② maintaining</button><button class="choice" onclick="mc(this,'wrong')">③ neglecting</button><button class="choice" onclick="mc(this,'wrong')">④ calculating</button></div><div class="fb"></div></div>
+      <div class="question"><div class="q-num">5. precarious</div><div class="q-text">The oil supply situation is <strong>precarious</strong>, with only three weeks of reserves.</div><div class="choices"><button class="choice" onclick="mc(this,'wrong')">① solid</button><button class="choice" onclick="mc(this,'correct')">② insecure</button><button class="choice" onclick="mc(this,'wrong')">③ unpredictable</button><button class="choice" onclick="mc(this,'wrong')">④ temporary</button></div><div class="fb"></div></div>
+      <div class="question"><div class="q-num">6. upended</div><div class="q-text">The energy shock has <strong>upended</strong> entire sectors.</div><div class="choices"><button class="choice" onclick="mc(this,'wrong')">① organized</button><button class="choice" onclick="mc(this,'correct')">② overturned</button><button class="choice" onclick="mc(this,'wrong')">③ suspended</button><button class="choice" onclick="mc(this,'wrong')">④ simplified</button></div><div class="fb"></div></div>
+      <div class="question"><div class="q-num">7. immune to</div><div class="q-text">Even rich Asian nations are far from <strong>immune to</strong> rising energy prices.</div><div class="choices"><button class="choice" onclick="mc(this,'correct')">① exempt from</button><button class="choice" onclick="mc(this,'wrong')">② sensitive to</button><button class="choice" onclick="mc(this,'wrong')">③ accustomed to</button><button class="choice" onclick="mc(this,'wrong')">④ vulnerable to</button></div><div class="fb"></div></div>
+      <div class="question"><div class="q-num">8. erode</div><div class="q-text">Energy prices will <strong>erode</strong> investor confidence.</div><div class="choices"><button class="choice" onclick="mc(this,'wrong')">① bolster</button><button class="choice" onclick="mc(this,'correct')">② undermine</button><button class="choice" onclick="mc(this,'wrong')">③ maintain</button><button class="choice" onclick="mc(this,'wrong')">④ overlook</button></div><div class="fb"></div></div>
+      <div class="question"><div class="q-num">9. subsidise</div><div class="q-text">Many Asian governments <strong>subsidise</strong> energy to protect consumers.</div><div class="choices"><button class="choice" onclick="mc(this,'correct')">① finance</button><button class="choice" onclick="mc(this,'wrong')">② regulate</button><button class="choice" onclick="mc(this,'wrong')">③ ration</button><button class="choice" onclick="mc(this,'wrong')">④ distribute</button></div><div class="fb"></div></div>
+      <div class="question"><div class="q-num">10. sap</div><div class="q-text">High energy costs can <strong>sap</strong> economic growth.</div><div class="choices"><button class="choice" onclick="mc(this,'wrong')">① stimulate</button><button class="choice" onclick="mc(this,'correct')">② drain</button><button class="choice" onclick="mc(this,'wrong')">③ accelerate</button><button class="choice" onclick="mc(this,'wrong')">④ evaluate</button></div><div class="fb"></div></div>
+      <div class="question"><div class="q-num">11. turmoil</div><div class="q-text">Political <strong>turmoil</strong> spread across South Asia during the 2022 energy shock.</div><div class="choices"><button class="choice" onclick="mc(this,'wrong')">① expansion</button><button class="choice" onclick="mc(this,'wrong')">② consensus</button><button class="choice" onclick="mc(this,'wrong')">③ transition</button><button class="choice" onclick="mc(this,'correct')">④ unrest</button></div><div class="fb"></div></div>
+      <div class="question"><div class="q-num">12. intervening in</div><div class="q-text">The government is considering <strong>intervening in</strong> the market.</div><div class="choices"><button class="choice" onclick="mc(this,'correct')">① stepping in</button><button class="choice" onclick="mc(this,'wrong')">② drawing back</button><button class="choice" onclick="mc(this,'wrong')">③ looking into</button><button class="choice" onclick="mc(this,'wrong')">④ calling off</button></div><div class="fb"></div></div>
+      <div style="background:#f4f8fc;border-radius:8px;padding:14px 18px;margin-top:20px;">
+        <p style="font-size:12px;font-weight:700;color:#1a3a5c;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:12px;">어휘 참고용 한국어 뜻</p>
+        <div class="vocab-grid">
+          <div class="vi"><span class="en">curtail</span><div class="def">줄이다, 제한하다</div></div>
+          <div class="vi"><span class="en">crimp</span><div class="def">제약하다, 억제하다</div></div>
+          <div class="vi"><span class="en">ensnare</span><div class="def">얽히게 하다, 함정에 빠뜨리다</div></div>
+          <div class="vi"><span class="en">breach</span><div class="def">위반하다, (한도를) 넘다</div></div>
+          <div class="vi"><span class="en">precarious</span><div class="def">불안정한, 위태로운</div></div>
+          <div class="vi"><span class="en">upend</span><div class="def">완전히 뒤집다, 혼란을 일으키다</div></div>
+          <div class="vi"><span class="en">immune to</span><div class="def">~의 영향을 받지 않는</div></div>
+          <div class="vi"><span class="en">erode</span><div class="def">약화시키다, 서서히 침식하다</div></div>
+          <div class="vi"><span class="en">subsidise</span><div class="def">보조금을 지급하다</div></div>
+          <div class="vi"><span class="en">sap</span><div class="def">기력을 빼다, 서서히 약화시키다</div></div>
+          <div class="vi"><span class="en">turmoil</span><div class="def">혼란, 소요</div></div>
+          <div class="vi"><span class="en">intervene</span><div class="def">개입하다</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /pre -->
+
+<!-- ══════════════════════════════════ READING ══════════════════════════════════ -->
+<div class="top-panel" id="top-reading">
+  <div class="sec-nav">
+    <button class="sec-btn active" onclick="secTab(0)">D. Countries</button>
+    <button class="sec-btn" onclick="secTab(1)">§1 Para 1–3</button>
+    <button class="sec-btn" onclick="secTab(2)">§2 Para 4–5</button>
+    <button class="sec-btn" onclick="secTab(3)">§3 Para 6–7</button>
+    <button class="sec-btn" onclick="secTab(4)">§4 Para 8–9</button>
+    <button class="sec-btn" onclick="secTab(5)">§5 Para 10–12</button>
+    <button class="sec-btn" onclick="secTab(6)">§6 Language</button>
+  </div>
+
+  <!-- ═══ SECTION D — Countries Table ═══ -->
+  <div class="sec-panel active" id="sec0">
+    <div class="strip olive">D. Countries &amp; Regions — 국가·기관 현황 정리</div>
+    <div class="questions">
+      <p style="font-size:13px;color:#555;margin-bottom:20px;line-height:1.8;">기사 전체를 읽으며 두 표를 완성하세요. 정보가 여러 단락에 흩어져 있습니다. 한국어로 써도 됩니다.</p>
+
+      <div class="q-header">D-1. Energy exposure by country</div>
+      <p style="font-size:12.5px;color:#888;margin-bottom:10px;font-style:italic;">※ 숫자 (3)이 쓰인 칸은 여러 항목을 써야 합니다.</p>
+      <div class="tbl-wrap">
+        <table class="data">
+          <thead><tr>
+            <th style="width:18%;">Country</th>
+            <th style="width:27%;">Energy dependence on Gulf<br><span style="font-weight:400;font-size:11.5px;">(에너지 의존도)</span></th>
+            <th style="width:27%;">Specific disruption<br><span style="font-weight:400;font-size:11.5px;">(구체적 피해)</span></th>
+            <th style="width:28%;">Strategic reserve<br><span style="font-weight:400;font-size:11.5px;">(에너지 비축량)</span></th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Philippines</strong></td>
+              <td><span class="td-pre">&gt;90% of energy imports from Middle East</span></td>
+              <td><input class="td-input" placeholder="..."></td>
+              <td><input class="td-input" placeholder="..."></td>
+            </tr>
+            <tr>
+              <td><strong>Japan</strong></td>
+              <td><span class="td-pre">Not specified</span></td>
+              <td><span class="td-pre" style="color:#1a3a5c;font-weight:600;">(3)</span><br><input class="td-input" placeholder="① ..."><input class="td-input" placeholder="② ..." style="margin-top:4px;"><input class="td-input" placeholder="③ ..." style="margin-top:4px;"></td>
+              <td><span class="td-pre">254 days</span></td>
+            </tr>
+            <tr>
+              <td><strong>Bangladesh /<br>India / Pakistan</strong></td>
+              <td><input class="td-input" placeholder="..."></td>
+              <td><input class="td-input" placeholder="..."></td>
+              <td><span class="td-pre">Not specified</span></td>
+            </tr>
+            <tr>
+              <td><strong>Vietnam / Thailand</strong></td>
+              <td><span class="td-pre">Not specified</span></td>
+              <td><span class="td-pre">Not specified</span></td>
+              <td><span class="td-pre">~3 weeks</span></td>
+            </tr>
+            <tr>
+              <td><strong>China</strong></td>
+              <td><span class="td-pre">Not specified</span></td>
+              <td><span class="td-pre">Not specified</span></td>
+              <td><input class="td-input" placeholder="..."></td>
+            </tr>
+            <tr>
+              <td><strong>South Korea</strong></td>
+              <td><input class="td-input" placeholder="..."></td>
+              <td><span class="td-pre">Not specified</span></td>
+              <td><span class="td-pre">Not specified</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button class="check-btn" onclick="rev('d1rev')">D-1 정답 보기</button>
+      <div class="reveal" id="d1rev">
+        <div class="tbl-wrap" style="margin-top:8px;">
+          <table class="ans" style="width:100%;border-collapse:collapse;">
+            <thead><tr><th>Country</th><th>Energy dependence</th><th>Specific disruption (구체적 피해)</th><th>Strategic reserve</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Philippines</strong></td><td>&gt;90% from Middle East</td><td>Fuel prices shot up &gt;70% — one of the biggest jumps globally</td><td>~3 weeks (onshore)</td></tr>
+              <tr><td><strong>Japan</strong></td><td>Not specified</td><td>① Bus and ferry services curtailed for lack of supply<br>② Bathhouses struggling to make ends meet; many closed<br>③ Yamayoshi Seika halted potato crisp production (ran out of heavy oil)</td><td>254 days</td></tr>
+              <tr><td><strong>Bangladesh / India / Pakistan</strong></td><td>Almost 2/3 of LNG via strait</td><td>Pakistan: fuel price rise (20%) directly hurts consumers; possibly invite unwanted attention from speculators looking for shaky currencies</td><td>Not specified</td></tr>
+              <tr><td><strong>Vietnam / Thailand</strong></td><td>Not specified</td><td>Not specified</td><td>~3 weeks</td></tr>
+              <tr><td><strong>China</strong></td><td>Not specified</td><td>Not specified</td><td>~100 days</td></tr>
+              <tr><td><strong>South Korea</strong></td><td>70% of oil from Middle East</td><td>Not specified</td><td>Not specified</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="q-header" style="margin-top:30px;">D-2. Government policy responses</div>
+      <p style="font-size:12.5px;color:#888;margin-bottom:10px;font-style:italic;">※ 숫자 (2)가 쓰인 칸은 두 가지 이상의 정책을 써야 합니다.</p>
+      <div class="tbl-wrap">
+        <table class="data">
+          <thead><tr>
+            <th style="width:18%;">Country</th>
+            <th style="width:47%;">Policy action (정책 조치)</th>
+            <th style="width:35%;">Trade-off (부작용)</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>India</strong></td>
+              <td><span class="td-pre" style="color:#1a3a5c;font-weight:600;">(2)</span><br><input class="td-input" placeholder="① ..."><input class="td-input" placeholder="② ..." style="margin-top:4px;"></td>
+              <td><span class="td-pre">Not specified</span></td>
+            </tr>
+            <tr>
+              <td><strong>South Korea</strong></td>
+              <td><span class="td-pre" style="color:#1a3a5c;font-weight:600;">(2)</span><br><input class="td-input" placeholder="① ..."><input class="td-input" placeholder="② ..." style="margin-top:4px;"></td>
+              <td><span class="td-pre">Not specified</span></td>
+            </tr>
+            <tr>
+              <td><strong>Indonesia</strong></td>
+              <td><span class="td-pre">Expanding fuel subsidies</span></td>
+              <td><input class="td-input" placeholder="..."></td>
+            </tr>
+            <tr>
+              <td><strong>Pakistan</strong></td>
+              <td><input class="td-input" placeholder="..."></td>
+              <td><span class="td-pre">Direct hardship for consumers</span></td>
+            </tr>
+            <tr>
+              <td><strong>Australia</strong></td>
+              <td><span class="td-pre">Promised measures to absorb higher oil prices</span></td>
+              <td><span class="td-pre">Not specified</span></td>
+            </tr>
+            <tr>
+              <td><strong>Vietnam</strong></td>
+              <td><span class="td-pre" style="color:#1a3a5c;font-weight:600;">(2)</span><br><input class="td-input" placeholder="① ..."><input class="td-input" placeholder="② ..." style="margin-top:4px;"></td>
+              <td><span class="td-pre">Not specified</span></td>
+            </tr>
+            <tr>
+              <td><strong>Japan (energy)</strong></td>
+              <td><span class="td-pre" style="color:#1a3a5c;font-weight:600;">(2)</span><br><input class="td-input" placeholder="① ..."><input class="td-input" placeholder="② ..." style="margin-top:4px;"></td>
+              <td><span class="td-pre">Reverses emissions-reduction policy</span></td>
+            </tr>
+            <tr>
+              <td><strong>Japan (finance)</strong></td>
+              <td><input class="td-input" placeholder="..."></td>
+              <td><span class="td-pre">Not specified</span></td>
+            </tr>
+            <tr>
+              <td><strong>China</strong></td>
+              <td><span class="td-pre" style="color:#1a3a5c;font-weight:600;">(2)</span><br><input class="td-input" placeholder="① ..."><input class="td-input" placeholder="② ..." style="margin-top:4px;"></td>
+              <td><span class="td-pre">Not specified</span></td>
+            </tr>
+            <tr>
+              <td><strong>Philippines</strong></td>
+              <td><input class="td-input" placeholder="..."></td>
+              <td><span class="td-pre">Not specified</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button class="check-btn" onclick="rev('d2rev')">D-2 정답 보기</button>
+      <div class="reveal" id="d2rev">
+        <div class="tbl-wrap" style="margin-top:8px;">
+          <table class="ans" style="width:100%;border-collapse:collapse;">
+            <thead><tr><th>Country</th><th>Policy action</th><th>Trade-off</th></tr></thead>
+            <tbody>
+              <tr><td><strong>India</strong></td><td>① Slashed central excise duties on petrol and diesel to hold pump prices<br>② Ordered coal-fired electricity plant in Gujarat to restart operations</td><td>Not specified</td></tr>
+              <tr><td><strong>South Korea</strong></td><td>① Imposed a fuel-price cap<br>② Imposed limits on jet-fuel exports from refineries</td><td>Not specified</td></tr>
+              <tr><td><strong>Indonesia</strong></td><td>Expanding fuel subsidies</td><td>Could breach fiscal-deficit cap of 3% of GDP; further erosion of investor confidence</td></tr>
+              <tr><td><strong>Pakistan</strong></td><td>Raised fuel prices by 20% (under IMF pressure)</td><td>Direct hardship for consumers</td></tr>
+              <tr><td><strong>Australia</strong></td><td>Promised measures to absorb higher oil prices</td><td>Not specified</td></tr>
+              <tr><td><strong>Vietnam</strong></td><td>① Promised measures to absorb higher oil prices<br>② Building nuclear power plant with Russia</td><td>Not specified</td></tr>
+              <tr><td><strong>Japan (energy)</strong></td><td>① Approved return to full capacity for coal power plants<br>② Tapping strategic oil reserves</td><td>Reverses emissions-reduction policy</td></tr>
+              <tr><td><strong>Japan (finance)</strong></td><td>Considering intervening in oil-futures market to prop up the yen</td><td>Not specified</td></tr>
+              <tr><td><strong>China</strong></td><td>① Imposed limits on jet-fuel exports from refineries<br>② Tapping strategic reserves (~100 days)</td><td>Not specified</td></tr>
+              <tr><td><strong>Philippines</strong></td><td>President warned that grounding planes is a "distinct possibility"</td><td>Not specified</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div><!-- /sec0 -->
+
+
+  <!-- ═══ SECTION 1 · Para 1–3 ═══ -->
+  <div class="sec-panel" id="sec1">
+    <div class="strip">Section 1 · Paragraphs 1–3 · Introduction &amp; Rising Fuel Prices</div>
+    <div class="u-legend">🔴 <strong>빨간 밑줄</strong>은 Comprehension Questions에서 의미를 묻는 표현입니다.</div>
+    <div class="article-block">
+      <div class="art-meta">The Economist · April 1st, 2026 · Geopolitics &amp; Energy</div>
+      <h2>How the Gulf's war is becoming Asia's crisis too</h2>
+      <h3>Prices, debt, and scarcity will strike a blow against the world's workshop</h3>
+      <p>As missiles and drones fly across the Persian Gulf, their impact is being felt an ocean away. This war is "an Asian crisis", Vivian Balakrishnan, Singapore's foreign minister, told Reuters last week. Around 80% of the oil and 90% of the gas that usually pass through the Strait of Hormuz are bound for Asian markets.</p>
+      <p>Poor countries are being hit the hardest. In the Philippines more than 90% of energy imports come from the Middle East; Bangladesh, India and Pakistan receive almost two-thirds of their total LNG supplies via the strait. But rich Asian countries are <span class="art-u">far from immune</span>. Japan boasts a strategic oil reserve equivalent to 254 days of domestic demand, a buffer built up following the oil shocks of the 1970s. But bus and ferry services across the country have been curtailed for lack of supply. Japanese bathhouses are struggling to <span class="art-u">make ends meet</span> as fuel costs rise; several across the country have announced temporary or permanent closures. And Yamayoshi Seika, a popular snack-maker, had to temporarily stop production of potato crisps after running out of heavy oil for its fryers.</p>
+      <p>The strait's closure presents three big risks to Asian economies. The first is rising fuel prices. These will increase costs elsewhere and crimp growth, potentially causing a stagflationary spiral. The immediate pain is being felt by motorists across the region, but especially in South-East Asia. Globally, petrol prices have risen by 14% since the war began; in South-East Asian countries the figure is 42%. Prices in the Philippines and Myanmar have shot up by more than 70%, among the biggest jumps in the world.</p>
+    </div>
+    <div class="strip amber">📝 Sentence Clinic</div>
+    <div class="clinic">
+
+      <div class="clinic-title">Sentence A</div>
+      <div class="sent-card">
+        <div class="sent-text">"Around 80% of the oil and 90% of the gas that usually pass through the Strait of Hormuz are bound for Asian markets."</div>
+        <button class="analysis-btn" onclick="tog('s1a')">구조 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('s1k')">🇰🇷 한국어 설명</button>
+        <div class="analysis-content" id="s1a">
+          <span class="tag tag-s">Around 80% of the oil and 90% of the gas</span> 주어 &nbsp;
+          <span class="tag tag-c">that usually pass through the Strait of Hormuz</span> 관계절 (주어 수식) &nbsp;
+          <span class="tag tag-v">are bound for</span> 동사구 &nbsp;
+          <span class="tag tag-o">Asian markets</span> 목적어(방향)
+          <div class="atxt"><strong>"are bound for"</strong> = ~행(行)이다, ~을 향해 가고 있다. "be bound for + 장소"는 목적지를 나타내는 관용구입니다.<br>
+          <strong>that … pass:</strong> 복합 주어(oil + gas)이므로 관계절 동사도 복수형 pass.</div>
+        </div>
+        <div class="kr-box" id="s1k">
+          <strong>🇰🇷 "be bound for" 구문:</strong><br><br>
+          <em>the oil and the gas … <u>are bound for</u> Asian markets</em> → "아시아 시장을 향해 가고 있다 / 아시아행이다"<br><br>
+          bound는 형용사로 "~행의, ~을 향하는" 의미.<br>
+          ✅ <em>a ship bound for Tokyo</em> = 도쿄행 선박<br><br>
+          <strong>관계절 복수 동사:</strong> "the oil and the gas <u>that</u> pass through" — 두 명사를 묶어 수식하는 관계절. 주어가 복수(oil + gas)이므로 pass(복수형).<br><br>
+          <strong>전체 번역:</strong> "호르무즈 해협을 통과하는 석유의 약 80%, 천연가스의 90%가 아시아 시장을 향해 가고 있다."
+        </div>
+      </div>
+
+      <div class="clinic-title">Sentence B</div>
+      <div class="sent-card">
+        <div class="sent-text">"Japan boasts a strategic oil reserve equivalent to 254 days of domestic demand, a buffer built up following the oil shocks of the 1970s."</div>
+        <button class="analysis-btn" onclick="tog('s2a')">구조 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('s2k')">🇰🇷 한국어 설명</button>
+        <div class="analysis-content" id="s2a">
+          <span class="tag tag-s">Japan</span> 주어 &nbsp;
+          <span class="tag tag-v">boasts</span> 동사 &nbsp;
+          <span class="tag tag-o">a strategic oil reserve</span> 목적어 &nbsp;
+          <span class="tag tag-p">equivalent to 254 days of domestic demand</span> 형용사구 (목적어 수식) &nbsp;
+          <span class="tag tag-c">, a buffer built up following the oil shocks of the 1970s</span> 동격어구 (콤마 뒤)
+          <div class="atxt"><strong>"boasts"</strong> = 자랑스럽게 보유하다.<br>
+          <strong>동격어구:</strong> ", a buffer built up following…"은 앞의 "strategic oil reserve"를 다시 설명. "built up"은 과거분사(수동: 쌓아올려진).</div>
+        </div>
+        <div class="kr-box" id="s2k">
+          <strong>🇰🇷 동격어구(Appositive) + 과거분사:</strong><br><br>
+          <em>a strategic oil reserve … , <u>a buffer built up following the oil shocks of the 1970s</u></em><br>
+          = "전략 비축유 — 즉, 1970년대 오일쇼크 이후 쌓아온 완충재"<br><br>
+          <strong>과거분사 "built up":</strong> buffer가 쌓아진 것(수동) → 과거분사.<br>
+          ✅ <em>a buffer <strong>built up</strong></em> (쌓아진 완충재)<br><br>
+          <strong>전체 번역:</strong> "일본은 국내 수요의 254일치에 해당하는 전략적 석유 비축량을 보유하고 있으며, 이는 1970년대 오일쇼크 이후 축적해온 완충재다."
+        </div>
+      </div>
+
+      <div class="clinic-title">Sentence C</div>
+      <div class="sent-card">
+        <div class="sent-text">"These will increase costs elsewhere and crimp growth, potentially causing a stagflationary spiral."</div>
+        <button class="analysis-btn" onclick="tog('s3a')">구조 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('s3k')">🇰🇷 한국어 설명</button>
+        <div class="analysis-content" id="s3a">
+          <span class="tag tag-s">These</span> 주어 (= rising fuel prices) &nbsp;
+          <span class="tag tag-v">will increase … and crimp</span> 병렬 동사구 &nbsp;
+          <span class="tag tag-o">costs elsewhere / growth</span> &nbsp;
+          <span class="tag tag-p">, potentially causing a stagflationary spiral</span> 결과의 분사구문
+          <div class="atxt"><strong>"potentially"</strong> = 헤징 부사. 확실하지 않은 가능성을 나타냄.<br>
+          <strong>stagflationary spiral:</strong> stagflation(경기침체 + 물가상승)의 악순환.</div>
+        </div>
+        <div class="kr-box" id="s3k">
+          <strong>🇰🇷 결과의 분사구문 &amp; stagflation:</strong><br><br>
+          <em>, <u>potentially causing</u> a stagflationary spiral</em> → "잠재적으로 스태그플레이션 악순환을 일으키면서"<br><br>
+          <strong>📌 stagflation이란?</strong><br>
+          stagnation(경기 침체) + inflation(물가 상승)의 합성어. 보통 경기가 나쁘면 물가가 내려가고, 물가가 오르면 경기가 좋습니다. 하지만 에너지 쇼크처럼 공급 충격이 발생하면 경기는 침체하면서 동시에 물가가 오르는 최악의 상황이 됩니다.<br><br>
+          <strong>전체 번역:</strong> "이것들(연료 가격 상승)은 다른 분야의 비용을 높이고 성장을 억제하면서, 잠재적으로 스태그플레이션 악순환을 일으킬 수 있다."
+        </div>
+      </div>
+    </div><!-- /clinic -->
+
+    <div class="questions">
+      <div class="q-header">Comprehension · Q1–Q4</div>
+      <div class="question">
+        <div class="q-num">Q1. According to Singapore's foreign minister, why is this "an Asian crisis"?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong')">(a) Singapore is geographically closest to the Persian Gulf.</button>
+          <button class="choice" onclick="mc(this,'wrong')">(b) Asia depends on the Gulf for military protection.</button>
+          <button class="choice" onclick="mc(this,'wrong')">(c) Asian banks financed the war that closed the strait.</button>
+          <button class="choice" onclick="mc(this,'correct')">(d) Around 80% of Gulf oil and 90% of Gulf gas is bound for Asian markets.</button>
+        </div><div class="fb"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q2. What does <em>"But rich Asian countries are <u>far from immune</u>"</em> (para. 2) mean?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'correct')">(a) Rich Asian countries are also significantly affected, despite their wealth.</button>
+          <button class="choice" onclick="mc(this,'wrong')">(b) Rich Asian countries have completely avoided the energy crisis.</button>
+          <button class="choice" onclick="mc(this,'wrong')">(c) Rich Asian countries are slowly recovering from the crisis.</button>
+          <button class="choice" onclick="mc(this,'wrong')">(d) Rich Asian countries have better energy infrastructure to handle the shock.</button>
+        </div><div class="fb"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q3. <em>"Japanese bathhouses are struggling to <u>make ends meet</u> as fuel costs rise."</em> What does "make ends meet" mean?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong')">(a) Find enough customers to stay open</button>
+          <button class="choice" onclick="mc(this,'correct')">(b) Cover their costs and avoid running at a loss</button>
+          <button class="choice" onclick="mc(this,'wrong')">(c) Agree on a price with their fuel suppliers</button>
+          <button class="choice" onclick="mc(this,'wrong')">(d) Compete with cheaper rivals from other sectors</button>
+        </div><div class="fb"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q4. What is the difference in percentage points between the global average petrol price rise and the South-East Asian average?</div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <input class="num-input" id="q4inp" type="number" placeholder="?" oninput="chkNum('q4inp',28,'q4fb','q4rev')">
+          <span style="font-size:13.5px;color:#555;">percentage points</span>
+        </div>
+        <div id="q4fb" class="fb"></div>
+        <div class="reveal" id="q4rev">42% (South-East Asia) − 14% (global) = <strong>28 percentage points</strong></div>
+      </div>
+    </div>
+    <div class="next-wrap"><button class="next-btn" onclick="secTab(2)">Next: §2 →</button></div>
+  </div><!-- /sec1 -->
+
+
+  <!-- ═══ SECTION 2 · Para 4–5 ═══ -->
+  <div class="sec-panel" id="sec2">
+    <div class="strip">Section 2 · Paragraphs 4–5 · Government Responses &amp; Fiscal Risk</div>
+    <div class="article-block">
+      <p>In other parts of Asia, such as India and Bangladesh, the jump has <span class="art-u">not yet been felt at the pumps</span> — but that is only because their governments control fuel prices. On March 27th the Indian government said that it would slash central excise duties on petrol and diesel in order to keep pump prices from rising. Australia and Vietnam have promised similar measures to absorb higher oil prices. In South Korea, which imports 70% of its oil from the Middle East, the government has imposed a fuel-price cap to limit the damage.</p>
+      <p>The second risk, therefore, is to Asian governments' balance-sheets. Many already spend heavily to subsidise energy or set fuel prices, but the fiscal room available for such interventions varies enormously. In Indonesia rising fuel subsidies could result in the country breaching its fiscal-deficit cap of 3% of GDP. Investor confidence, already fragile, would erode further. Cash-strapped Pakistan, under IMF scrutiny, has already had to put up fuel prices by 20%. Such pressures could invite unwanted attention from speculators looking for shaky currencies. Japan's finance ministry is already said to be considering intervening in the oil-futures market to prop up the yen.</p>
+    </div>
+    <div class="strip amber">📝 Sentence Clinic</div>
+    <div class="clinic">
+
+      <div class="clinic-title">Sentence D</div>
+      <div class="sent-card">
+        <div class="sent-text">"In other parts of Asia, the jump has not yet been felt at the pumps — but that is only because their governments control fuel prices."</div>
+        <button class="analysis-btn" onclick="tog('s4a')">구조 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('s4k')">🇰🇷 한국어 설명</button>
+        <div class="analysis-content" id="s4a">
+          <span class="tag tag-s">the jump</span> 주어 &nbsp;
+          <span class="tag tag-v">has not yet been felt</span> 현재완료 수동태 + 부정 &nbsp;
+          <span class="tag tag-m">at the pumps</span> 장소 부사구 &nbsp;
+          <span class="tag tag-c">— but that is only because their governments control fuel prices</span> 역접 + 이유절
+          <div class="atxt"><strong>"at the pumps"</strong> = 주유소에서 (소비자가 직접 지불하는 가격). "pump price" = 주유소 판매 가격.<br>
+          <strong>현재완료 수동태:</strong> has + been + 과거분사(felt) = "지금까지 체감되지 않은 상태가 이어지고 있음".</div>
+        </div>
+        <div class="kr-box" id="s4k">
+          <strong>🇰🇷 현재완료 수동태 + "at the pumps":</strong><br><br>
+          <em>the jump <u>has not yet been felt</u> at the pumps</em> → "그 급등이 아직 주유소 가격에서는 체감되지 않았다"<br><br>
+          구조: <strong>has + been + 과거분사</strong> = 현재완료 수동태<br>
+          "at the pumps" — pump = 주유기. 정부가 가격을 통제하면 국제 유가가 올라도 소비자는 주유소에서 변화를 느끼지 못합니다.<br><br>
+          <strong>전체 번역:</strong> "아시아 다른 지역들에서는 그 급등이 아직 주유소 가격에 반영되지 않았는데 — 이는 오직 해당 정부들이 연료 가격을 통제하고 있기 때문이다."
+        </div>
+      </div>
+
+      <div class="clinic-title">Sentence E</div>
+      <div class="sent-card">
+        <div class="sent-text">"Cash-strapped Pakistan, under IMF scrutiny, has already had to put up fuel prices by 20%."</div>
+        <button class="analysis-btn" onclick="tog('s5a')">구조 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('s5k')">🇰🇷 한국어 설명</button>
+        <div class="analysis-content" id="s5a">
+          <span class="tag tag-s">Cash-strapped Pakistan</span> 주어 (복합형용사 수식) &nbsp;
+          <span class="tag tag-m">, under IMF scrutiny,</span> 삽입구 &nbsp;
+          <span class="tag tag-v">has already had to put up</span> 현재완료 + have to &nbsp;
+          <span class="tag tag-o">fuel prices</span> &nbsp;
+          <span class="tag tag-m">by 20%</span> 정도 부사구
+          <div class="atxt"><strong>"cash-strapped"</strong> = 재정이 빡빡한. strapped = 형편이 어려운.<br>
+          <strong>"under IMF scrutiny"</strong> = IMF의 감시 하에 (삽입구).<br>
+          <strong>"has had to"</strong> = ~해야만 했다 (외부 압박에 의한 불가피한 행동).</div>
+        </div>
+        <div class="kr-box" id="s5k">
+          <strong>🇰🇷 복합형용사 + 삽입구:</strong><br><br>
+          <em><u>Cash-strapped</u> Pakistan, <u>under IMF scrutiny</u>, has already had to put up fuel prices by 20%.</em><br><br>
+          <strong>Cash-strapped</strong> = "자금난에 시달리는". 유사 표현: cash-rich, debt-ridden, oil-dependent<br>
+          <strong>"under IMF scrutiny" (삽입구):</strong> 파키스탄이 IMF 구제금융 하에 재정 감시를 받는 상황을 압축 전달.<br>
+          <strong>"has had to put up":</strong> put up = (가격을) 올리다. have to = ~해야 한다. 자체 선택이 아닌 외부 압박으로 인한 불가피한 행동.<br><br>
+          <strong>전체 번역:</strong> "자금난에 처한 파키스탄은 IMF의 감시 하에, 이미 연료 가격을 20% 올려야만 했다."
+        </div>
+      </div>
+    </div><!-- /clinic -->
+
+    <div class="questions">
+      <div class="q-header">Comprehension · Q5–Q6</div>
+      <div class="question">
+        <div class="q-num">Q5. <em>"In other parts of Asia, the jump has <u>not yet been felt at the pumps</u>."</em> What does this phrase mean, and why?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong')">(a) These countries do not import oil from the Middle East.</button>
+          <button class="choice" onclick="mc(this,'wrong')">(b) Oil tankers have not yet delivered the more expensive crude to these markets.</button>
+          <button class="choice" onclick="mc(this,'correct')">(c) Consumers have not noticed higher prices because governments control fuel prices.</button>
+          <button class="choice" onclick="mc(this,'wrong')">(d) Fuel demand in these countries has dropped, keeping prices low.</button>
+        </div><div class="fb"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q6. True (T), False (F), or Not Given (NG)? &nbsp;<span style="font-size:11.5px;color:#888;font-weight:400;">"답 확인"을 눌러 정답 확인</span></div>
+        <div style="margin-top:10px;">
+          <div class="tfrow"><div class="tfstmt">(1) Indonesia's rising fuel subsidies have already caused the country to exceed its fiscal-deficit cap of 3% of GDP.</div><div class="tfbtns"><button class="tfbtn" id="tf1T" onclick="tfng('tf1','F','T')">T</button><button class="tfbtn" id="tf1F" onclick="tfng('tf1','F','F')">F</button><button class="tfbtn" id="tf1N" onclick="tfng('tf1','F','NG')">NG</button></div></div>
+          <div class="tfrow"><div class="tfstmt">(2) Pakistan has raised fuel prices in response to IMF pressure on its budget.</div><div class="tfbtns"><button class="tfbtn" id="tf2T" onclick="tfng('tf2','T','T')">T</button><button class="tfbtn" id="tf2F" onclick="tfng('tf2','T','F')">F</button><button class="tfbtn" id="tf2N" onclick="tfng('tf2','T','NG')">NG</button></div></div>
+          <div class="tfrow"><div class="tfstmt">(3) Japan's finance ministry is considering intervening in the oil-futures market to strengthen the yen.</div><div class="tfbtns"><button class="tfbtn" id="tf3T" onclick="tfng('tf3','T','T')">T</button><button class="tfbtn" id="tf3F" onclick="tfng('tf3','T','F')">F</button><button class="tfbtn" id="tf3N" onclick="tfng('tf3','T','NG')">NG</button></div></div>
+        </div>
+        <button class="check-btn" onclick="rev('q6rev')">답 확인 (Answers)</button>
+        <div class="reveal" id="q6rev">
+          <strong>(1) F</strong> — 기사는 "could result in breaching"이라고 표현. 아직 한도를 초과하지 않았고, 그럴 가능성이 있다는 것.<br><br>
+          <strong>(2) T</strong> — "Cash-strapped Pakistan, under IMF scrutiny, has already had to put up fuel prices by 20%."<br><br>
+          <strong>(3) T</strong> — "to prop up (= strengthen) the yen." 단, 기사는 "is said to be considering"이라는 불확인 표현 사용.
+        </div>
+      </div>
+    </div>
+    <div class="next-wrap"><button class="next-btn" onclick="secTab(3)">Next: §3 →</button></div>
+  </div><!-- /sec2 -->
+
+
+  <!-- ═══ SECTION 3 · Para 6–7 ═══ -->
+  <div class="sec-panel" id="sec3">
+    <div class="strip">Section 3 · Paragraphs 6–7 · Inflation &amp; Food Prices</div>
+    <div class="article-block">
+      <p><span class="art-u">Where governments do not absorb costlier crude</span>, rising energy prices will fuel headline inflation. Crude-importing countries with weak exchange rates and big oil bills, such as the Philippines and Pakistan, will suffer the most. But even in those countries that apply fuel-price caps, the war in Iran will exert inflationary pressure through other channels. Supply-chain disruptions will push up costs in other industries, such as chemicals and logistics.</p>
+      <p>The biggest inflationary force could come through food. The war has ensnared roughly a third of global seaborne fertiliser trade, which will drive up food prices, especially when the sowing season begins later this year. The Asian Development Bank (ADB) had projected that prices in Asia would creep up by just 2.1% in 2026. It now warns that figure could exceed 5%, depending on how long the war lasts.</p>
+    </div>
+    <div class="strip amber">📝 Sentence Clinic</div>
+    <div class="clinic">
+
+      <div class="clinic-title">Sentence F</div>
+      <div class="sent-card">
+        <div class="sent-text">"Where governments do not absorb costlier crude, rising energy prices will fuel headline inflation."</div>
+        <button class="analysis-btn" onclick="tog('s6a')">구조 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('s6k')">🇰🇷 한국어 설명</button>
+        <div class="analysis-content" id="s6a">
+          <span class="tag tag-c">Where governments do not absorb costlier crude</span> 조건/장소 부사절 &nbsp;
+          <span class="tag tag-s">rising energy prices</span> 주어 &nbsp;
+          <span class="tag tag-v">will fuel</span> 동사 (비유적) &nbsp;
+          <span class="tag tag-o">headline inflation</span> 목적어
+          <div class="atxt"><strong>"Where …"</strong> = "~하는 경우에, ~하는 나라에서" — 여기서 where는 장소 부사절이지만 조건의 의미도 포함합니다. "in countries where …"와 같은 뜻.<br>
+          <strong>"absorb costlier crude"</strong> = 더 비싼 원유 비용을 (보조금 등으로) 흡수하다.<br>
+          <strong>"fuel headline inflation"</strong> — fuel이 동사로 쓰여 "부채질하다, 촉진시키다"의 의미. headline inflation = 에너지·식품 등 모든 품목을 포함한 전체 소비자 물가 상승률 (↔ core inflation: 에너지·식품 제외).</div>
+        </div>
+        <div class="kr-box" id="s6k">
+          <strong>🇰🇷 조건의 where절 + "headline inflation":</strong><br><br>
+          <em><u>Where governments do not absorb costlier crude</u>, rising energy prices will fuel headline inflation.</em><br><br>
+          <strong>조건의 where:</strong><br>
+          "where" = "in cases where" = "~하는 나라에서/~한 경우에"<br>
+          = "정부가 더 비싼 원유 비용을 흡수하지 않는 경우, 에너지 가격 상승은 전체 물가를 부채질할 것이다"<br><br>
+          <strong>📌 headline inflation vs core inflation:</strong><br>
+          • <strong>Headline inflation</strong> = 에너지, 식품 등 모든 항목을 포함한 전체 소비자물가 상승률 (CPI)<br>
+          • <strong>Core inflation</strong> = 변동성이 큰 에너지와 식품을 제외한 물가 상승률<br>
+          에너지 가격이 급등하면 headline inflation이 크게 오릅니다. 반면 정부가 에너지 가격을 통제(보조금·상한제)하면 headline에 즉각 반영되지 않지만 재정 부담이 커집니다.<br><br>
+          <strong>"will fuel" (동사 fuel):</strong><br>
+          연료(fuel)가 불을 키우듯 → "부채질하다, 촉진시키다". 에너지 기사에서 fuel이라는 단어가 동사로 쓰인 것은 의도적인 말장난(wordplay)이기도 합니다.<br><br>
+          <strong>전체 번역:</strong> "정부가 더 비싼 원유 비용을 흡수하지 않는 곳에서는, 에너지 가격 상승이 전체 물가 상승률을 부채질할 것이다."
+        </div>
+      </div>
+
+      <div class="clinic-title">Sentence G</div>
+      <div class="sent-card">
+        <div class="sent-text">"The war has ensnared roughly a third of global seaborne fertiliser trade, which will drive up food prices, especially when the sowing season begins later this year."</div>
+        <button class="analysis-btn" onclick="tog('s7a')">구조 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('s7k')">🇰🇷 한국어 설명</button>
+        <div class="analysis-content" id="s7a">
+          <span class="tag tag-s">The war</span> 주어 &nbsp;
+          <span class="tag tag-v">has ensnared</span> 현재완료 &nbsp;
+          <span class="tag tag-o">roughly a third of global seaborne fertiliser trade</span> 목적어 &nbsp;
+          <span class="tag tag-c">, which will drive up food prices</span> 관계절 계속적 용법 &nbsp;
+          <span class="tag tag-m">, especially when the sowing season begins later this year</span> 시간 부사절
+          <div class="atxt"><strong>", which"</strong> (계속적 용법) = "그리고 그것은" — 앞 절 전체를 받아 결과를 이어 설명합니다.<br>
+          <strong>"drive up"</strong> = 끌어올리다, 상승시키다.</div>
+        </div>
+        <div class="kr-box" id="s7k">
+          <strong>🇰🇷 관계절 계속적 용법 + 비료-에너지 연결:</strong><br><br>
+          <em>… fertiliser trade, <u>which will drive up food prices</u></em> → "비료 무역 — 그리고 이것이 식량 가격을 끌어올릴 것이다"<br><br>
+          <strong>📌 에너지-비료-식량 도미노:</strong><br>
+          에너지 위기 → 천연가스 부족 → 질소 비료 생산 차질 → 비료 가격 급등 → 식량 가격 상승<br>
+          비료(특히 질소 비료)는 천연가스를 원료로 만들어집니다. 이 도미노 효과가 기사의 핵심 인과 관계입니다.<br><br>
+          <strong>전체 번역:</strong> "이 전쟁은 전 세계 해상 비료 무역의 약 3분의 1을 얽어매 버렸으며, 이는 식량 가격을 끌어올릴 것이다 — 특히 올해 후반 파종 철이 시작될 때."
+        </div>
+      </div>
+
+      <div class="clinic-title">Sentence H</div>
+      <div class="sent-card">
+        <div class="sent-text">"If rising prices are an economics problem for Asian policymakers, the availability of fuel is one of politics and geography: a third big problem for Asia."</div>
+        <button class="analysis-btn" onclick="tog('s8a')">구조 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('s8k')">🇰🇷 한국어 설명</button>
+        <div class="analysis-content" id="s8a">
+          <span class="tag tag-c">If rising prices are an economics problem for Asian policymakers</span> 조건 부사절 (대조 기능) &nbsp;
+          <span class="tag tag-s">the availability of fuel</span> 주절 주어 &nbsp;
+          <span class="tag tag-v">is</span> 동사 &nbsp;
+          <span class="tag tag-o">one of politics and geography</span> 보어 &nbsp;
+          <span class="tag tag-c">: a third big problem for Asia</span> 콜론 — 동격/부연
+          <div class="atxt"><strong>if절 = 대조적 조건:</strong> "~이 A라면, ~은 B다" 패턴으로 두 문제를 대비시킵니다.<br>
+          <strong>"one of politics and geography"</strong> = "정치와 지리의 문제" — one은 problem을 대신.<br>
+          <strong>콜론(:)</strong> = 앞 내용의 부연/설명. "a third big problem for Asia"로 구체화.</div>
+        </div>
+        <div class="kr-box" id="s8k">
+          <strong>🇰🇷 대조의 if절 + 콜론 구문:</strong><br><br>
+          <em><u>If rising prices are an economics problem</u> …, <u>the availability of fuel is one of politics and geography</u>: a third big problem for Asia.</em><br><br>
+          이 if절은 <strong>조건</strong>이라기보다는 <strong>대조</strong>를 표현합니다.<br>
+          = "연료 가격 상승이 경제적 문제라면, 연료 가용성은 정치·지리의 문제다"<br>
+          두 가지 서로 다른 성격의 위기를 세련되게 대비시키는 문장 구조입니다.<br><br>
+          <strong>"one of politics and geography":</strong><br>
+          one = problem (앞에 나온 명사 대체). 연료를 구할 수 있느냐의 문제는 단순한 경제 계산이 아니라, 어느 나라와 동맹인지(정치), 지리적으로 어디에 있는지(지리)에 달려 있다는 뜻입니다.<br><br>
+          <strong>콜론 뒤 "a third big problem":</strong><br>
+          기사가 제시하는 세 번째 위기임을 명시적으로 번호 매기며 구조화합니다.<br>
+          (1st risk: 연료가격 상승 / 2nd risk: 재정 부담 / 3rd risk: 연료 가용성)<br><br>
+          <strong>전체 번역:</strong> "연료 가격 상승이 아시아 정책 입안자들에게 경제적 문제라면, 연료의 가용성은 정치와 지리의 문제다: 아시아의 세 번째 큰 위기."
+        </div>
+      </div>
+    </div><!-- /clinic -->
+
+    <div class="questions">
+      <div class="q-header">Comprehension · Q7–Q8</div>
+      <div class="question">
+        <div class="q-num">Q7. What does the article say about fertiliser and food prices?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'correct')">(a) The war has disrupted roughly a third of global seaborne fertiliser trade, threatening food prices.</button>
+          <button class="choice" onclick="mc(this,'wrong')">(b) Fertiliser supply is largely unaffected because it travels by land.</button>
+          <button class="choice" onclick="mc(this,'wrong')">(c) Food prices are relatively stable because Asian governments are subsidising fertiliser.</button>
+          <button class="choice" onclick="mc(this,'wrong')">(d) The ADB projects food price inflation will fall to 2.1% due to government action.</button>
+        </div><div class="fb"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q8. The article mentions three big risks to Asian economies. What are they?</div>
+        <div style="margin-bottom:8px;"><strong style="font-size:13px;color:#1a3a5c;">1)</strong> <input class="short-line" placeholder="첫 번째 리스크..."></div>
+        <div style="margin-bottom:8px;"><strong style="font-size:13px;color:#1a3a5c;">2)</strong> <input class="short-line" placeholder="두 번째 리스크..."></div>
+        <div style="margin-bottom:8px;"><strong style="font-size:13px;color:#1a3a5c;">3)</strong> <input class="short-line" placeholder="세 번째 리스크..."></div>
+        <button class="check-btn" onclick="rev('q8rev')">Show Answer</button>
+        <div class="reveal" id="q8rev"><strong>1)</strong> Rising fuel prices — potentially causing a stagflationary spiral<br><strong>2)</strong> Government balance-sheet pressures — fiscal deficits, subsidies, currency risks<br><strong>3)</strong> Fuel availability / scarcity — political and geographic problem; some countries hold only ~3 weeks of reserves</div>
+      </div>
+    </div>
+    <div class="next-wrap"><button class="next-btn" onclick="secTab(4)">Next: §4 →</button></div>
+  </div><!-- /sec3 -->
+
+
+  <!-- ═══ SECTION 4 · Para 8–9 ═══ -->
+  <div class="sec-panel" id="sec4">
+    <div class="strip">Section 4 · Paragraphs 8–9 · Fuel Scarcity &amp; Aviation</div>
+    <div class="article-block">
+      <p>Along with Japan's 254 days of fuel reserves, estimates suggest that China has enough to cover 100 days. Both have started to tap those reserves to ease the strain. But analysis from Kpler, a data firm, suggests the situation is precarious in other parts of Asia. It estimates that the Philippines, Vietnam, and Thailand hold just enough onshore oil supplies to cover about three weeks of normal demand.</p>
+      <p>The looming shortages are already upending entire sectors. Aviation and tourism may be the hardest hit. China and South Korea have imposed limits on jet-fuel exports from their refineries. Airlines across the region have reduced flights. Over the past week, around half of all cancellations globally were flights originating from airports in Asia, according to data from FlightAware, a tracker. Air New Zealand has cancelled 1,100 flights. Governments may intervene with more drastic action. Ferdinand Marcos junior, the Philippines' president, has warned that grounding planes is a "distinct possibility".</p>
+    </div>
+    <div class="strip amber">📝 Sentence Clinic</div>
+    <div class="clinic">
+
+      <div class="clinic-title">Sentence I</div>
+      <div class="sent-card">
+        <div class="sent-text">"Analysis from Kpler, a data firm, suggests the situation is precarious in other parts of Asia. It estimates that the Philippines, Vietnam, and Thailand hold just enough onshore oil supplies to cover about three weeks of normal demand."</div>
+        <button class="analysis-btn" onclick="tog('s9a')">구조 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('s9k')">🇰🇷 한국어 설명</button>
+        <div class="analysis-content" id="s9a">
+          <span class="tag tag-s">Analysis from Kpler</span> 주어 &nbsp;
+          <span class="tag tag-m">, a data firm,</span> 동격어구 &nbsp;
+          <span class="tag tag-v">suggests</span> 헤징 동사 &nbsp;
+          <span class="tag tag-c">the situation is precarious …</span> 명사절 목적어 &nbsp;
+          <span class="tag tag-v">estimates</span> 헤징 동사 &nbsp;
+          <span class="tag tag-c">that … hold just enough … to cover about three weeks</span> 명사절
+          <div class="atxt"><strong>"suggests" / "estimates"</strong> = 헤징 동사. "shows" / "proves"보다 약한 표현 — 해석이지 증명이 아님을 시사.<br>
+          <strong>"just enough … to cover"</strong> = ~를 커버하기에 딱 충분한. to부정사(결과·정도).</div>
+        </div>
+        <div class="kr-box" id="s9k">
+          <strong>🇰🇷 헤징 동사 "suggests" / "estimates":</strong><br><br>
+          저널리즘에서 데이터를 인용할 때 동사의 강도:<br>
+          <strong>proves / confirms</strong> (가장 강) → <strong>shows / indicates</strong> → <strong>suggests / estimates</strong> (가장 약)<br><br>
+          "suggests"는 "이렇게 해석될 수 있다"는 뉘앙스. 기자가 데이터의 한계를 인정하고 독자에게 판단 여지를 남기는 전문적 표현입니다.<br><br>
+          <strong>전체 번역:</strong> "데이터 업체 Kpler의 분석에 따르면, 아시아 다른 지역의 상황은 불안하다. Kpler는 필리핀, 베트남, 태국이 정상 수요 약 3주치를 충당하기에 딱 충분한 육상 비축유만 보유하고 있다고 추산한다."
+        </div>
+      </div>
+    </div><!-- /clinic -->
+
+    <div class="questions">
+      <div class="q-header">Comprehension · Q9–Q10</div>
+      <div class="question">
+        <div class="q-num">Q9. Why is the situation described as "precarious" for the Philippines, Vietnam, and Thailand?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong')">(a) Their governments have no policy for dealing with energy shocks.</button>
+          <button class="choice" onclick="mc(this,'correct')">(b) They hold just enough onshore oil for about three weeks of normal demand.</button>
+          <button class="choice" onclick="mc(this,'wrong')">(c) They rely entirely on Russian energy supplies, which have been cut off.</button>
+          <button class="choice" onclick="mc(this,'wrong')">(d) Their currencies have already collapsed due to speculative attacks.</button>
+        </div><div class="fb"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q10. The article says "aviation and tourism may be the hardest hit." Name at least TWO specific examples.</div>
+        <div style="margin-bottom:8px;"><strong style="font-size:13px;color:#1a3a5c;">1)</strong> <input class="short-line" placeholder="..."></div>
+        <div style="margin-bottom:8px;"><strong style="font-size:13px;color:#1a3a5c;">2)</strong> <input class="short-line" placeholder="..."></div>
+        <button class="check-btn" onclick="rev('q10rev')">Show Answer</button>
+        <div class="reveal" id="q10rev">Any two of:<br>• China and South Korea imposed limits on jet-fuel exports<br>• Airlines across the region have reduced flights<br>• ~Half of all global cancellations were from Asian airports<br>• Air New Zealand cancelled 1,100 flights<br>• Philippines president warned that grounding planes is a "distinct possibility"</div>
+      </div>
+    </div>
+    <div class="next-wrap"><button class="next-btn" onclick="secTab(5)">Next: §5 →</button></div>
+  </div><!-- /sec4 -->
+
+
+  <!-- ═══ SECTION 5 · Para 10–12 ═══ -->
+  <div class="sec-panel" id="sec5">
+    <div class="strip">Section 5 · Paragraphs 10–12 · Energy Policy Shifts &amp; Political Risk</div>
+    <div class="article-block">
+      <p>Combined with disruptions to other inputs, such as helium and aluminium, the energy shock could sap Asia's economic growth. The ADB predicts that South-East Asia would be hit the hardest with growth rates potentially 2.3 percentage points lower, if the war drags on. In South Asia the bank predicts that growth could fall by 0.8 percentage points. The slowdown would have far-reaching effects: <span class="art-u">Asia is the global economy's factory floor</span>.</p>
+      <p>Expect a bigger push into alternative energy. <span class="art-u">Solar is being rolled out</span>, but that drive could speed up. Many more electric vehicles could start zipping around the cities of South-East Asia. Nuclear power will also get a second wind. This week Vietnam said it will build a nuclear power plant with Russia. But Asia will also fall back to a familiar, dirty source of energy: coal. Japan's government has approved a return to full capacity for coal power plants, lifting a restriction meant to limit emissions. Indian officials worried about electricity demands in the summer have told a coal-fired electricity plant in the state of Gujarat to restart operations.</p>
+      <p>The push towards coal is driven by concerns about political stability. Asians are sensitive to energy prices and <span class="art-u">willing to take to the streets</span> over them: transport workers in the Philippines have already launched protests. During the energy shock of 2022, when gas prices soared after Russia invaded Ukraine, political turmoil unfolded in South Asia. In the year to October 2022, around a quarter of all protests in the region were related to food and energy, according to an estimate by Friedrich-Ebert-Stiftung, a German think-tank. After analysing social unrest across 101 developing countries between 2000 and 2020, researchers at the IMF found a clear association between fuel-price increases and protests. These demonstrations can be revolutionary: riots in Sri Lanka, fuelled by high energy prices, contributed in large measure to the government's ousting in 2022. <span class="art-u">What has begun as an energy shock could become a political one.</span> ■</p>
+    </div>
+    <div class="strip amber">📝 Sentence Clinic</div>
+    <div class="clinic">
+
+      <div class="clinic-title">Sentence J</div>
+      <div class="sent-card">
+        <div class="sent-text">"The slowdown would have far-reaching effects: Asia is the global economy's factory floor."</div>
+        <button class="analysis-btn" onclick="tog('s10a')">구조 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('s10k')">🇰🇷 한국어 설명</button>
+        <div class="analysis-content" id="s10a">
+          <span class="tag tag-s">The slowdown</span> 주어 &nbsp;
+          <span class="tag tag-v">would have</span> 조동사 (가정적 미래) &nbsp;
+          <span class="tag tag-o">far-reaching effects</span> 목적어 &nbsp;
+          <span class="tag tag-c">: Asia is the global economy's factory floor</span> 콜론 — 이유/근거
+          <div class="atxt"><strong>"far-reaching"</strong> = 광범위한, 영향이 멀리까지 미치는.<br>
+          <strong>콜론(:)</strong> = 앞 주장의 이유·근거. "왜 광범위한 영향인가?" → "아시아가 세계의 공장 바닥이기 때문".<br>
+          <strong>은유 "factory floor"</strong> = 생산 현장 (임원실 대비). 아시아 = 세계가 소비하는 제품을 실제로 만드는 곳.</div>
+        </div>
+        <div class="kr-box" id="s10k">
+          <strong>🇰🇷 은유(Metaphor): "Asia is the global economy's factory floor"</strong><br><br>
+          factory floor = 공장의 실제 생산 현장. 이 은유가 전달하는 두 가지 의미:<br>
+          1️⃣ <strong>역할:</strong> 아시아는 세계가 소비하는 제품을 실제로 만들어내는 곳<br>
+          2️⃣ <strong>취약성:</strong> 생산 현장은 에너지·원자재에 직접 의존 → 에너지가 끊기면 생산이 멈춤<br><br>
+          <strong>콜론(:) 기능:</strong> 콜론 앞 = 주장, 콜론 뒤 = 이유/근거<br><br>
+          <strong>전체 번역:</strong> "이 경기 둔화는 광범위한 영향을 미칠 것이다: 아시아가 세계 경제의 공장 바닥이기 때문이다."
+        </div>
+      </div>
+
+      <div class="clinic-title">Sentence K</div>
+      <div class="sent-card">
+        <div class="sent-text">"Japan's government has approved a return to full capacity for coal power plants, lifting a restriction meant to limit emissions."</div>
+        <button class="analysis-btn" onclick="tog('s11a')">구조 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('s11k')">🇰🇷 한국어 설명</button>
+        <div class="analysis-content" id="s11a">
+          <span class="tag tag-s">Japan's government</span> 주어 &nbsp;
+          <span class="tag tag-v">has approved</span> 현재완료 &nbsp;
+          <span class="tag tag-o">a return to full capacity for coal power plants</span> 목적어 &nbsp;
+          <span class="tag tag-p">, lifting a restriction meant to limit emissions</span> 분사구문 (결과/부연)
+          <div class="atxt"><strong>분사구문 ", lifting …"</strong> = 앞 행동의 결과/부수 상황을 표현. "그 결과 제한을 해제하면서".<br>
+          <strong>"meant to limit emissions"</strong> = 배출을 제한하기 위해 만들어진 → 과거분사 meant (수동): be meant to = ~하도록 의도된.</div>
+        </div>
+        <div class="kr-box" id="s11k">
+          <strong>🇰🇷 결과의 분사구문 + "meant to":</strong><br><br>
+          <em>… has approved a return to full capacity for coal power plants, <u>lifting a restriction meant to limit emissions</u>.</em><br><br>
+          <strong>분사구문 ", lifting":</strong><br>
+          주절 행동(석탄 발전소 완전 가동 승인)의 결과로 발생하는 상황(배출 제한 해제)을 이어 표현합니다.<br>
+          = "…를 승인하면서, 그 결과 배출 제한 규정을 해제했다"<br><br>
+          <strong>"meant to limit emissions" (과거분사 수식):</strong><br>
+          a restriction <strong>meant to</strong> limit = "배출을 제한하도록 의도된 규정"<br>
+          "be meant to do" = ~하도록 의도/설계되다 (수동).<br>
+          ✅ <em>a rule meant to protect consumers</em> = 소비자 보호를 위해 만든 규정<br><br>
+          <strong>📌 배경 — 일본의 석탄 발전 딜레마:</strong><br>
+          일본은 2050년 탄소중립을 목표로 석탄 발전을 단계적으로 줄이는 정책을 추진해왔습니다. 그러나 에너지 위기 상황에서 전력 수급 안정을 위해 이 제한을 해제하고 석탄 발전소를 풀가동하기로 결정한 것입니다. 에너지 안보 vs 기후 정책 사이의 전형적인 트레이드오프(trade-off)입니다.<br><br>
+          <strong>전체 번역:</strong> "일본 정부는 석탄 화력발전소를 전면 가동하도록 승인했으며, 이로써 배출량 제한을 위해 만들어진 규제를 해제했다."
+        </div>
+      </div>
+
+      <div class="clinic-title">Sentence L</div>
+      <div class="sent-card">
+        <div class="sent-text">"These demonstrations can be revolutionary: riots in Sri Lanka, fuelled by high energy prices, contributed in large measure to the government's ousting in 2022."</div>
+        <button class="analysis-btn" onclick="tog('s12a')">구조 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('s12k')">🇰🇷 한국어 설명</button>
+        <div class="analysis-content" id="s12a">
+          <span class="tag tag-s">These demonstrations</span> 주어 &nbsp;
+          <span class="tag tag-v">can be</span> 조동사 + 동사 &nbsp;
+          <span class="tag tag-o">revolutionary</span> 보어 &nbsp;
+          <span class="tag tag-c">: riots in Sri Lanka</span> 콜론 — 구체적 사례 &nbsp;
+          <span class="tag tag-p">, fuelled by high energy prices,</span> 삽입 분사구 (수동) &nbsp;
+          <span class="tag tag-v">contributed</span> 동사 &nbsp;
+          <span class="tag tag-m">in large measure</span> 정도 부사구 &nbsp;
+          <span class="tag tag-m">to the government's ousting in 2022</span> 전치사구
+          <div class="atxt"><strong>콜론(:)</strong> = 앞 주장(시위가 혁명적일 수 있다)의 구체적 사례를 제시.<br>
+          <strong>삽입 분사구 ", fuelled by …,"</strong> = 수동 분사구(과거분사). 폭동이 높은 에너지 가격에 의해 촉발된 것임을 괄호적으로 설명.<br>
+          <strong>"in large measure"</strong> = 상당 부분, 크게. = "to a large extent".</div>
+        </div>
+        <div class="kr-box" id="s12k">
+          <strong>🇰🇷 콜론 + 삽입 분사구 + "in large measure":</strong><br><br>
+          <em>These demonstrations can be revolutionary: riots in Sri Lanka, <u>fuelled by high energy prices</u>, contributed <u>in large measure</u> to the government's ousting in 2022.</em><br><br>
+          <strong>콜론 뒤 구체 사례:</strong><br>
+          "시위는 혁명적일 수 있다" → (콜론) → "예: 스리랑카 폭동이 정부 붕괴에 기여했다"<br><br>
+          <strong>삽입 분사구 ", fuelled by high energy prices,":</strong><br>
+          폭동(riots)이 에너지 가격에 의해 "촉발된(fuelled)" 것을 설명하는 삽입구. 과거분사 수동.<br>
+          동사 fuel이 여기서 다시 등장 — 에너지 기사에서 의도적으로 반복 사용된 단어.<br><br>
+          <strong>"in large measure":</strong><br>
+          = "to a large extent" = 상당 부분, 크게<br>
+          헤징 표현의 일종 — "전적으로(entirely)"가 아닌 "크게 기여했다"고 표현하여 다른 요인도 있었음을 인정합니다.<br><br>
+          <strong>📌 배경 — 2022년 스리랑카 위기:</strong><br>
+          2022년, 스리랑카는 외화 부족으로 연료 수입이 막히면서 하루 10~13시간씩 정전이 계속됐습니다. 에너지 가격 폭등과 경제 위기에 분노한 시민들이 대통령궁을 점거했고, 고타바야 라자팍사 대통령은 해외 도피 후 사임했습니다. 이것이 기사에서 말하는 "government's ousting"(정부 축출)입니다.<br><br>
+          <strong>전체 번역:</strong> "이러한 시위는 혁명적일 수 있다: 높은 에너지 가격에 촉발된 스리랑카의 폭동은 2022년 정부 축출에 상당 부분 기여했다."
+        </div>
+      </div>
+
+      <div class="clinic-title">Sentence M</div>
+      <div class="sent-card">
+        <div class="sent-text">"What has begun as an energy shock could become a political one."</div>
+        <button class="analysis-btn" onclick="tog('s13a')">구조 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('s13k')">🇰🇷 한국어 설명</button>
+        <div class="analysis-content" id="s13a">
+          <span class="tag tag-s">What has begun as an energy shock</span> 주어 (명사절) &nbsp;
+          <span class="tag tag-v">could become</span> 조동사 + 원형 &nbsp;
+          <span class="tag tag-o">a political one</span> 보어 (one = shock)
+          <div class="atxt"><strong>"What has begun as …"</strong> — 관계대명사 What이 이끄는 명사절이 주어. "~로 시작된 것이"<br>
+          <strong>"a political one"</strong> — one은 앞서 나온 shock을 대신. = "a political shock"<br>
+          <strong>"could become"</strong> — 헤징. 단정하지 않고 가능성을 열어두는 마지막 클로징 문장.</div>
+        </div>
+        <div class="kr-box" id="s13k">
+          <strong>🇰🇷 What절 주어 + 이코노미스트의 클로징 전략:</strong><br><br>
+          <em><u>What has begun as an energy shock</u> could become a political one.</em><br>
+          → "에너지 충격으로 시작된 것이 정치적 충격이 될 수도 있다."<br><br>
+          <strong>What절 주어:</strong><br>
+          What = the thing that. "에너지 쇼크로 시작된 것"이 문장 전체의 주어.<br>
+          ✅ <em>What matters is …</em> = 중요한 것은…<br>
+          ✅ <em>What began as X could become Y</em> = X로 시작된 것이 Y가 될 수 있다<br><br>
+          <strong>마지막 문장의 저널리즘 기법:</strong><br>
+          이코노미스트 기사는 전형적으로 마지막 문장에 기사 전체의 핵심 경고를 간결하게 담습니다. "could become"이라는 헤징을 쓰며 단정을 피하면서도, 독자에게 강렬한 여운을 남깁니다.<br><br>
+          <strong>전체 번역:</strong> "에너지 충격으로 시작된 것이 정치적 충격이 될 수도 있다."
+        </div>
+      </div>
+    </div><!-- /clinic -->
+
+    <div class="questions">
+      <div class="q-header">Comprehension · Q11–Q15</div>
+      <div class="question">
+        <div class="q-num">Q11. <em>"<u>Asia is the global economy's factory floor.</u>"</em> What does this metaphor imply about Asia's role — and its vulnerability?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong')">(a) Asia is the wealthiest and most powerful region in the global economy.</button>
+          <button class="choice" onclick="mc(this,'correct')">(b) Asia is where most of the world's goods are made, but it depends on energy inputs it does not control.</button>
+          <button class="choice" onclick="mc(this,'wrong')">(c) Asian workers earn less than workers in other regions.</button>
+          <button class="choice" onclick="mc(this,'wrong')">(d) Asia's economy will collapse without an immediate military solution to the conflict.</button>
+        </div><div class="fb"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q12. What does the article say about the energy shock's likely impact on future energy policy?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong')">(a) Asian nations will transition to renewables within five years.</button>
+          <button class="choice" onclick="mc(this,'wrong')">(b) Coal will disappear as solar and nuclear replace it across Asia.</button>
+          <button class="choice" onclick="mc(this,'correct')">(c) Both cleaner energy and dirtier fuel will expand in parallel.</button>
+          <button class="choice" onclick="mc(this,'wrong')">(d) Oil consumption in Asia is expected to fall permanently.</button>
+        </div><div class="fb"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q13. <em>"<u>Solar is being rolled out</u>, but that drive could speed up."</em> What does "rolled out" mean?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong')">(a) Solar panels are being physically moved to new locations.</button>
+          <button class="choice" onclick="mc(this,'correct')">(b) Solar energy is gradually being introduced and deployed across the region.</button>
+          <button class="choice" onclick="mc(this,'wrong')">(c) Solar investment plans have been cancelled and withdrawn.</button>
+          <button class="choice" onclick="mc(this,'wrong')">(d) Solar power has been rejected as too expensive to be practical.</button>
+        </div><div class="fb"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q14. <em>"Asians are sensitive to energy prices and <u>willing to take to the streets</u> over them."</em> What does "take to the streets" mean?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong')">(a) People in Asia prefer to commute by road rather than public transport.</button>
+          <button class="choice" onclick="mc(this,'correct')">(b) People protest publicly over rising energy prices, threatening political stability.</button>
+          <button class="choice" onclick="mc(this,'wrong')">(c) Asian governments will build more roads to ease transport disruption.</button>
+          <button class="choice" onclick="mc(this,'wrong')">(d) Energy prices are rising faster in cities than in rural areas.</button>
+        </div><div class="fb"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q15. <em>"<u>What has begun as an energy shock could become a political one.</u>"</em> What does this final sentence mean?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong')">(a) Governments will fall because of corruption in the energy sector.</button>
+          <button class="choice" onclick="mc(this,'correct')">(b) Sustained high energy prices can trigger social unrest and political instability.</button>
+          <button class="choice" onclick="mc(this,'wrong')">(c) Asian countries will form a new political bloc to counter the Gulf states.</button>
+          <button class="choice" onclick="mc(this,'wrong')">(d) The war will spread beyond the Gulf and become a global conflict.</button>
+        </div><div class="fb"></div>
+      </div>
+    </div>
+    <div class="next-wrap"><button class="next-btn" onclick="secTab(6)">Next: §6 Language →</button></div>
+  </div><!-- /sec5 -->
+
+
+  <!-- ═══ SECTION 6 · Language Focus ═══ -->
+  <div class="sec-panel" id="sec6">
+    <div class="strip purple">Section 6 · Language Focus — Hedging Language · 불확실성 표현</div>
+    <div class="questions">
+      <div style="background:#f8f4ff;border:1px solid #c8b0e0;border-radius:6px;padding:12px 16px;margin-bottom:16px;font-size:13.5px;line-height:1.8;color:#3a0060;">
+        <strong>Why this matters:</strong> In journalism, not everything is a proven fact. Reporters use <strong>hedging expressions</strong> to signal when something is a prediction, an estimate, or an unconfirmed report. Recognising these signals helps you read critically and judge how confident the writer really is.
+      </div>
+      <div class="tbl-wrap">
+        <table class="hedge-table">
+          <thead><tr><th style="width:18%;">Expression</th><th style="width:42%;">Sentence from Article</th><th style="width:40%;">What it signals</th></tr></thead>
+          <tbody>
+            <tr><td><span class="hedge-term">could</span></td><td><em>"…potentially causing a stagflationary spiral."</em></td><td>Possibility — may or may not happen; writer does not commit.</td></tr>
+            <tr><td><span class="hedge-term">may</span></td><td><em>"Aviation and tourism may be the hardest hit."</em></td><td>Soft prediction — avoids stating this as fact.</td></tr>
+            <tr><td><span class="hedge-term">potentially</span></td><td><em>"…potentially causing a stagflationary spiral."</em></td><td>Worst-case scenario presented with caution; not a certainty.</td></tr>
+            <tr><td><span class="hedge-term">suggests</span></td><td><em>"Analysis from Kpler suggests the situation is precarious."</em></td><td>Interpretation, not proof — weaker than "shows" or "proves".</td></tr>
+            <tr><td><span class="hedge-term">estimates</span></td><td><em>"Kpler estimates that the Philippines… hold just enough…"</em></td><td>Approximate figure — not a confirmed measurement.</td></tr>
+            <tr><td><span class="hedge-term">is said to be</span></td><td><em>"Japan's finance ministry is said to be considering…"</em></td><td>Unconfirmed / indirect source — writer cannot vouch for it.</td></tr>
+            <tr><td><span class="hedge-term">warns</span></td><td><em>"The ADB warns that figure could exceed 5%."</em></td><td>Not hedging — signals urgency vs. neutral "says".</td></tr>
+            <tr><td><span class="hedge-term">depending on</span></td><td><em>"…could exceed 5%, depending on how long the war lasts."</em></td><td>Attaches a condition — makes the claim explicitly contingent.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="font-size:13.5px;color:#333;margin:20px 0 14px;font-weight:700;">Compare the two sentences in each pair. Analyse the difference in meaning and effect on the reader.</p>
+
+      <div class="pair-box">
+        <div class="pair-label">Pair 1 — says vs warns</div>
+        <div class="pair-row">
+          <div class="pair-sent"><span class="sent-label">Sentence A</span>"The ADB says prices could exceed 5%."</div>
+          <div class="pair-sent"><span class="sent-label">Sentence B (article)</span>"The ADB warns prices could exceed 5%."</div>
+        </div>
+        <textarea class="short-ans" placeholder="What is the difference in meaning and effect?"></textarea>
+        <button class="check-btn" onclick="rev('p1rev')">Show Suggested Answer</button>
+        <div class="reveal" id="p1rev">"<strong>Says</strong>"는 중립적으로 정보를 전달합니다. "<strong>Warns</strong>"는 긴박함과 경각심을 더해, ADB가 이 결과를 심각한 위협으로 본다는 뉘앙스를 줍니다. 동일한 사실도 어떤 동사를 선택하느냐에 따라 독자의 감정적 반응이 달라집니다.</div>
+      </div>
+
+      <div class="pair-box">
+        <div class="pair-label">Pair 2 — direct claim vs double hedging</div>
+        <div class="pair-row">
+          <div class="pair-sent"><span class="sent-label">Sentence A</span>"The situation in the Philippines is precarious."</div>
+          <div class="pair-sent"><span class="sent-label">Sentence B (article)</span>"Analysis from Kpler suggests the situation may be precarious."</div>
+        </div>
+        <textarea class="short-ans" placeholder="What is the difference in meaning and effect?"></textarea>
+        <button class="check-btn" onclick="rev('p2rev')">Show Suggested Answer</button>
+        <div class="reveal" id="p2rev">문장 A는 상황을 확인된 사실로 단정합니다. 문장 B는 "<strong>suggests</strong>" + "<strong>may</strong>"로 이중 헤징합니다. 이렇게 하면 기자는 과장을 피하면서 독자가 스스로 판단하도록 유도할 수 있습니다. 이것이 신뢰할 수 있는 저널리즘의 특징입니다.</div>
+      </div>
+
+      <div class="pair-box">
+        <div class="pair-label">Pair 3 — direct knowledge vs indirect source</div>
+        <div class="pair-row">
+          <div class="pair-sent"><span class="sent-label">Sentence A</span>"Japan is considering intervening in the oil-futures market."</div>
+          <div class="pair-sent"><span class="sent-label">Sentence B (article)</span>"Japan's finance ministry is said to be considering intervening."</div>
+        </div>
+        <textarea class="short-ans" placeholder="What is the difference in meaning and effect?"></textarea>
+        <button class="check-btn" onclick="rev('p3rev')">Show Suggested Answer</button>
+        <div class="reveal" id="p3rev">문장 A는 기자가 이 사실을 직접 확인한 것처럼 제시합니다. 문장 B의 "<strong>is said to be</strong>"는 미확인 또는 간접 출처에서 나온 정보임을 신호합니다. 독자는 이 표현을 보면 '소문이나 익명 출처의 정보'로 받아들이고, 더 신중하게 판단해야 한다는 신호를 받습니다.</div>
+      </div>
+    </div>
+    <div class="next-wrap"><button class="next-btn" onclick="secTab(0)">← D. Countries 로 돌아가기</button></div>
+  </div><!-- /sec6 -->
+
+</div><!-- /top-reading -->
+</div><!-- /app -->
+
+<script>
+function topTab(id, btn) {
+  document.querySelectorAll('.top-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.top-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('top-' + id).classList.add('active');
+}
+function preTab(id, btn) {
+  document.querySelectorAll('.pre-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.pre-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('pre-' + id).classList.add('active');
+}
+function secTab(n) {
+  document.querySelectorAll('.sec-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.sec-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('sec' + n).classList.add('active');
+  document.querySelectorAll('.sec-btn')[n].classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function tog(id) {
+  const el = document.getElementById(id);
+  if (el) el.classList.toggle('open');
+}
+function mc(btn, result) {
+  const group = btn.closest('.question');
+  if (group.querySelector('.choice.correct')) return;
+  if (btn.classList.contains('eliminated')) return;
+  const fb = group.querySelector('.fb');
+  if (result === 'correct') {
+    btn.classList.add('correct');
+    group.querySelectorAll('.choice').forEach(b => { b.disabled = true; });
+    if (fb) { fb.textContent = '✅ Correct!'; fb.className = 'fb ok'; }
+  } else {
+    btn.classList.add('eliminated');
+    btn.disabled = true;
+    if (fb) { fb.textContent = '❌ Not quite — try another option.'; fb.className = 'fb no'; }
+  }
+}
+function tfng(prefix, correct, clicked) {
+  const map = { T: 'T', F: 'F', NG: 'N' };
+  const clickedBtn = document.getElementById(prefix + map[clicked]);
+  if (!clickedBtn || clickedBtn.disabled) return;
+  ['T','F','N'].forEach(k => {
+    const b = document.getElementById(prefix + k);
+    if (b) b.disabled = true;
+  });
+  if (clicked === correct) {
+    clickedBtn.classList.add('correct');
+  } else {
+    clickedBtn.classList.add('wrong');
+    const cb = document.getElementById(prefix + map[correct]);
+    if (cb) cb.classList.add('correct');
+  }
+}
+function chkNum(inpId, correct, fbId, revId) {
+  const inp = document.getElementById(inpId);
+  const fb  = document.getElementById(fbId);
+  const rv  = document.getElementById(revId);
+  if (inp.classList.contains('ok')) return;
+  const val = parseFloat(inp.value);
+  if (isNaN(val)) return;
+  if (val === correct) {
+    inp.classList.add('ok');
+    if (fb) { fb.textContent = '✅ Correct!'; fb.className = 'fb ok'; }
+  } else {
+    inp.classList.remove('no'); void inp.offsetWidth; inp.classList.add('no');
+    if (fb) { fb.textContent = '❌ Not quite — check the two figures in paragraph 3.'; fb.className = 'fb no'; }
+    if (rv) rv.classList.add('open');
+  }
+}
+function rev(id) {
+  const el = document.getElementById(id);
+  if (el) el.classList.toggle('open');
+}
+</script>
+</body>
+</html>
