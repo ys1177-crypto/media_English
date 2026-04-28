@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>It's clear we won't regulate AI for safety — Worksheet</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1a2a4a;--blue:#2563eb;--blue-lt:#dce8f7;--blue-ltr:#f0f5fb;
+  --green:#1a5c3a;--green-lt:#e8f5ee;--green-b:#c4dfd0;
+  --amber:#7c5c1e;--amber-lt:#fdf6e3;
+  --red:#8b2a2a;--red-lt:#fdf0f0;
+  --grey:#64748b;--border:#e2e8f0;
+  --bg:#f4f6fa;--card:#fff;--text:#1e293b;--muted:#64748b;
+  --radius:10px;--shadow:0 1px 6px rgba(37,99,235,.08);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  background:var(--bg);color:var(--text);font-size:15px;line-height:1.7}
+
+/* layout */
+.shell{max-width:860px;margin:0 auto;padding:0 1rem 5rem}
+.topbar{background:var(--navy);color:#e2e8f0;padding:.55rem 1.2rem;
+  font-size:12px;letter-spacing:.04em;display:flex;align-items:center;
+  justify-content:space-between;flex-wrap:wrap;gap:.3rem}
+.topbar strong{color:#fff}
+.art-header{padding:2rem 0 1.2rem;border-bottom:2px solid var(--navy)}
+.art-header .kicker{font-size:11px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--blue);margin-bottom:.5rem}
+.art-header h1{font-size:1.6rem;font-weight:800;line-height:1.22;color:var(--navy);margin-bottom:.5rem}
+.art-header .sub{font-size:.97rem;font-style:italic;color:var(--grey);margin-bottom:.4rem}
+.art-header .byline{font-size:12px;color:var(--muted)}
+
+/* main tabs */
+.tab-nav{display:flex;gap:4px;flex-wrap:wrap;margin:1.2rem 0 0;border-bottom:2px solid var(--border)}
+.tab-btn{padding:.45rem .9rem;font-size:13px;font-weight:600;border:none;background:none;
+  cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;
+  margin-bottom:-2px;border-radius:var(--radius) var(--radius) 0 0;transition:.15s}
+.tab-btn:hover{background:#eef3fb;color:#2a4fa8}
+.tab-btn.active{color:#2a4fa8;border-bottom-color:#2a4fa8;background:#eef3fb}
+.panel{display:none;padding:1.4rem 0}
+.panel.active{display:block}
+
+/* pre-reading inner tabs */
+.pre-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.2rem}
+.pre-tab{padding:.35rem .9rem;font-size:13px;font-weight:600;
+  border:1.5px solid var(--border);border-radius:20px;
+  background:var(--card);cursor:pointer;color:var(--grey);transition:.15s}
+.pre-tab:hover{border-color:var(--blue);color:var(--blue)}
+.pre-tab.active{background:#2a4fa8;color:#fff;border-color:#2a4fa8}
+.pre-section{display:none}
+.pre-section.active{display:block}
+
+/* reading section tabs */
+.sec-nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.2rem}
+.sec-btn{padding:.35rem .8rem;font-size:12px;font-weight:600;
+  border:1.5px solid var(--border);border-radius:20px;
+  background:var(--card);cursor:pointer;color:var(--grey);transition:.15s}
+.sec-btn:hover{border-color:var(--blue);color:var(--blue)}
+.sec-btn.active{background:#2a4fa8;color:#fff;border-color:#2a4fa8}
+.section{display:none}
+.section.active{display:block}
+
+/* cards */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:1.1rem 1.2rem;margin-bottom:1rem;box-shadow:var(--shadow)}
+.card-label{font-size:11px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:.6rem}
+
+/* headline box */
+.headline-box{background:var(--navy);color:#fff;border-radius:var(--radius);
+  padding:1.2rem 1.5rem;margin-bottom:1rem}
+.headline-box h2{font-size:1.25rem;font-weight:800;line-height:1.3;margin-bottom:.4rem}
+.headline-box .h-sub{color:#93c5fd;font-style:italic;font-size:.95rem}
+.headline-box .h-meta{color:#94a3b8;font-size:12px;margin-top:.5rem}
+
+/* bg grid — 2 cards only */
+.bg-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:.6rem}
+@media(max-width:600px){.bg-grid{grid-template-columns:1fr}}
+.bg-card{border-radius:var(--radius);padding:1rem 1.1rem;border:1px solid transparent}
+.bg-card.a{background:#edf3fb;border-color:#c8d9ef}
+.bg-card.b{background:#faf6ed;border-color:#dfd0a0}
+.bg-card.c{background:#edf7f2;border-color:#b0d4bf}
+.bg-card h4{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:.4rem}
+.bg-card p{font-size:13.5px;line-height:1.65}
+
+/* vocab */
+.vocab-item{margin-bottom:1.1rem;padding-bottom:1.1rem;border-bottom:1px solid var(--border)}
+.vocab-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.vocab-sent{font-size:14.5px;margin-bottom:.5rem;line-height:1.7}
+.vocab-sent b{border-bottom:2px solid var(--blue);padding-bottom:1px}
+.vocab-opts{display:flex;gap:8px;flex-wrap:wrap;margin-top:.3rem}
+.vocab-btn{padding:.28rem .75rem;font-size:13px;font-weight:500;
+  border:1.5px solid var(--border);border-radius:20px;
+  cursor:pointer;background:#fff;transition:.15s}
+.vocab-btn:hover{border-color:var(--blue);color:var(--blue)}
+.vocab-btn.v-correct{background:#e8f4ee;border-color:#3a8c5c;color:#1a5c3a;font-weight:700}
+.vocab-btn.v-wrong{background:#fde8e8;border-color:#c04040;color:#7a2020}
+.vocab-btn.v-miss{background:#e8f4ee;border-color:#3a8c5c;color:#1a5c3a;font-weight:700}
+.vocab-ko{display:grid;grid-template-columns:1fr 1fr;gap:.3rem .8rem;margin-top:.5rem;font-size:13px}
+.vocab-ko dt{font-weight:700;color:var(--navy)}
+.vocab-ko dd{color:var(--grey)}
+.submit-row{margin-top:1rem;display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.submit-btn{padding:.5rem 1.3rem;font-size:14px;font-weight:700;
+  background:#2a4fa8;color:#fff;border:none;border-radius:var(--radius);cursor:pointer;transition:.15s}
+.submit-btn:hover{background:var(--navy)}
+.submit-btn:disabled{opacity:.35;cursor:not-allowed}
+.vocab-score{font-size:14px;font-weight:600;color:#1a5c3a;display:none}
+
+/* article body */
+.article-body p{margin-bottom:1rem;line-height:1.8;font-size:14.5px}
+.article-body .pnum{font-size:10px;font-weight:700;color:var(--blue);vertical-align:super;margin-right:3px}
+.ul-phrase{text-decoration:underline;text-decoration-color:#dc2626;
+  text-underline-offset:3px;font-weight:600}
+.article-note{font-size:12px;color:var(--muted);margin-bottom:.7rem;font-style:italic}
+
+/* quote box */
+.q-quote{background:#faf5e8;border-left:3px solid #b8963c;
+  padding:.75rem 1rem;border-radius:0 var(--radius) var(--radius) 0;
+  font-size:14px;line-height:1.7;margin:.5rem 0 .7rem}
+.q-quote .ul{text-decoration:underline;font-weight:700;
+  text-decoration-color:#d97706;text-underline-offset:3px}
+.q-quote .pref{font-size:11px;color:var(--muted);display:block;margin-top:.25rem}
+
+/* MCQ — no box */
+.mcq{margin:.5rem 0}
+.mcq-row{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.mcq-opt{padding:.38rem .5rem;font-size:14px;cursor:pointer;
+  border-radius:6px;transition:.12s;line-height:1.55;display:block}
+.mcq-opt:hover{background:var(--blue-ltr);color:var(--blue)}
+.mcq-opt.correct{background:#e8f4ee;color:#1a5c3a;font-weight:600;border-radius:6px}
+.mcq-opt.wrong{background:#fdf0f0;color:#8b2a2a;border-radius:6px}
+.mcq-opt.show-correct{background:#e8f4ee;color:#1a5c3a;font-weight:600;border-radius:6px}
+.mcq-done .mcq-opt{pointer-events:none}
+@media(max-width:600px){.mcq-row{grid-template-columns:1fr}}
+
+/* sentence clinic */
+.clinic-box{background:#f8fafc;border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem 1.1rem;margin-bottom:.8rem}
+.clinic-box .cl-label{font-size:11px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--blue);margin-bottom:.5rem}
+.clinic-sent{background:#f1f5f9;border-left:3px solid var(--blue);
+  padding:.7rem 1rem;font-style:italic;font-size:14px;
+  border-radius:0 var(--radius) var(--radius) 0;margin:.5rem 0}
+details.cl-detail{border:1px solid var(--border);border-radius:var(--radius);
+  margin:.6rem 0;overflow:hidden}
+details.cl-detail summary{padding:.6rem 1rem;cursor:pointer;font-weight:600;
+  font-size:13px;background:var(--blue-ltr);color:var(--blue);
+  list-style:none;display:flex;justify-content:space-between;align-items:center}
+details.cl-detail summary::after{content:"▾";font-size:13px}
+details.cl-detail[open] summary::after{content:"▴"}
+details.cl-detail summary::-webkit-details-marker{display:none}
+.cl-body{padding:1rem;font-size:14px;line-height:1.8}
+.cl-struct{font-size:13.5px;background:#f4f7fb;border:1px solid #d4dfef;
+  padding:.7rem .9rem;border-radius:6px;margin:.5rem 0;line-height:1.8}
+.cl-struct span.hl{color:var(--blue);font-weight:700}
+.cl-ko{background:#edf4f9;border:1px solid #a8c8de;border-radius:6px;
+  padding:.75rem .9rem;margin:.6rem 0;font-size:13.5px;line-height:1.75}
+.cl-ko strong{color:#1e5a7a}
+
+/* open answer */
+.open-ans{width:100%;border:1px solid var(--border);border-radius:var(--radius);
+  padding:.6rem .8rem;font-size:14px;resize:vertical;min-height:68px;
+  font-family:inherit;background:#fff}
+
+/* fill-in table */
+.fill-tbl{width:100%;border-collapse:collapse;font-size:14px;margin:.5rem 0}
+.fill-tbl th{background:var(--navy);color:#fff;padding:.5rem .75rem;
+  text-align:left;font-size:12px;font-weight:600}
+.fill-tbl td{padding:.5rem .75rem;border-bottom:1px solid var(--border);vertical-align:middle}
+.fill-tbl tr:nth-child(even) td{background:#f7f9fc}
+.fill-tbl .fw{font-weight:700}
+.fill-in{border:none;border-bottom:1.5px solid var(--navy);
+  background:transparent;font-size:13.5px;padding:.1rem .3rem;
+  width:90%;outline:none;font-family:inherit}
+.fill-in:focus{border-bottom-color:var(--blue)}
+
+/* show answer */
+details.ans-d{margin:.6rem 0}
+details.ans-d summary{cursor:pointer;font-size:13px;font-weight:600;
+  color:var(--blue);list-style:none;display:inline-flex;align-items:center;gap:.3rem}
+details.ans-d summary::before{content:"▶";font-size:10px}
+details.ans-d[open] summary::before{content:"▼"}
+details.ans-d summary::-webkit-details-marker{display:none}
+.ans-body{background:#eef6f2;border:1px solid #bdd6c8;
+  border-radius:var(--radius);padding:.85rem 1rem;margin-top:.5rem;
+  font-size:14px;line-height:1.7}
+.ans-tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.ans-tbl th{background:#2d6e4e;color:#fff;padding:.4rem .7rem;text-align:left;font-size:12px}
+.ans-tbl td{padding:.45rem .7rem;border-bottom:1px solid #bbf7d0;vertical-align:top}
+.ans-tbl tr:nth-child(even) td{background:#f2f8f5}
+
+/* T/F/NG */
+.tfng-tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tfng-tbl th{background:var(--navy);color:#fff;padding:.5rem .75rem;
+  text-align:left;font-size:12px}
+.tfng-tbl td{padding:.55rem .75rem;border-bottom:1px solid var(--border);vertical-align:top}
+.tfng-tbl tr:nth-child(even) td{background:var(--blue-ltr)}
+.tfng-btns{display:flex;gap:5px;margin-top:.35rem}
+.tfng-btn{padding:.22rem .65rem;font-size:12px;font-weight:700;
+  border:1.5px solid var(--border);border-radius:6px;cursor:pointer;background:#fff;transition:.12s}
+.tfng-btn:hover{background:var(--blue-ltr);border-color:var(--blue)}
+.tfng-btn.sel-T{background:#e4f2eb;border-color:#3a8c5c;color:#1a5c3a}
+.tfng-btn.sel-F{background:#fde8e8;border-color:#c04040;color:#7a2020}
+.tfng-btn.sel-N{background:#faf2dc;border-color:#b88a30;color:#7c5c1e}
+.tfng-btn.correct-ans{box-shadow:0 0 0 2.5px #3a8c5c}
+.tfng-result{font-size:12px;font-weight:700;margin-left:.4rem;align-self:center}
+.check-btn{margin-top:.6rem;padding:.38rem 1rem;font-size:13px;font-weight:600;
+  background:var(--navy);color:#fff;border:none;border-radius:var(--radius);
+  cursor:pointer;transition:.15s}
+.check-btn:hover{background:#2a4fa8}
+
+/* nav */
+.sec-nav-btns{display:flex;justify-content:space-between;margin-top:1.5rem;
+  padding-top:1rem;border-top:1px solid var(--border)}
+.nav-btn{padding:.45rem 1rem;font-size:13px;font-weight:600;
+  border:1.5px solid var(--border);border-radius:var(--radius);
+  cursor:pointer;background:#fff;color:var(--navy);transition:.15s}
+.nav-btn:hover{background:#2a4fa8;color:#fff;border-color:#2a4fa8}
+.nav-btn:disabled{opacity:.3;cursor:default}
+
+/* q block */
+.q-block{margin-bottom:1.5rem}
+.q-stem{font-weight:600;margin-bottom:.5rem;font-size:14.5px}
+
+.badge{display:inline-block;font-size:11px;font-weight:700;padding:.15rem .55rem;
+  border-radius:20px;letter-spacing:.04em;margin-bottom:.7rem}
+.badge-blue{background:#dce8f7;color:#2a4fa8}
+
+.sec-submit-row{margin-top:1rem;display:flex;align-items:center;flex-wrap:wrap;gap:.8rem}
+.sec-submit-btn{padding:.45rem 1.1rem;font-size:13px;font-weight:700;
+  background:#2a4fa8;color:#fff;border:none;border-radius:var(--radius);cursor:pointer;transition:.15s}
+.sec-submit-btn:hover{background:#1e3a80}
+.sec-submit-btn:disabled{opacity:.35;cursor:not-allowed}
+.mcq-opt.selected{border:1.5px solid #2a4fa8;background:#eef3fb;color:#2a4fa8;font-weight:500}
+hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span><strong>미디어 영어 (Media English)</strong> · Student Activity Sheet · Reading 9</span>
+  <span>The Financial Times · April 16, 2026</span>
+</div>
+
+<div class="shell">
+
+<div class="art-header">
+  <div class="kicker">Opinion · AI &amp; Society</div>
+  <h1>"It's clear we won't regulate AI for safety"</h1>
+  <div class="sub">As usual, governments will barely affect the trends that most affect our lives</div>
+  <div class="byline">Simon Kuper &nbsp;·&nbsp; The Financial Times &nbsp;·&nbsp; April 16, 2026</div>
+</div>
+
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="showTab('pre',this)">📋 Pre-Reading</button>
+  <button class="tab-btn" onclick="showTab('read',this)">📖 Comprehension Questions</button>
+</div>
+
+<!-- ═══════════ PRE-READING ═══════════ -->
+<div id="panel-pre" class="panel active">
+  <div class="pre-tabs">
+    <button class="pre-tab active" onclick="showPre('headline',this)">A. Headline</button>
+    <button class="pre-tab" onclick="showPre('background',this)">B. Background</button>
+    <button class="pre-tab" onclick="showPre('vocab',this)">C. Vocabulary</button>
+  </div>
+
+  <!-- A -->
+  <div id="pre-headline" class="pre-section active">
+    <div class="card">
+      <div class="headline-box">
+        <h2>"It's clear we won't regulate AI for safety"</h2>
+        <div class="h-sub">As usual, governments will barely affect the trends that most affect our lives</div>
+        <div class="h-meta">Simon Kuper · The Financial Times · April 16, 2026</div>
+      </div>
+      <p style="font-size:14px;color:#374151;margin-bottom:1rem">헤드라인과 서브헤드라인을 읽고 아래 질문에 대해 생각해 보세요.</p>
+      <div class="q-block">
+        <div class="q-stem">1. The headline makes a strong claim: "it's clear we won't regulate AI for safety." What does the word "clear" signal about the writer's tone? Does this sound like an opinion piece or a news report?</div>
+        <textarea class="open-ans" placeholder="Your thoughts…"></textarea>
+      </div>
+      <div class="q-block" style="margin-bottom:0">
+        <div class="q-stem">2. Using your imagination, describe a scene from your daily life in 2030 that unregulated AI might change.</div>
+        <textarea class="open-ans" placeholder="Your thoughts…"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- B -->
+  <div id="pre-background" class="pre-section">
+    <div class="card">
+      <div class="card-label">B. Background Knowledge — 알아두면 도움이 되는 배경 지식</div>
+      <div class="bg-grid">
+        <div class="bg-card a">
+          <h4>🚦 Regulatory Lag — 규제의 시차 문제</h4>
+          <p>When a new technology appears, governments are often slow to make rules about it. This gap between the technology and the rules is called <em>regulatory lag</em>. Scientists showed cigarettes cause cancer in the 1950s, but strong rules took decades. The article argues AI will likely follow the same pattern.</p>
+        </div>
+        <div class="bg-card b">
+          <h4>📉 Libertarianism — 자유지상주의</h4>
+          <p>Libertarianism is the belief that the government should interfere as little as possible in people's lives and in business. The article says the lack of AI regulation is "a libertarian's dream" — but uses this <em>ironically</em>. The writer does not think this is a good thing. It means the technology is free to grow without safety checks.</p>
+        </div>
+        <div class="bg-card c">
+          <h4>🌍 The EU AI Act</h4>
+          <p>The EU AI Act (2024) is the world's first major law about AI. It puts AI systems into risk groups: "unacceptable risk" (banned), "high risk" (heavily controlled), and "low risk" (mostly free to use). It applies to any AI used in the EU, no matter where it was made. The article calls it one of the very few serious attempts at AI regulation in the world.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C -->
+  <div id="pre-vocab" class="pre-section">
+    <div class="card">
+      <div class="card-label">C. Vocabulary — 모두 풀고 Submit을 누르면 정오답이 표시됩니다.</div>
+      <div id="vocab-list"></div>
+      <div class="submit-row">
+        <button class="submit-btn" id="vocab-submit" onclick="submitVocab()">Submit Answers</button>
+        <span class="vocab-score" id="vocab-score"></span>
+      </div>
+      <hr class="div">
+      <div class="card-label">어휘 참고용 한국어 뜻</div>
+      <dl class="vocab-ko">
+        <dt>glorified</dt><dd>과대평가된, 거대하게 포장된</dd>
+        <dt>libertarian</dt><dd>자유지상주의자 (정부 개입 최소화 지지)</dd>
+        <dt>electoral</dt><dd>선거와 관련된</dd>
+        <dt>moratorium</dt><dd>일시적 정지, 유예</dd>
+        <dt>unprecedented</dt><dd>전례 없는</dd>
+        <dt>hype</dt><dd>과대 선전, 과장 보도</dd>
+        <dt>dismiss</dt><dd>무시하다, 하찮게 여기다</dd>
+        <dt>outsourcing</dt><dd>외부에 맡기다, 외주화하다</dd>
+        <dt>jurisdiction</dt><dd>관할권, 사법권</dd>
+        <dt>exert</dt><dd>가하다, 힘 등을 행사하다</dd>
+      </dl>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ COMPREHENSION ═══════════ -->
+<div id="panel-read" class="panel">
+  <div class="sec-nav" id="sec-nav"></div>
+
+  <!-- §1 -->
+  <div class="section active" id="sec-1">
+    <div class="badge badge-blue">Section 1 · Paragraphs 1–2</div>
+    <p class="article-note">🔴 빨간 밑줄은 해당 문항에서 의미를 묻는 표현입니다.</p>
+
+    <div class="card article-body">
+      <p><span class="pnum">[1]</span> Sam Altman, chief executive of OpenAI, is probably the best-known figure in AI. He's been in the news lately, with <em>The New Yorker</em> magazine publishing a long profile; someone threw a Molotov cocktail at his house, other passers-by fired a gun, and OpenAI changed strategy to focus on the enterprise market. Yet last month Altman inspired only one-third as many Google searches worldwide as the Liverpool footballer Mo Salah (<span class="ul-phrase">who's a 33-year-old reserve, for crying out loud</span>). Public engagement with AI remains, <span class="ul-phrase">shall we say, limited</span>.</p>
+      <p><span class="pnum">[2]</span> Altman blogged last weekend: "The fear and anxiety about AI is justified; we are in the process of witnessing the largest change to society in a long time, and perhaps ever." That could be corporate hype, or true, or both. He called for a collective debate on safety, saying: "I do not think it is right that a few AI labs would make the most consequential decisions about the shape of our future." He might mean that sincerely, <span class="ul-phrase">or not</span>. Either way, we already know what is going to happen. A few AI labs will make the most consequential decisions about our future. We won't regulate AI for safety's sake. That's not how modern societies handle innovation.</p>
+    </div>
+
+    <!-- Q1 clinic -->
+    <div class="card">
+      <div class="card-label">구조 분석 &amp; 어휘 · Sentence Clinic</div>
+      <div class="clinic-box">
+        <div class="cl-label">Q1에 나오는 표현</div>
+        <div class="clinic-sent">"Public engagement with AI remains, <strong>shall we say, limited</strong>."</div>
+        <details class="cl-detail">
+          <summary>구조 분석 보기 &nbsp;🇰🇷 한국어 설명</summary>
+          <div class="cl-body">
+            <div class="cl-struct">
+              Public engagement with AI &nbsp;<span class="hl">주어</span><br>
+              remains &nbsp;<span class="hl">동사 (연결동사 = is와 비슷)</span><br>
+              , shall we say, &nbsp;<span class="hl">삽입구 — 완곡·반어 표시</span><br>
+              limited &nbsp;<span class="hl">주격보어</span>
+            </div>
+            <div class="cl-ko">
+              <strong>"shall we say"란?</strong><br>
+              직역하면 "뭐랄까, 어떻게 표현할까"로, 자신의 말을 살짝 완화하거나 비틀 때 쓰는 문어체 삽입구입니다. 여기서는 <em>ironic understatement</em>(반어적 절제)의 장치로 사용됩니다. "limited(제한적)"라는 약한 단어를 쓰면서 실제로는 훨씬 심각한 문제 — 대중이 AI에 거의 관심이 없다는 사실 — 를 비꼬는 것입니다.<br><br>
+              <strong>전체 번역:</strong> "AI에 대한 대중의 관심은, 뭐랄까, 제한적이다." <br><em>(실제 함의: 대중은 AI에 위험할 정도로 무관심하다)</em>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="clinic-box">
+        <div class="cl-label">Q2에 나오는 표현</div>
+        <div class="clinic-sent">"…Mo Salah (<strong>who's a 33-year-old reserve, for crying out loud</strong>)."</div>
+        <details class="cl-detail">
+          <summary>구조 분석 보기 &nbsp;🇰🇷 한국어 설명</summary>
+          <div class="cl-body">
+            <div class="cl-struct">
+              Mo Salah &nbsp;→ 선행사 (antecedent)<br>
+              ( &nbsp;→ 괄호 — 삽입적 관계절 시작<br>
+              who &nbsp;→ 관계대명사 주격 (= Mo Salah)<br>
+              's &nbsp;→ is의 축약형<br>
+              a 33-year-old reserve &nbsp;→ 주격 보어 (명사구)<br>
+              , for crying out loud &nbsp;→ 감탄 삽입구 ("정말이지, 세상에")<br>
+              ) &nbsp;→ 괄호 닫기
+            </div>
+            <div class="cl-ko">
+              <strong>관계대명사 who (주격):</strong><br>
+              선행사가 사람일 때 사용합니다. 주격 관계대명사이므로 절 안에서 주어 역할을 합니다.<br>
+              ✅ Mo Salah, <em>who is</em> a 33-year-old reserve = Mo Salah, 그는 33세의 후보 선수다<br>
+              ✅ The man <em>who created</em> ChatGPT = ChatGPT를 만든 그 남자<br><br>
+              <strong>비제한적 관계절 (Non-restrictive relative clause):</strong><br>
+              쉼표나 괄호로 분리된 관계절은 선행사를 "한정"하지 않고 "부연"합니다. 삽입구처럼 제거해도 주문장이 완전합니다. 이 문장에서 핵심은 "a 33-year-old reserve(33세 후보 선수)"라는 정보로, Salah가 이미 전성기를 지났음을 강조합니다.<br><br>
+              <strong>"for crying out loud":</strong> 구어체 감탄 표현으로 "정말이지!, 세상에!"에 해당합니다. 기자가 독자에게 직접 말을 거는 듯한 친근하고 코믹한 효과를 줍니다. AI의 가장 유명한 인물이 이미 한물간 축구 선수보다도 검색량이 적다는 사실의 황당함을 강조합니다.<br><br>
+              <strong>전체 번역:</strong> "…모 살라 (그는 33세의 후보 선수인데, 정말이지!)"
+            </div>
+          </div>
+        </details>
+      </div>
+
+            <div class="clinic-box">
+        <div class="cl-label">Q4에 나오는 표현</div>
+        <div class="clinic-sent">"He might mean that sincerely, <strong>or not</strong>. Either way, we already know what is going to happen."</div>
+        <details class="cl-detail">
+          <summary>구조 분석 보기 &nbsp;🇰🇷 한국어 설명</summary>
+          <div class="cl-body">
+            <div class="cl-struct">
+              He might mean that sincerely, <span class="hl">or not</span>. &nbsp;→ 양방향을 동시에 열어두는 대조<br>
+              Either way &nbsp;<span class="hl">전환 부사구 — "어느 쪽이든"</span><br>
+              we already know what is going to happen &nbsp;<span class="hl">주절 — 확신에 찬 결론</span>
+            </div>
+            <div class="cl-ko">
+              <strong>"or not"의 수사적 효과:</strong><br>
+              Altman의 진심 여부를 묻는 척하면서, 바로 "Either way(어느 쪽이든)"로 그 질문 자체를 무의미하게 만들어버립니다. 이것은 <strong>dismissal(일축)</strong>의 수사 기법입니다. 기자는 개인의 진심보다 구조적 결과가 더 중요하다고 주장합니다.<br><br>
+              <strong>전체 번역:</strong> "그가 진심으로 그 말을 했는지, 아닌지. 어느 쪽이든, 우리는 이미 무슨 일이 일어날지 알고 있다."
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Comprehension · Q1–Q4</div>
+      <div class="q-block">
+        <div class="q-stem">Q1. Read the underlined part of the sentence. (Para. 1)</div>
+        <div class="q-quote">"Public engagement with AI remains, <span class="ul">shall we say, limited</span>."<span class="pref">(Para. 1)</span></div>
+        <p style="font-size:14px;margin-bottom:.5rem">What does the underlined phrase imply?</p>
+        <div class="mcq" data-correct="d">
+          <div class="mcq-row">
+            <span class="mcq-opt" data-v="a" onclick="selMCQ(this)">(a) The writer politely invites the reader to assess the level of public engagement.</span>
+            <span class="mcq-opt" data-v="b" onclick="selMCQ(this)">(b) The writer is quoting another journalist's view on public interest in AI.</span>
+          </div>
+          <div class="mcq-row">
+            <span class="mcq-opt" data-v="c" onclick="selMCQ(this)">(c) The writer believes public engagement, while imperfect, is broadly adequate for now.</span>
+            <span class="mcq-opt" data-v="d" onclick="selMCQ(this)">(d) The writer sarcastically understates that public engagement is much lower than it appears.</span>
+          </div>
+        </div>
+      </div>
+      <div class="q-block">
+        <div class="q-stem">Q2. Read the underlined part of the sentence. (Para. 1)</div>
+        <div class="q-quote">"Altman inspired only one-third as many Google searches worldwide as the Liverpool footballer Mo Salah (<span class="ul">who's a 33-year-old reserve, for crying out loud</span>)."<span class="pref">(Para. 1)</span></div>
+        <p style="font-size:14px;margin-bottom:.5rem">What rhetorical effect does the parenthetical comment create?</p>
+        <div class="mcq" data-correct="a">
+          <div class="mcq-row">
+            <span class="mcq-opt" data-v="a" onclick="selMCQ(this)">(a) It uses comic emphasis to highlight how low public interest in AI really is.</span>
+            <span class="mcq-opt" data-v="b" onclick="selMCQ(this)">(b) It highlights how unpredictable public interest can be, even for a figure as prominent as Altman.</span>
+          </div>
+          <div class="mcq-row">
+            <span class="mcq-opt" data-v="c" onclick="selMCQ(this)">(c) It implies that athletes deserve more media coverage than tech leaders.</span>
+            <span class="mcq-opt" data-v="d" onclick="selMCQ(this)">(d) It provides factual context so readers can verify the search data.</span>
+          </div>
+        </div>
+      </div>
+      <div class="q-block">
+        <div class="q-stem">Q3. What does Sam Altman say about his reason to call for a "collective debate on safety"? (Para. 2)</div>
+        <div class="mcq" data-correct="b">
+          <div class="mcq-row">
+            <span class="mcq-opt" data-v="a" onclick="selMCQ(this)">(a) He says he believes AI labs are the best judges of safety and wants more funding.</span>
+            <span class="mcq-opt" data-v="b" onclick="selMCQ(this)">(b) He says he thinks it is wrong for a few AI labs to make the most consequential decisions alone.</span>
+          </div>
+          <div class="mcq-row">
+            <span class="mcq-opt" data-v="c" onclick="selMCQ(this)">(c) He says he wants governments to pause AI development until global regulation is in place.</span>
+            <span class="mcq-opt" data-v="d" onclick="selMCQ(this)">(d) He says he is responding to public pressure after the attack on his home.</span>
+          </div>
+        </div>
+      </div>
+      <div class="q-block" style="margin-bottom:0">
+        <div class="q-stem">Q4. Read the underlined part of the sentence. (Para. 2)</div>
+        <div class="q-quote">"He might mean that sincerely, <span class="ul">or not</span>. Either way, we already know what is going to happen."<span class="pref">(Para. 2)</span></div>
+        <p style="font-size:14px;margin-bottom:.5rem">What is the rhetorical effect of "or not" here?</p>
+        <div class="mcq" data-correct="d">
+          <div class="mcq-row">
+            <span class="mcq-opt" data-v="a" onclick="selMCQ(this)">(a) The writer is genuinely unsure about Altman's intentions.</span>
+            <span class="mcq-opt" data-v="b" onclick="selMCQ(this)">(b) The writer implies Altman has shifted his position on AI safety.</span>
+          </div>
+          <div class="mcq-row">
+            <span class="mcq-opt" data-v="c" onclick="selMCQ(this)">(c) The writer is leaving the question open for the reader to decide.</span>
+            <span class="mcq-opt" data-v="d" onclick="selMCQ(this)">(d) The writer signals that Altman's sincerity is unknowable and therefore beside the point.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sec-submit-row">
+      <button class="submit-btn sec-submit-btn" onclick="submitSection(this)">Submit Section</button>
+      <span class="sec-score" style="display:none;font-size:14px;font-weight:600;color:#1a5c3a;margin-left:.8rem"></span>
+    </div>
+    <div class="sec-nav-btns">
+      <button class="nav-btn" disabled>← Previous</button>
+      <button class="nav-btn" onclick="showSec(2)">§2 →</button>
+    </div>
+  </div>
+
+  <!-- §2 -->
+  <div class="section" id="sec-2">
+    <div class="badge badge-blue">Section 2 · Paragraphs 3–4</div>
+    <p class="article-note">🔴 빨간 밑줄은 해당 문항에서 의미를 묻는 표현입니다.</p>
+    <div class="card article-body">
+      <p><span class="pnum">[3]</span> Each time a technology changes the world, it takes ages for the world to spot the downsides, and longer before cautious regulation is attempted. Think of CO₂ emissions. In 1856, the American scientist Eunice Newton Foote demonstrated that they could warm the planet, and here we are today. Similarly, since British scientists showed in the 1950s that cigarettes cause cancer, smoking has legally killed hundreds of millions of people. Today, two decades after social media and smartphones rewired our brains, we're starting to try to regulate the tech, at least for children. <span class="ul-phrase">The whole thing is a libertarian's dream.</span></p>
+      <p><span class="pnum">[4]</span> Whenever regulation is attempted, companies fight it. Shareholders don't always defeat democracy, but that's the way to bet on it. The country where most AI is being developed hasn't passed a federal law regulating the technology. Instead, Donald Trump ordered government agencies to eliminate policies that could "hinder American AI dominance". Aside from the EU's AI Act, hardly any jurisdiction has even attempted comprehensive regulation. As usual, governments barely affect the trends that most affect our lives.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">구조 분석 &amp; 어휘 · Sentence Clinic</div>
+      <div class="clinic-box">
+        <div class="cl-label">Q6에 나오는 표현</div>
+        <div class="clinic-sent">"<strong>The whole thing is a libertarian's dream.</strong>"</div>
+        <details class="cl-detail">
+          <summary>구조 분석 보기 &nbsp;🇰🇷 한국어 설명</summary>
+          <div class="cl-body">
+            <div class="cl-struct">
+              The whole thing &nbsp;<span class="hl">주어</span> (= 앞 단락 전체 — AI 무규제 현실)<br>
+              is &nbsp;<span class="hl">동사</span><br>
+              a libertarian's dream &nbsp;<span class="hl">보어 (비유·반어)</span>
+            </div>
+            <div class="cl-ko">
+              <strong>반어(Irony):</strong> 문자 그대로는 중립적 서술처럼 보이지만, 문맥상 강한 비판입니다. 기자는 정부 규제 없이 기술이 자유롭게 성장하는 것이 사회적으로 좋지 않다는 입장입니다.<br><br>
+              <strong>짧은 단문 효과:</strong> 긴 단락 끝에 이 짧은 문장 하나를 배치함으로써 강한 <em>punchline</em> 효과를 냅니다. 역사적 사례들을 열거한 뒤 이 한 문장으로 기자의 판단을 일격에 전달합니다.<br><br>
+              <strong>libertarian(자유지상주의자):</strong> 정부 개입을 최소화해야 한다고 믿는 사람. "a libertarian's dream"은 규제 없는 상태가 그들이 원하는 이상적인 세계임을 비꼬는 표현입니다.<br><br>
+              <strong>전체 번역:</strong> "이 모든 상황은 자유지상주의자의 꿈이다." <em>(= 규제 없는 기술 팽창 — 이것이 과연 좋은 것인가?)</em>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">구조 분석 &amp; 어휘 · Sentence Clinic</div>
+      <div class="clinic-box">
+        <div class="cl-label">Q7에 나오는 표현</div>
+        <div class="clinic-sent">"Aside from the EU's AI Act, <strong>hardly any jurisdiction</strong> has even attempted comprehensive regulation."</div>
+        <details class="cl-detail">
+          <summary>구조 분석 보기 &nbsp;🇰🇷 한국어 설명</summary>
+          <div class="cl-body">
+            <div class="cl-struct">
+              Aside from the EU's AI Act &nbsp;→ 전치사구 (양보 — 예외 인정)<br>
+              &nbsp;&nbsp;└ aside from: "~을 제외하면"<br>
+              hardly any jurisdiction &nbsp;→ 주어<br>
+              &nbsp;&nbsp;└ hardly: 부정 부사 ("거의 ~하지 않다")<br>
+              &nbsp;&nbsp;└ any: hardly와 결합하여 강한 부정<br>
+              &nbsp;&nbsp;└ jurisdiction: 명사 "관할권, (법이 적용되는) 나라·기관"<br>
+              has even attempted &nbsp;→ 동사 (현재완료)<br>
+              &nbsp;&nbsp;└ even: 동사 강조 ("시도조차")<br>
+              comprehensive regulation &nbsp;→ 목적어
+            </div>
+            <div class="cl-ko">
+              <strong>"Aside from" — 양보 전치사구:</strong><br>
+              예외를 인정하면서 주장을 유지하는 표현입니다. "EU AI Act는 있지만, 그것을 제외하면"이라는 뉘앙스로, EU의 노력을 인정하되 그것이 예외적임을 강조합니다.<br>
+              ✅ Aside from a few exceptions, the rule applies to everyone.<br><br>
+              <strong>"hardly any" — 강한 부정:</strong><br>
+              "almost no(거의 없는)"의 의미로, "few"보다 강합니다. hardly는 부정 부사이므로 not과 함께 쓰지 않습니다.<br>
+              ✅ Hardly any country has passed an AI law. (거의 어떤 나라도 AI 법을 통과시키지 않았다)<br>
+              ❌ Hardly any country hasn't passed... (이중 부정 — 오류)<br><br>
+              <strong>"even attempted" — even의 강조:</strong><br>
+              동사 앞의 "even"은 "~조차도"로 강조합니다. "시도조차 하지 않았다"는 뜻으로, 규제 부재의 심각성을 강조합니다.<br><br>
+              <strong>jurisdiction(관할권):</strong> 법이나 규제가 적용되는 지역 또는 법적 권한을 가진 기관·나라. "country or legal authority"에 가깝습니다.<br><br>
+              <strong>전체 번역:</strong> "EU의 AI 법을 제외하면, 포괄적인 규제를 시도조차 한 관할권은 거의 없다."
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Comprehension · Q5–Q7</div>
+      <div class="q-block">
+        <div class="q-stem">Q5. The article mentions several historical examples of regulatory lag. Fill in the table. (Para. 3)</div>
+        <table class="fill-tbl">
+          <thead><tr><th>Technology / Issue</th><th>When the danger was first known</th><th>What happened next? Still unresolved?</th></tr></thead>
+          <tbody>
+            <tr><td class="fw">CO₂ / Climate</td><td><input class="fill-in" placeholder="…"></td><td><input class="fill-in" placeholder="…"></td></tr>
+            <tr><td class="fw">Cigarettes</td><td><input class="fill-in" placeholder="…"></td><td><input class="fill-in" placeholder="…"></td></tr>
+            <tr><td class="fw">Social media / Smartphones</td><td><input class="fill-in" placeholder="…"></td><td><input class="fill-in" placeholder="…"></td></tr>
+          </tbody>
+        </table>
+        <details class="ans-d"><summary>정답 보기</summary>
+          <div class="ans-body">
+            <table class="ans-tbl">
+              <thead><tr><th>Technology / Issue</th><th>When first known</th><th>What happened / Still unresolved?</th></tr></thead>
+              <tbody>
+                <tr><td><strong>CO₂ / Climate</strong></td><td>1856 — Eunice Newton Foote demonstrated CO₂ warms the planet</td><td>Still largely unresolved today</td></tr>
+                <tr><td><strong>Cigarettes</strong></td><td>1950s — British scientists showed they cause cancer</td><td>Smoking legally killed hundreds of millions before strong regulation came</td></tr>
+                <tr><td><strong>Social media / Smartphones</strong></td><td>~Two decades ago (2000s)</td><td>Only now starting to regulate, at least for children</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+      <div class="q-block">
+        <div class="q-stem">Q6. Read the underlined sentence. (Para. 3)</div>
+        <div class="q-quote"><span class="ul">The whole thing is a libertarian's dream.</span><span class="pref">(Para. 3)</span></div>
+        <p style="font-size:14px;margin-bottom:.5rem">What does this sentence mean in context, and what is the writer's tone?</p>
+        <div class="mcq" data-correct="c">
+          <div class="mcq-row">
+            <span class="mcq-opt" data-v="a" onclick="selMCQ(this)">(a) The writer praises weak regulation as a free-market success story.</span>
+            <span class="mcq-opt" data-v="b" onclick="selMCQ(this)">(b) The writer argues libertarians are best placed to handle new technology.</span>
+          </div>
+          <div class="mcq-row">
+            <span class="mcq-opt" data-v="c" onclick="selMCQ(this)">(c) The writer ironically notes that absent regulation suits those who oppose government intervention.</span>
+            <span class="mcq-opt" data-v="d" onclick="selMCQ(this)">(d) The writer claims AI companies fund libertarian movements to block regulation.</span>
+          </div>
+        </div>
+      </div>
+      <div class="q-block" style="margin-bottom:0">
+        <div class="q-stem">Q7. What has the U.S. government done regarding AI regulation, according to the article? (Para. 4)</div>
+        <div class="mcq" data-correct="d">
+          <div class="mcq-row">
+            <span class="mcq-opt" data-v="a" onclick="selMCQ(this)">(a) It passed a federal AI law modelled on the EU AI Act.</span>
+            <span class="mcq-opt" data-v="b" onclick="selMCQ(this)">(b) It signed a joint agreement with the EU on a shared AI framework.</span>
+          </div>
+          <div class="mcq-row">
+            <span class="mcq-opt" data-v="c" onclick="selMCQ(this)">(c) It issued an executive order placing a moratorium on new AI models.</span>
+            <span class="mcq-opt" data-v="d" onclick="selMCQ(this)">(d) Rather than legislating, Trump ordered agencies to remove policies hindering AI dominance.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sec-submit-row">
+      <button class="submit-btn sec-submit-btn" onclick="submitSection(this)">Submit Section</button>
+      <span class="sec-score" style="display:none;font-size:14px;font-weight:600;color:#1a5c3a;margin-left:.8rem"></span>
+    </div>
+    <div class="sec-nav-btns">
+      <button class="nav-btn" onclick="showSec(1)">← §1</button>
+      <button class="nav-btn" onclick="showSec(3)">§3 →</button>
+    </div>
+  </div>
+
+  <!-- §3 -->
+  <div class="section" id="sec-3">
+    <div class="badge badge-blue">Section 3 · Paragraphs 5–6</div>
+    <div class="card article-body">
+      <p><span class="pnum">[5]</span> Voters aren't pushing politicians to take on AI. Most people engage with the technology only as consumers. They struggle to think about its societal implications. They're more comfortable arguing about identity, or the perceived personalities of politicians, though they often misjudge those too. Most media also neglect the topic. The day Anthropic launched Mythos, a model that seems able to hack almost any operating system, the journalist Shakeel Hashim noted: "The release does not appear near the top of the homepage on any major news site."</p>
+      <p><span class="pnum">[6]</span> No wonder, because AI is even harder to understand than previous innovations. It's a closed-source technology, advancing at unprecedented speed, and developed by a tiny group of experts who themselves don't fully understand it. Anthropic's chief executive, Dario Amodei, writes: "People outside the field are often surprised and alarmed to learn that we do not understand how our own AI creations work . . . this lack of understanding is essentially unprecedented in the history of technology."</p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">구조 분석 &amp; 어휘 · Sentence Clinic</div>
+      <div class="clinic-box">
+        <div class="cl-label">Q9에 나오는 표현</div>
+        <div class="clinic-sent">"It's a <strong>closed-source</strong> technology, <strong>advancing at unprecedented speed</strong>, and developed by a tiny group of experts who themselves <strong>don't fully understand it</strong>."</div>
+        <details class="cl-detail">
+          <summary>구조 분석 보기 &nbsp;🇰🇷 한국어 설명</summary>
+          <div class="cl-body">
+            <div class="cl-struct">
+              It's a closed-source technology &nbsp;<span class="hl">주어+보어 — 첫 번째 특성</span><br>
+              , advancing at unprecedented speed, &nbsp;<span class="hl">현재분사구 — 두 번째 특성 (부연)</span><br>
+              and developed by a tiny group of experts &nbsp;<span class="hl">과거분사구 (수동) — 세 번째 특성</span><br>
+              who themselves don't fully understand it &nbsp;<span class="hl">관계절 — 역설적 핵심 내용</span>
+            </div>
+            <div class="cl-ko">
+              <strong>세 겹 수식 구조:</strong> 하나의 명사(technology)에 세 가지 특성을 연속으로 붙여 독자가 AI의 위험성을 차례로 인식하게 만드는 점층적 효과가 있습니다.<br><br>
+              <strong>"closed-source":</strong> 소스 코드가 공개되지 않는 기술. 외부에서 AI가 어떻게 작동하는지 들여다볼 수 없습니다. ↔ open-source(공개형)<br><br>
+              <strong>"unprecedented":</strong> "전례가 없는" — un(없는) + precedent(선례) + -ed. 역사상 이런 일이 없었다는 강한 표현입니다.<br><br>
+              <strong>"who themselves don't fully understand it":</strong> 여기서 <em>themselves</em>는 재귀대명사가 아니라 <strong>강조 용법(emphatic pronoun)</strong>입니다. "the experts themselves" = "바로 그 전문가들 스스로가"라는 뜻으로, 주어를 강조합니다. 즉 "다른 누군가도 아닌, AI를 만드는 당사자들조차 이해하지 못한다"는 역설을 강조하는 표현입니다.<br><br>
+              <strong>분사구(Participial Phrase) vs 관계절:</strong><br>
+              "advancing at unprecedented speed"는 <em>현재분사구</em>로 형용사 역할을 합니다. 관계절 "which is advancing at unprecedented speed"와 같은 의미이지만 더 간결합니다.<br>
+              "developed by a tiny group"는 <em>과거분사구</em> (수동 의미)로 "which is developed by..."와 동일합니다.<br>
+              분사구는 쉼표 없이 쓰면 필수 수식(제한적), 쉼표와 함께 쓰면 부가 설명(비제한적)입니다.<br><br>
+              <strong>전체 번역:</strong> "그것은 폐쇄형 기술로서, 전례 없는 속도로 발전하고 있으며, 자신들도 그것을 완전히 이해하지 못하는 소수의 전문가 집단에 의해 개발되고 있다."
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Comprehension · Q8–Q10</div>
+      <div class="q-block">
+        <div class="q-stem">Q8. The article says voters are not pushing politicians to regulate AI. Fill in the table with the reasons given. (Para. 5)</div>
+        <table class="fill-tbl">
+          <thead><tr><th>Reason</th></tr></thead>
+          <tbody>
+            <tr><td>Most people engage with AI only as <input class="fill-in" style="width:110px" placeholder="________"></td></tr>
+            <tr><td>They struggle to think about <input class="fill-in" style="width:140px" placeholder="________"></td></tr>
+            <tr><td>Most media also <input class="fill-in" style="width:140px" placeholder="________"></td></tr>
+          </tbody>
+        </table>
+        <details class="ans-d"><summary>정답 보기</summary>
+          <div class="ans-body">
+            <table class="ans-tbl">
+              <thead><tr><th>Reason (정답)</th></tr></thead>
+              <tbody>
+                <tr><td>Most people engage with AI only as <strong>consumers</strong></td></tr>
+                <tr><td>They struggle to think about <strong>its societal implications</strong></td></tr>
+                <tr><td>Most media also <strong>neglect the topic</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+      <div class="q-block">
+        <div class="q-stem">Q9. The article gives three reasons why AI is even harder to regulate than previous technologies. What are they? (Para. 6)</div>
+        <table class="fill-tbl">
+          <thead><tr><th>#</th><th>Reason (fill in the blank)</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1)</strong></td><td>It is a <input class="fill-in" style="width:130px" placeholder="________"> technology, not open to external inspection.</td></tr>
+            <tr><td><strong>2)</strong></td><td>It is advancing at <input class="fill-in" style="width:130px" placeholder="________"> speed.</td></tr>
+            <tr><td><strong>3)</strong></td><td>It is developed by experts who themselves <input class="fill-in" style="width:200px" placeholder="________">.</td></tr>
+          </tbody>
+        </table>
+        <details class="ans-d"><summary>정답 보기</summary>
+          <div class="ans-body">
+            <table class="ans-tbl">
+              <thead><tr><th>#</th><th>Answer</th><th>설명</th></tr></thead>
+              <tbody>
+                <tr><td><strong>1)</strong></td><td><strong>closed-source</strong></td><td>소스 코드가 비공개 → 외부 감시 불가</td></tr>
+                <tr><td><strong>2)</strong></td><td><strong>unprecedented</strong></td><td>전례 없는 속도로 발전 → 규제가 따라잡기 불가</td></tr>
+                <tr><td><strong>3)</strong></td><td><strong>don't fully understand it</strong></td><td>개발자 자신도 AI를 완전히 이해하지 못함 (Amodei 직접 언급)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+      <div class="q-block" style="margin-bottom:0">
+        <div class="q-stem">Q10. True (T), False (F), or Not Given (NG)?</div>
+        <table class="tfng-tbl" id="tfng-10">
+          <thead><tr><th>Statement</th><th style="width:170px">T / F / NG</th></tr></thead>
+          <tbody>
+            <tr data-ans="T"><td>(1) Sam Altman writes in his blog that AI labs should not make decisions about our future alone, and the article says he is sincere.</td><td></td></tr>
+            <tr data-ans="F"><td>(2) In 2023, more than a thousand industry executives called for a permanent ban on further AI development.</td><td></td></tr>
+            <tr data-ans="T"><td>(3) Anthropic's CEO states that the lack of understanding of AI is essentially unprecedented in the history of technology.</td><td></td></tr>
+            <tr data-ans="NG"><td>(4) The article states that academics in the humanities are the most effective group currently opposing AI.</td><td></td></tr>
+          </tbody>
+        </table>
+        <button class="check-btn" onclick="checkTFNG('tfng-10')">답 확인</button>
+        <details class="ans-d" style="margin-top:.5rem"><summary>정답 설명 보기</summary>
+          <div class="ans-body">
+            <strong>(1) T</strong> — Altman's blog: "I do not think it is right that a few AI labs would make the most consequential decisions…" 단, 기사는 그가 진심인지 의문을 표합니다 ("might mean that sincerely, or not").<br><br>
+            <strong>(2) F</strong> — 영구적 금지(permanent ban)가 아닌 <em>pause(일시 중단)</em>를 요청했습니다.<br><br>
+            <strong>(3) T</strong> — Amodei: "this lack of understanding is essentially unprecedented in the history of technology."<br><br>
+            <strong>(4) NG</strong> — 인문학 교수들이 반대하고 있다는 언급은 있지만, 가장 효과적이라는 내용은 없습니다.
+          </div>
+        </details>
+      </div>
+    </div>
+    <div class="sec-submit-row">
+      <button class="submit-btn sec-submit-btn" onclick="submitSection(this)">Submit Section</button>
+      <span class="sec-score" style="display:none;font-size:14px;font-weight:600;color:#1a5c3a;margin-left:.8rem"></span>
+    </div>
+    <div class="sec-nav-btns">
+      <button class="nav-btn" onclick="showSec(2)">← §2</button>
+      <button class="nav-btn" onclick="showSec(4)">§4 →</button>
+    </div>
+  </div>
+
+  <!-- §4 -->
+  <div class="section" id="sec-4">
+    <div class="badge badge-blue">Section 4 · Paragraphs 7–8</div>
+    <p class="article-note">🔴 빨간 밑줄은 해당 문항에서 의미를 묻는 표현입니다.</p>
+    <div class="card article-body">
+      <p><span class="pnum">[7]</span> But as outsiders understand even less, <span class="ul-phrase">the loudest warnings against AI come from insiders like Amodei</span>. In 2023, more than a thousand industry executives and experts called for a pause in AI's development so as to prevent "the loss of control of our civilisation". That now forgotten appeal never became an electoral issue anywhere.</p>
+      <p><span class="pnum">[8]</span> One group is opposing AI: academics, especially in the humanities. However, many of them suffer from a bias that prevents them from taking the technology seriously. The humanities study human creations. If you have dedicated your life to that, and you're fed up with your students outsourcing their minds to Claude, and you aren't schooled in tech, then you might still be dismissing AI as <span class="ul-phrase">"glorified autocomplete"</span>.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">구조 분석 &amp; 어휘 · Sentence Clinic</div>
+      <div class="clinic-box">
+        <div class="cl-label">Q11에 나오는 표현</div>
+        <div class="clinic-sent">"But as outsiders understand even less, <strong>the loudest warnings against AI come from insiders like Amodei</strong>."</div>
+        <details class="cl-detail">
+          <summary>구조 분석 보기 &nbsp;🇰🇷 한국어 설명</summary>
+          <div class="cl-body">
+            <div class="cl-struct">
+              But as outsiders understand even less, &nbsp;<span class="hl">양보·대조 부사절 — "외부인들이 더 이해 못할수록"</span><br>
+              the loudest warnings against AI &nbsp;<span class="hl">주어 — 최상급 "loudest" 강조</span><br>
+              come from insiders like Amodei &nbsp;<span class="hl">동사구 — 역설의 핵심</span>
+            </div>
+            <div class="cl-ko">
+              <strong>역설(Paradox):</strong> 가장 위험을 잘 아는 사람(insiders)이 동시에 그 위험을 만들어내는 사람들이라는 아이러니입니다. 외부인이 이해를 못할수록, 경고는 오히려 내부인에게서 나옵니다.<br><br>
+              <strong>"But as outsiders understand even less"의 구조:</strong> 여기서 "as"는 비교급이 아니라 <em>이유</em>를 나타내는 접속사입니다. "외부인들이 AI를 더더욱 이해하지 못하기 때문에"라는 뜻으로, 그러므로 경고가 내부자들로부터 나온다는 논리를 이어줍니다. "even less"는 이미 이해가 부족한 상태를 "even(더욱)"으로 강조한 표현입니다.<br><br>
+              <strong>"insiders like Amodei":</strong> Amodei는 Anthropic의 CEO — AI를 직접 만드는 사람. 이 사람들이 경고를 가장 크게 외친다는 것이 역설적입니다.<br><br>
+              <strong>전체 번역:</strong> "그러나 외부인들이 AI를 더 이해하지 못할수록, AI에 대한 가장 큰 경고는 Amodei 같은 내부자들로부터 나온다."
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="clinic-box">
+        <div class="cl-label">Q12에 나오는 표현</div>
+        <div class="clinic-sent">"you might still be dismissing AI as '<strong>glorified autocomplete</strong>'."</div>
+        <details class="cl-detail">
+          <summary>구조 분석 보기 &nbsp;🇰🇷 한국어 설명</summary>
+          <div class="cl-body">
+            <div class="cl-struct">
+              you might still be dismissing &nbsp;<span class="hl">현재진행 + might — 습관적 행동 + 추측</span><br>
+              AI &nbsp;<span class="hl">목적어</span><br>
+              as "glorified autocomplete" &nbsp;<span class="hl">전치사구 — dismiss A as B (A를 B라고 일축하다)</span>
+            </div>
+            <div class="cl-ko">
+              <strong>"glorified autocomplete"의 의미:</strong><br>
+              • <em>autocomplete</em> = 스마트폰이나 검색창에서 단어를 예측해 완성해주는 기능. 매우 단순한 기술.<br>
+              • <em>glorified</em> = "화려하게 포장된, 과대평가된". glorify(미화하다)의 과거분사.<br>
+              • 합치면: "그저 멋있게 포장된 자동완성 기능에 불과하다" — AI를 매우 낮게 평가하는 표현입니다.<br><br>
+              <strong>누가 이 말을 하는가:</strong> 인문학 교수들이 AI를 진지하게 받아들이지 않을 때 쓰는 표현입니다. 기자는 이것이 <em>bias(편견)</em>에서 비롯된 잘못된 평가라고 주장합니다.<br><br>
+              <strong>"dismiss A as B" 구문:</strong> "A를 B라고 무시하다, 일축하다"<br>
+              ✅ They dismissed his idea as nonsense. = 그들은 그의 아이디어를 헛소리라고 무시했다.<br>
+              ✅ Critics dismissed the film as predictable. = 비평가들은 그 영화를 진부하다며 무시했다.<br>
+              이 구문은 "as + 명사/형용사"로 누군가의 평가·판단을 표현합니다. "as" 뒤에 오는 말이 화자의 (종종 부정적인) 분류입니다.<br><br>
+              <strong>전체 번역:</strong> "당신은 아직도 AI를 '화려하게 포장된 자동완성 기능'에 불과하다며 무시하고 있을지도 모른다."
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Comprehension · Q11–Q13</div>
+      <div class="q-block">
+        <div class="q-stem">Q11. Read the underlined sentence. (Para. 7)</div>
+        <div class="q-quote">"But as outsiders understand even less, <span class="ul">the loudest warnings against AI come from insiders like Amodei</span>."<span class="pref">(Para. 7)</span></div>
+        <p style="font-size:14px;margin-bottom:.5rem">What paradox does this sentence describe?</p>
+        <div class="mcq" data-correct="b">
+          <div class="mcq-row">
+            <span class="mcq-opt" data-v="a" onclick="selMCQ(this)">(a) Those who understand AI best are the least worried about its risks.</span>
+            <span class="mcq-opt" data-v="b" onclick="selMCQ(this)">(b) Those raising the alarm most loudly are the same insiders who built the technology.</span>
+          </div>
+          <div class="mcq-row">
+            <span class="mcq-opt" data-v="c" onclick="selMCQ(this)">(c) Outside critics have raised more detailed concerns than the engineers building AI.</span>
+            <span class="mcq-opt" data-v="d" onclick="selMCQ(this)">(d) AI companies are lobbying governments to impose stricter safety rules on themselves.</span>
+          </div>
+        </div>
+      </div>
+      <div class="q-block">
+        <div class="q-stem">Q12. Read the underlined phrase. (Para. 8)</div>
+        <div class="q-quote">"you might still be dismissing AI as '<span class="ul">glorified autocomplete</span>'."<span class="pref">(Para. 8)</span></div>
+        <p style="font-size:14px;margin-bottom:.5rem">What does this phrase mean, and what does it reveal about the people who use it?</p>
+        <div class="mcq" data-correct="c">
+          <div class="mcq-row">
+            <span class="mcq-opt" data-v="a" onclick="selMCQ(this)">(a) A technical term scholars use to describe the limits of current AI models.</span>
+            <span class="mcq-opt" data-v="b" onclick="selMCQ(this)">(b) Altman's own description of AI's limitations in his blog post.</span>
+          </div>
+          <div class="mcq-row">
+            <span class="mcq-opt" data-v="c" onclick="selMCQ(this)">(c) A dismissive label by humanities academics who underestimate AI's capabilities.</span>
+            <span class="mcq-opt" data-v="d" onclick="selMCQ(this)">(d) A compliment acknowledging that even simple prediction can produce impressive results.</span>
+          </div>
+        </div>
+      </div>
+      <div class="q-block" style="margin-bottom:0">
+        <div class="q-stem">Q13. What does the writer imply about academics who dismiss AI as "glorified autocomplete"? (Para. 8)</div>
+        <div class="mcq" data-correct="a">
+          <div class="mcq-row">
+            <span class="mcq-opt" data-v="a" onclick="selMCQ(this)">(a) Their dismissal reflects professional bias rather than an objective assessment.</span>
+            <span class="mcq-opt" data-v="b" onclick="selMCQ(this)">(b) They are right that AI poses no real threat to the humanities.</span>
+          </div>
+          <div class="mcq-row">
+            <span class="mcq-opt" data-v="c" onclick="selMCQ(this)">(c) They are the most reliable voices on AI due to their independence from industry.</span>
+            <span class="mcq-opt" data-v="d" onclick="selMCQ(this)">(d) Their opposition has been the most effective force pushing for stronger regulation.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sec-submit-row">
+      <button class="submit-btn sec-submit-btn" onclick="submitSection(this)">Submit Section</button>
+      <span class="sec-score" style="display:none;font-size:14px;font-weight:600;color:#1a5c3a;margin-left:.8rem"></span>
+    </div>
+    <div class="sec-nav-btns">
+      <button class="nav-btn" onclick="showSec(3)">← §3</button>
+      <button class="nav-btn" onclick="showSec(5)">§5 →</button>
+    </div>
+  </div>
+
+  <!-- §5 -->
+  <div class="section" id="sec-5">
+    <div class="badge badge-blue">Section 5 · Paragraph 9</div>
+    <p class="article-note">🔴 빨간 밑줄은 해당 문항에서 의미를 묻는 표현입니다.</p>
+    <div class="card article-body">
+      <p><span class="pnum">[9]</span> In short, we don't know enough even to push for regulating AI. Even if we did, there's no hope of global regulation of anything any more. Tech companies still act globally; states don't. The effect of AI will be determined by a few AI labs, <span class="ul-phrase">or perhaps by the products themselves</span>. We're essentially <span class="ul-phrase">speeding along the highway at 300 miles an hour in an autonomous vehicle without seatbelts or headlights</span>, and we'll see what happens.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">구조 분석 &amp; 어휘 · Sentence Clinic</div>
+      <div class="clinic-box">
+        <div class="cl-label">Q14–Q15에 나오는 표현</div>
+        <div class="clinic-sent">"We're essentially <strong>speeding along the highway at 300 miles an hour in an autonomous vehicle without seatbelts or headlights</strong>, and we'll see what happens."</div>
+        <details class="cl-detail">
+          <summary>구조 분석 보기 &nbsp;🇰🇷 한국어 설명</summary>
+          <div class="cl-body">
+            <div class="cl-struct">
+              We're essentially speeding along the highway &nbsp;<span class="hl">핵심 은유 — AI 개발 상황</span><br>
+              at 300 miles an hour &nbsp;<span class="hl">속도 — 통제 불가능한 빠름</span><br>
+              in an autonomous vehicle &nbsp;<span class="hl">자율주행 = AI가 스스로 움직임</span><br>
+              without seatbelts &nbsp;<span class="hl">안전벨트 없음 = 규제·안전장치 없음</span><br>
+              or headlights &nbsp;<span class="hl">전조등 없음 = 어디로 가는지 보이지 않음 (불투명성)</span><br>
+              , and we'll see what happens &nbsp;<span class="hl">체념적 결말 — 두고 볼 수밖에 없다</span>
+            </div>
+            <div class="cl-ko">
+              <strong>은유(Metaphor) 완전 분석:</strong><br>
+              ① <em>highway at 300 mph</em> = 전례 없는 속도로 발전하는 AI<br>
+              ② <em>autonomous vehicle</em> = AI가 스스로 판단하며 인간 통제를 벗어남<br>
+              ③ <em>without seatbelts</em> = 안전 규제 없음 — 사고 나도 보호 장치 없음<br>
+              ④ <em>without headlights</em> = 앞이 어두움 — AI가 어디로 향하는지 아무도 모름 (Amodei의 발언과 연결)<br><br>
+              <strong>"we'll see what happens":</strong> 체념(resignation)과 아이러니가 섞인 마무리입니다. 심각한 경고를 던지면서도 변화를 기대하지 않는다는 태도 — 기사 전체의 tone을 한 문장에 압축합니다.<br><br>
+              <strong>"essentially":</strong> "본질적으로" — 정확히 저 상황은 아니지만, 본질적으로 그와 같다는 뜻의 hedging 부사입니다.<br><br>
+              <strong>전체 번역:</strong> "우리는 본질적으로 안전벨트도 전조등도 없는 자율주행 차량을 타고 시속 300마일로 고속도로를 달리고 있으며, 무슨 일이 일어날지 볼 것이다."
+            </div>
+          </div>
+        </details>
+      </div>
+      <div class="clinic-box">
+        <div class="cl-label">Q15에 나오는 표현</div>
+        <div class="clinic-sent">"The effect of AI will be determined by a few AI labs, <strong>or perhaps by the products themselves</strong>."</div>
+        <details class="cl-detail">
+          <summary>구조 분석 보기 &nbsp;🇰🇷 한국어 설명</summary>
+          <div class="cl-body">
+            <div class="cl-struct">
+              The effect of AI will be determined by a few AI labs, &nbsp;<span class="hl">주절 — 기술 회사들이 AI의 미래를 결정</span><br>
+              or <span class="hl">perhaps</span> by the products themselves &nbsp;<span class="hl">추가 가능성 — "perhaps"가 핵심 hedging</span>
+            </div>
+            <div class="cl-ko">
+              <strong>"perhaps"의 기능:</strong> 기자도 확신하지 못하는 시나리오를 열어두는 hedging 장치입니다. "perhaps"가 없으면 예언처럼 들리지만, "perhaps"가 있으면 불확실한 가능성으로 바뀝니다.<br><br>
+              <strong>"by the products themselves"의 함의:</strong> AI 제품들이 자체적인 논리로 발전하며, 인간의 의도를 벗어나 스스로 미래를 결정할 수 있다는 뜻입니다. 기사 전체에서 가장 불안한 가능성으로 제시됩니다. "themselves"에 강조점이 있습니다 — 인간이 아닌 AI 자신이.<br><br>
+              <strong>전체 번역:</strong> "AI의 영향은 소수의 AI 연구소에 의해 결정될 것이다, 아니면 어쩌면 AI 제품들 자체에 의해 결정될 것이다."
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Comprehension · Q14–Q15</div>
+      <div class="q-block">
+        <div class="q-stem">Q14. Read the underlined part of the sentence. (Para. 9)</div>
+        <div class="q-quote">"We're essentially <span class="ul">speeding along the highway at 300 miles an hour in an autonomous vehicle without seatbelts or headlights</span>, and we'll see what happens."<span class="pref">(Para. 9)</span></div>
+        <p style="font-size:14px;margin-bottom:.5rem">What does this metaphor convey about the writer's view of AI development?</p>
+        <div class="mcq" data-correct="c">
+          <div class="mcq-row">
+            <span class="mcq-opt" data-v="a" onclick="selMCQ(this)">(a) AI is developing fast but with strong safety systems and human oversight.</span>
+            <span class="mcq-opt" data-v="b" onclick="selMCQ(this)">(b) AI companies are competing recklessly for market share at the expense of quality.</span>
+          </div>
+          <div class="mcq-row">
+            <span class="mcq-opt" data-v="c" onclick="selMCQ(this)">(c) AI is advancing dangerously fast with no safety mechanisms or visibility of consequences.</span>
+            <span class="mcq-opt" data-v="d" onclick="selMCQ(this)">(d) Governments are rushing AI policy without consulting independent experts.</span>
+          </div>
+        </div>
+      </div>
+      <div class="q-block" style="margin-bottom:0">
+        <div class="q-stem">Q15. Read the underlined part of the sentence. (Para. 9)</div>
+        <div class="q-quote">"The effect of AI will be determined by a few AI labs, <span class="ul">or perhaps by the products themselves</span>."<span class="pref">(Para. 9)</span></div>
+        <p style="font-size:14px;margin-bottom:.5rem">What does the writer mean by "or perhaps by the products themselves"?</p>
+        <div class="mcq" data-correct="a">
+          <div class="mcq-row">
+            <span class="mcq-opt" data-v="a" onclick="selMCQ(this)">(a) AI systems may develop in directions that even their creators cannot predict or control.</span>
+            <span class="mcq-opt" data-v="b" onclick="selMCQ(this)">(b) AI products will come under the authority of consumer protection bodies.</span>
+          </div>
+          <div class="mcq-row">
+            <span class="mcq-opt" data-v="c" onclick="selMCQ(this)">(c) Market competition will determine which AI companies gain global dominance.</span>
+            <span class="mcq-opt" data-v="d" onclick="selMCQ(this)">(d) Governments will adopt the standards set by the most successful AI products.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sec-submit-row">
+      <button class="submit-btn sec-submit-btn" onclick="submitSection(this)">Submit Section</button>
+      <span class="sec-score" style="display:none;font-size:14px;font-weight:600;color:#1a5c3a;margin-left:.8rem"></span>
+    </div>
+    <div class="sec-nav-btns">
+      <button class="nav-btn" onclick="showSec(4)">← §4</button>
+      <button class="nav-btn" disabled>End ✓</button>
+    </div>
+  </div>
+
+</div><!-- /panel-read -->
+</div><!-- /shell -->
+
+<script>
+/* tabs */
+function showTab(id,btn){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  if(btn) btn.classList.add('active');
+}
+function showPre(id,btn){
+  document.querySelectorAll('.pre-section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.pre-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('pre-'+id).classList.add('active');
+  if(btn) btn.classList.add('active');
+}
+
+/* section nav */
+const SECS=['§1 Para 1–2','§2 Para 3–4','§3 Para 5–6','§4 Para 7–8','§5 Para 9'];
+const sn=document.getElementById('sec-nav');
+SECS.forEach((l,i)=>{
+  const b=document.createElement('button');
+  b.className='sec-btn'+(i===0?' active':'');
+  b.textContent=l; b.onclick=()=>showSec(i+1); sn.appendChild(b);
+});
+function showSec(n){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.sec-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('sec-'+n).classList.add('active');
+  document.querySelectorAll('.sec-btn')[n-1].classList.add('active');
+  window.scrollTo({top:document.querySelector('.tab-nav').offsetTop-10,behavior:'smooth'});
+}
+
+/* MCQ: select only (no feedback until submit) */
+function selMCQ(el){
+  const block=el.closest('.mcq');
+  if(block.classList.contains('mcq-done')) return;
+  block.querySelectorAll('.mcq-opt').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  block.dataset.chosen=el.dataset.v;
+}
+function submitSection(btn){
+  const section=btn.closest('.section');
+  if(btn.disabled) return;
+  let total=0, correct=0;
+  section.querySelectorAll('.mcq').forEach(block=>{
+    if(block.classList.contains('mcq-done')) return;
+    total++;
+    const ans=block.dataset.correct;
+    const chosen=block.dataset.chosen||'';
+    block.querySelectorAll('.mcq-opt').forEach(o=>{
+      o.classList.remove('selected');
+      if(o.dataset.v===ans) o.classList.add(chosen===ans?'correct':'show-correct');
+      else if(o.dataset.v===chosen) o.classList.add('wrong');
+    });
+    block.classList.add('mcq-done');
+    if(chosen===ans) correct++;
+  });
+  btn.disabled=true;
+  const sc=btn.nextElementSibling;
+  if(total>0){sc.textContent=correct+' / '+total+' correct';sc.style.display='inline';}
+}
+
+/* Vocabulary — submit-based scoring */
+const VOCAB=[
+  {sent:'Many academics still dismiss AI as "<b>glorified</b> autocomplete" and refuse to take it seriously.',
+   correct:3, opts:['simplified','celebrated','technically advanced','polished and overrated']},
+  {sent:'The absence of meaningful regulation is, in effect, a <b>libertarian</b>\'s dream come true.',
+   correct:2, opts:['conservative','anarchist','pro-market minimalist','technocratic']},
+  {sent:'The call for a pause in AI development never became an <b>electoral</b> issue in any country.',
+   correct:3, opts:['economic','judicial','diplomatic','political']},
+  {sent:'Over a thousand executives signed a letter calling for a <b>moratorium</b> on the most advanced AI experiments.',
+   correct:1, opts:['crackdown','suspension','inquiry','manifesto']},
+  {sent:'Amodei argues that AI\'s opacity is essentially <b>unprecedented</b> — no previous technology has been so poorly understood.',
+   correct:2, opts:['alarming','unpredictable','unparalleled','controversial']},
+  {sent:'Altman\'s warnings could be genuine concern, or simply corporate <b>hype</b> designed to attract attention.',
+   correct:0, opts:['buzz','warning','lobbying','concern']},
+  {sent:'Some academics continue to <b>dismiss</b> AI as a trivial technology with no real impact on their field.',
+   correct:3, opts:['recognize','embrace','ridicule','disregard']},
+  {sent:'Students increasingly risk <b>outsourcing</b> their critical thinking to AI tools.',
+   correct:1, opts:['neglecting','transferring','retaining','automating']},
+  {sent:'Hardly any <b>jurisdiction</b> has passed a comprehensive law on artificial intelligence.',
+   correct:1, opts:['institution','authority','legislature','court']},
+  {sent:'Supply-chain disruptions will continue to <b>exert</b> pressure on economies long after the initial shock.',
+   correct:1, opts:['relieve','impose','intensify','remove']},
+];
+const vlist=document.getElementById('vocab-list');
+let selectedAnswers=new Array(VOCAB.length).fill(null);
+VOCAB.forEach((v,vi)=>{
+  const d=document.createElement('div');
+  d.className='vocab-item';
+  d.innerHTML=`<div class="vocab-sent"><strong>${vi+1}.</strong> ${v.sent}</div>
+    <div class="vocab-opts" id="vg-${vi}">${v.opts.map((o,oi)=>
+      `<button class="vocab-btn" data-vi="${vi}" data-oi="${oi}" onclick="selVocab(this,${vi},${oi})">${['①','②','③','④'][oi]} ${o}</button>`
+    ).join('')}</div>`;
+  vlist.appendChild(d);
+});
+function selVocab(btn,vi,oi){
+  const grp=document.getElementById('vg-'+vi);
+  if(grp.dataset.submitted) return;
+  grp.querySelectorAll('.vocab-btn').forEach(b=>b.style.borderColor='');
+  btn.style.borderColor='var(--blue)';
+  btn.style.color='var(--blue)';
+  selectedAnswers[vi]=oi;
+  // deselect others
+  grp.querySelectorAll('.vocab-btn').forEach(b=>{
+    if(parseInt(b.dataset.oi)!==oi){b.style.borderColor='';b.style.color='';}
+  });
+}
+function submitVocab(){
+  let score=0;
+  VOCAB.forEach((v,vi)=>{
+    const grp=document.getElementById('vg-'+vi);
+    if(grp.dataset.submitted) return;
+    grp.dataset.submitted=1;
+    const chosen=selectedAnswers[vi];
+    grp.querySelectorAll('.vocab-btn').forEach(b=>{
+      const oi=parseInt(b.dataset.oi);
+      b.style.borderColor=''; b.style.color='';
+      if(oi===v.correct){b.classList.add('v-correct'); if(chosen===oi) score++;}
+      else if(oi===chosen && chosen!==v.correct) b.classList.add('v-wrong');
+    });
+  });
+  const sc=document.getElementById('vocab-score');
+  sc.textContent=`${score} / ${VOCAB.length} correct`;
+  sc.style.display='inline';
+  document.getElementById('vocab-submit').disabled=true;
+}
+
+/* T/F/NG */
+function buildTFNG(){
+  document.querySelectorAll('.tfng-tbl tbody tr[data-ans]').forEach(row=>{
+    const td=document.createElement('td');
+    td.innerHTML=`<div class="tfng-btns">
+      <button class="tfng-btn" onclick="selTFNG(this,'T')">T</button>
+      <button class="tfng-btn" onclick="selTFNG(this,'F')">F</button>
+      <button class="tfng-btn" onclick="selTFNG(this,'NG')">NG</button>
+      <span class="tfng-result"></span></div>`;
+    row.appendChild(td);
+  });
+}
+function selTFNG(btn,val){
+  const row=btn.closest('tr');
+  if(row.dataset.done) return;
+  btn.parentElement.querySelectorAll('.tfng-btn').forEach(b=>b.classList.remove('sel-T','sel-F','sel-N'));
+  btn.classList.add('sel-'+val[0]);
+  row.dataset.chosen=val;
+}
+function checkTFNG(id){
+  document.querySelectorAll('#'+id+' tr[data-ans]').forEach(row=>{
+    if(row.dataset.done) return;
+    const ans=row.dataset.ans, chosen=row.dataset.chosen||'';
+    row.querySelectorAll('.tfng-btn').forEach(b=>{if(b.textContent.trim()===ans) b.classList.add('correct-ans');});
+    const r=row.querySelector('.tfng-result');
+    if(r) r.textContent=chosen===ans?'✓':'✗ → '+ans;
+    row.dataset.done=1;
+  });
+}
+buildTFNG();
+</script>
+</body>
+</html>
