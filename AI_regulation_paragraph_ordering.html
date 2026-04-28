@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paragraph Ordering — AI Regulation</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #EEF4FF;
+      min-height: 100vh;
+      padding: 2.5rem 1rem 4rem;
+      color: #1a1a1a;
+    }
+
+    .page {
+      max-width: 740px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem 2rem 2.5rem;
+      box-shadow: 0 2px 20px rgba(60,80,160,.08);
+    }
+
+    header { margin-bottom: 1.75rem; padding-bottom: 1.25rem; border-bottom: 1px solid #e8e6f0; }
+    .label { font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: #8890cc; margin-bottom: .5rem; }
+    header h1 { font-size: 16px; font-weight: 700; line-height: 1.45; color: #1a1a1a; margin-bottom: .35rem; }
+    header p { font-size: 13px; color: #888; }
+
+    .top-bar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: .9rem; }
+    .top-bar span { font-size: 13px; color: #999; }
+
+    button {
+      font-size: 13px; font-weight: 600; padding: 7px 18px;
+      border-radius: 8px; border: 1.5px solid #d0d4ee;
+      background: #fff; color: #3c4a9e; cursor: pointer;
+      transition: background .12s, border-color .12s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    button:hover { background: #f0f2fc; border-color: #9aa3d8; }
+    button.primary { background: #3c4a9e; color: #fff; border-color: #3c4a9e; }
+    button.primary:hover { background: #2e3a84; }
+
+    .hint { font-size: 12px; color: #aaa; margin-bottom: 1.1rem; padding: 8px 12px; background: #f7f8fd; border-radius: 7px; border: 1px solid #e4e6f5; }
+
+    .zone-label { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #c0bedd; margin-bottom: 7px; }
+    .zone { margin-bottom: .9rem; }
+
+    .para-card {
+      border: 1px solid #e4e2f0; border-radius: 10px;
+      padding: 13px 15px 13px 13px; font-size: 13.5px; line-height: 1.75;
+      color: #1a1a1a; background: #fff;
+      cursor: grab; user-select: none; touch-action: none;
+      transition: border-color .15s, box-shadow .15s, transform .1s;
+      margin-bottom: 8px;
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .para-card:last-child { margin-bottom: 0; }
+    .para-card:active { cursor: grabbing; }
+    .para-card.dragging { opacity: .25; transform: scale(.98); }
+    .para-card.ghost {
+      position: fixed; pointer-events: none; z-index: 1000;
+      width: var(--ghost-width); opacity: .92;
+      box-shadow: 0 10px 28px rgba(60,74,158,.18);
+      transform: rotate(.7deg) scale(1.015);
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .para-card.over { border-color: #5b6fd4; border-width: 1.5px; box-shadow: 0 0 0 3px rgba(91,111,212,.12); }
+    .para-card.fixed { cursor: default; background: #f8f8fc; border-style: dashed; border-color: #d8d6ec; color: #555; }
+
+    .letter-badge {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      border-radius: 7px;
+      background: #eef0fc;
+      border: 1.5px solid #c8ccee;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; color: #3c4a9e;
+      margin-top: 2px;
+    }
+    .para-card.fixed .letter-badge { background: #eeecf8; border-color: #d4d2e8; color: #8880aa; }
+
+    .para-text { flex: 1; min-width: 0; }
+    .para-num { font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #ccc; margin-bottom: 5px; }
+    .para-card.fixed .para-num { color: #c8c6dc; }
+
+    .divider { border: none; border-top: 1px solid #eeedf5; margin: 1.1rem 0; }
+
+    /* Answer section */
+    .answer-section {
+      margin-top: 1.5rem;
+      padding: 1.25rem 1.25rem 1rem;
+      background: #f7f8fd;
+      border: 1.5px solid #d4d8f0;
+      border-radius: 12px;
+    }
+    .answer-section h3 { font-size: 13px; font-weight: 700; color: #3c4a9e; margin-bottom: .35rem; }
+    .answer-section p { font-size: 12px; color: #999; margin-bottom: .9rem; line-height: 1.5; }
+
+    .answer-display {
+      font-size: 22px; font-weight: 700; letter-spacing: .05em;
+      color: #1a1a1a; margin-bottom: 1rem;
+      min-height: 36px; line-height: 1.3;
+      word-break: break-all;
+    }
+    .answer-display .sep { color: #bbb; font-weight: 400; margin: 0 4px; }
+
+    .copy-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+    .copy-box {
+      flex: 1; min-width: 160px;
+      font-size: 13px; font-weight: 600; letter-spacing: .08em;
+      color: #3c4a9e; background: #fff;
+      border: 1.5px solid #c8ccee; border-radius: 8px;
+      padding: 8px 12px; cursor: pointer;
+      word-break: break-all; line-height: 1.4;
+    }
+
+    .copy-feedback {
+      font-size: 12px; color: #22a876; font-weight: 600;
+      display: none; white-space: nowrap;
+    }
+    .copy-feedback.show { display: inline; }
+
+    @media (max-width: 520px) {
+      .page { padding: 1.25rem 1rem 1.75rem; border-radius: 12px; }
+      .para-card { font-size: 13px; padding: 11px 12px 11px 11px; gap: 9px; }
+      header h1 { font-size: 14.5px; }
+      .top-bar span { display: none; }
+      .answer-display { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="label">미디어 영어 · Reading Activity</div>
+    <h1>"It's clear we won't regulate AI for safety" — Simon Kuper, <em>Financial Times</em></h1>
+    <p>Drag paragraphs [A]–[G] into the correct order. Paragraphs ¶1 and ¶9 are fixed.</p>
+  </header>
+
+  <div class="top-bar">
+    <span>¶ 1 and ¶ 9 are fixed &nbsp;·&nbsp; arrange [A] – [G]</span>
+    <button onclick="shuffle()">Shuffle again</button>
+  </div>
+
+  <p class="hint">💡 Desktop: drag and drop &nbsp;·&nbsp; Mobile: press, hold, then drag</p>
+
+  <div class="zone-label">Paragraph 1 — fixed</div>
+  <div class="zone">
+    <div class="para-card fixed">
+      <div class="letter-badge">¶1</div>
+      <div class="para-text">
+        Sam Altman, chief executive of OpenAI, is probably the best-known figure in AI. He's been in the news lately, with <em>The New Yorker</em> magazine publishing a long profile; someone threw a Molotov cocktail at his house, other passers-by fired a gun, and OpenAI changed strategy to focus on the enterprise market. Yet last month Altman inspired only one-third as many Google searches worldwide as the Liverpool footballer Mo Salah (who's a 33-year-old reserve, for crying out loud). Public engagement with AI remains, shall we say, limited.
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="zone-label">Paragraphs 2–8 — drag to reorder</div>
+  <div id="sortable"></div>
+
+  <hr class="divider">
+
+  <div class="zone-label">Paragraph 9 — fixed</div>
+  <div class="zone">
+    <div class="para-card fixed">
+      <div class="letter-badge">¶9</div>
+      <div class="para-text">
+        In short, we don't know enough even to push for regulating AI. Even if we did, there's no hope of global regulation of anything any more. Tech companies still act globally; states don't. The effect of AI will be determined by a few AI labs, or perhaps by the products themselves. We're essentially speeding along the highway at 300 miles an hour in an autonomous vehicle without seatbelts or headlights, and we'll see what happens.
+      </div>
+    </div>
+  </div>
+
+  <!-- Answer section -->
+  <div class="answer-section">
+    <h3>My answer</h3>
+    <p>Your order updates as you drag. When ready, copy and paste into Padlet.</p>
+    <div class="answer-display" id="answer-display"></div>
+    <div class="copy-row">
+      <div class="copy-box" id="copy-box" onclick="copyAnswer()"></div>
+      <span class="copy-feedback" id="copy-feedback">✓ Copied!</span>
+    </div>
+  </div>
+
+</div>
+<script>
+const LABELS = ['A','B','C','D','E','F','G'];
+const PARAS = [
+  { id:2, correct:2, text:`Altman blogged last weekend: "The fear and anxiety about AI is justified; we are in the process of witnessing the largest change to society in a long time, and perhaps ever." That could be corporate hype, or true, or both. He called for a collective debate on safety, saying: "I do not think it is right that a few AI labs would make the most consequential decisions about the shape of our future." He might mean that sincerely, or not. Either way, we already know what is going to happen. A few AI labs will make the most consequential decisions about our future. We won't regulate AI for safety's sake. That's not how modern societies handle innovation.` },
+  { id:3, correct:3, text:`Each time a technology changes the world, it takes ages for the world to spot the downsides, and longer before cautious regulation is attempted. Think of CO₂ emissions. In 1856, the American scientist Eunice Newton Foote demonstrated that they could warm the planet, and here we are today. Similarly, since British scientists showed in the 1950s that cigarettes cause cancer, smoking has legally killed hundreds of millions of people. Today, two decades after social media and smartphones rewired our brains, we're starting to try to regulate the tech, at least for children. The whole thing is a libertarian's dream.` },
+  { id:4, correct:4, text:`Whenever regulation is attempted, companies fight it. Shareholders don't always defeat democracy, but that's the way to bet on it. The country where most AI is being developed hasn't passed a federal law regulating the technology. Instead, Donald Trump ordered government agencies to eliminate policies that could "hinder American AI dominance". Aside from the EU's AI Act, hardly any jurisdiction has even attempted comprehensive regulation. As usual, governments barely affect the trends that most affect our lives.` },
+  { id:5, correct:5, text:`Voters aren't pushing politicians to take on AI. Most people engage with the technology only as consumers. They struggle to think about its societal implications. They're more comfortable arguing about identity, or the perceived personalities of politicians, though they often misjudge those too. Most media also neglect the topic. The day Anthropic launched Mythos, a model that seems able to hack almost any operating system, the journalist Shakeel Hashim noted: "The release does not appear near the top of the homepage on any major news site."` },
+  { id:6, correct:6, text:`No wonder, because AI is even harder to understand than previous innovations. It's a closed-source technology, advancing at unprecedented speed, and developed by a tiny group of experts who themselves don't fully understand it. Anthropic's chief executive, Dario Amodei, writes: "People outside the field are often surprised and alarmed to learn that we do not understand how our own AI creations work … this lack of understanding is essentially unprecedented in the history of technology."` },
+  { id:7, correct:7, text:`But as outsiders understand even less, the loudest warnings against AI come from insiders like Amodei. In 2023, more than a thousand industry executives and experts called for a pause in AI's development so as to prevent "the loss of control of our civilisation". That now forgotten appeal never became an electoral issue anywhere.` },
+  { id:8, correct:8, text:`One group is opposing AI: academics, especially in the humanities. However, many of them suffer from a bias that prevents them from taking the technology seriously. The humanities study human creations. If you have dedicated your life to that, and you're fed up with your students outsourcing their minds to Claude, and you aren't schooled in tech, then you might still be dismissing AI as "glorified autocomplete".` }
+];
+
+/* assign fixed labels to paragraphs (shuffled, so label != para order) */
+let labelMap = {}; /* id -> label letter, set once on first shuffle */
+let order = [];
+let dragSrc = null, ghost = null, dragOverTarget = null;
+let touchOffsetX = 0, touchOffsetY = 0;
+
+function assignLabels(shuffled) {
+  labelMap = {};
+  shuffled.forEach((p, i) => { labelMap[p.id] = LABELS[i]; });
+}
+
+function shuffle() {
+  const shuffled = [...PARAS].sort(() => Math.random() - .5);
+  assignLabels(shuffled);
+  order = shuffled;
+  render();
+  updateAnswer();
+}
+
+function render() {
+  const zone = document.getElementById('sortable');
+  zone.innerHTML = '';
+  order.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'para-card';
+    card.draggable = true;
+    card.dataset.id = p.id;
+    const lbl = labelMap[p.id];
+    card.innerHTML = `<div class="letter-badge">[${lbl}]</div><div class="para-text">${p.text}</div>`;
+    card.addEventListener('dragstart', onDragStart);
+    card.addEventListener('dragover',  onDragOver);
+    card.addEventListener('dragleave', onDragLeave);
+    card.addEventListener('drop',      onDrop);
+    card.addEventListener('dragend',   onDragEnd);
+    card.addEventListener('touchstart', onTouchStart, { passive: false });
+    card.addEventListener('touchmove',  onTouchMove,  { passive: false });
+    card.addEventListener('touchend',   onTouchEnd,   { passive: false });
+    zone.appendChild(card);
+  });
+}
+
+function updateAnswer() {
+  const letters = order.map(p => `[${labelMap[p.id]}]`);
+  /* display */
+  const display = document.getElementById('answer-display');
+  display.innerHTML = letters.map((l, i) =>
+    i < letters.length - 1
+      ? `${l}<span class="sep">→</span>`
+      : l
+  ).join('');
+  /* copy box */
+  const plain = letters.join(' → ');
+  document.getElementById('copy-box').textContent = plain;
+}
+
+/* mouse drag */
+function onDragStart(e) { dragSrc = this; this.classList.add('dragging'); e.dataTransfer.effectAllowed = 'move'; }
+function onDragOver(e)  { e.preventDefault(); if (this !== dragSrc) { clearOver(); this.classList.add('over'); } }
+function onDragLeave()  { this.classList.remove('over'); }
+function onDrop(e)      { e.preventDefault(); this.classList.remove('over'); if (this !== dragSrc) reorder(dragSrc, this); }
+function onDragEnd()    { if (dragSrc) dragSrc.classList.remove('dragging'); clearOver(); dragSrc = null; }
+
+/* touch drag */
+function onTouchStart(e) {
+  dragSrc = this;
+  const t = e.touches[0], r = this.getBoundingClientRect();
+  touchOffsetX = t.clientX - r.left; touchOffsetY = t.clientY - r.top;
+  ghost = this.cloneNode(true);
+  ghost.classList.add('ghost');
+  ghost.style.setProperty('--ghost-width', r.width + 'px');
+  ghost.style.left = (t.clientX - touchOffsetX) + 'px';
+  ghost.style.top  = (t.clientY - touchOffsetY) + 'px';
+  document.body.appendChild(ghost);
+  this.classList.add('dragging');
+  e.preventDefault();
+}
+function onTouchMove(e) {
+  e.preventDefault();
+  if (!ghost) return;
+  const t = e.touches[0];
+  ghost.style.left = (t.clientX - touchOffsetX) + 'px';
+  ghost.style.top  = (t.clientY - touchOffsetY) + 'px';
+  ghost.style.display = 'none';
+  const el = document.elementFromPoint(t.clientX, t.clientY);
+  ghost.style.display = '';
+  const target = el && el.closest('#sortable .para-card');
+  if (target && target !== dragSrc) {
+    if (dragOverTarget !== target) { clearOver(); target.classList.add('over'); dragOverTarget = target; }
+  } else { clearOver(); dragOverTarget = null; }
+}
+function onTouchEnd(e) {
+  e.preventDefault();
+  if (ghost) { ghost.remove(); ghost = null; }
+  if (dragSrc) dragSrc.classList.remove('dragging');
+  if (dragOverTarget && dragOverTarget !== dragSrc) reorder(dragSrc, dragOverTarget);
+  clearOver(); dragSrc = null; dragOverTarget = null;
+}
+
+function clearOver() { document.querySelectorAll('#sortable .para-card.over').forEach(c => c.classList.remove('over')); }
+
+function reorder(src, target) {
+  const zone = document.getElementById('sortable');
+  const cards = [...zone.querySelectorAll('.para-card')];
+  const srcIdx = cards.indexOf(src), tgtIdx = cards.indexOf(target);
+  const ids = order.map(p => p.id);
+  const [moved] = ids.splice(srcIdx, 1);
+  ids.splice(tgtIdx, 0, moved);
+  order = ids.map(id => PARAS.find(p => p.id === id));
+  render();
+  updateAnswer();
+}
+
+function copyAnswer() {
+  const text = document.getElementById('copy-box').textContent;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(showCopied);
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta);
+    ta.select(); document.execCommand('copy');
+    document.body.removeChild(ta); showCopied();
+  }
+}
+function showCopied() {
+  const fb = document.getElementById('copy-feedback');
+  fb.classList.add('show');
+  setTimeout(() => fb.classList.remove('show'), 2000);
+}
+
+shuffle();
+</script>
+</body>
+</html>
