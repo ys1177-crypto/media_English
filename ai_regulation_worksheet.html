@@ -17,8 +17,6 @@
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   background:var(--bg);color:var(--text);font-size:15px;line-height:1.7}
-
-/* layout */
 .shell{max-width:860px;margin:0 auto;padding:0 1rem 5rem}
 .topbar{background:var(--navy);color:#e2e8f0;padding:.55rem 1.2rem;
   font-size:12px;letter-spacing:.04em;display:flex;align-items:center;
@@ -30,8 +28,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 .art-header h1{font-size:1.6rem;font-weight:800;line-height:1.22;color:var(--navy);margin-bottom:.5rem}
 .art-header .sub{font-size:.97rem;font-style:italic;color:var(--grey);margin-bottom:.4rem}
 .art-header .byline{font-size:12px;color:var(--muted)}
-
-/* main tabs */
 .tab-nav{display:flex;gap:4px;flex-wrap:wrap;margin:1.2rem 0 0;border-bottom:2px solid var(--border)}
 .tab-btn{padding:.45rem .9rem;font-size:13px;font-weight:600;border:none;background:none;
   cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;
@@ -40,8 +36,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 .tab-btn.active{color:#2a4fa8;border-bottom-color:#2a4fa8;background:#eef3fb}
 .panel{display:none;padding:1.4rem 0}
 .panel.active{display:block}
-
-/* pre-reading inner tabs */
 .pre-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.2rem}
 .pre-tab{padding:.35rem .9rem;font-size:13px;font-weight:600;
   border:1.5px solid var(--border);border-radius:20px;
@@ -50,8 +44,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 .pre-tab.active{background:#2a4fa8;color:#fff;border-color:#2a4fa8}
 .pre-section{display:none}
 .pre-section.active{display:block}
-
-/* reading section tabs */
 .sec-nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.2rem}
 .sec-btn{padding:.35rem .8rem;font-size:12px;font-weight:600;
   border:1.5px solid var(--border);border-radius:20px;
@@ -60,21 +52,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 .sec-btn.active{background:#2a4fa8;color:#fff;border-color:#2a4fa8}
 .section{display:none}
 .section.active{display:block}
-
-/* cards */
 .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
   padding:1.1rem 1.2rem;margin-bottom:1rem;box-shadow:var(--shadow)}
 .card-label{font-size:11px;font-weight:700;letter-spacing:.08em;
   text-transform:uppercase;color:var(--muted);margin-bottom:.6rem}
-
-/* headline box */
 .headline-box{background:var(--navy);color:#fff;border-radius:var(--radius);
   padding:1.2rem 1.5rem;margin-bottom:1rem}
 .headline-box h2{font-size:1.25rem;font-weight:800;line-height:1.3;margin-bottom:.4rem}
 .headline-box .h-sub{color:#93c5fd;font-style:italic;font-size:.95rem}
 .headline-box .h-meta{color:#94a3b8;font-size:12px;margin-top:.5rem}
-
-/* bg grid — 2 cards only */
 .bg-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:.6rem}
 @media(max-width:600px){.bg-grid{grid-template-columns:1fr}}
 .bg-card{border-radius:var(--radius);padding:1rem 1.1rem;border:1px solid transparent}
@@ -83,8 +69,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 .bg-card.c{background:#edf7f2;border-color:#b0d4bf}
 .bg-card h4{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:.4rem}
 .bg-card p{font-size:13.5px;line-height:1.65}
-
-/* vocab */
 .vocab-item{margin-bottom:1.1rem;padding-bottom:1.1rem;border-bottom:1px solid var(--border)}
 .vocab-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
 .vocab-sent{font-size:14.5px;margin-bottom:.5rem;line-height:1.7}
@@ -106,23 +90,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 .submit-btn:hover{background:var(--navy)}
 .submit-btn:disabled{opacity:.35;cursor:not-allowed}
 .vocab-score{font-size:14px;font-weight:600;color:#1a5c3a;display:none}
-
-/* article body */
 .article-body p{margin-bottom:1rem;line-height:1.8;font-size:14.5px}
 .article-body .pnum{font-size:10px;font-weight:700;color:var(--blue);vertical-align:super;margin-right:3px}
 .ul-phrase{text-decoration:underline;text-decoration-color:#dc2626;
   text-underline-offset:3px;font-weight:600}
 .article-note{font-size:12px;color:var(--muted);margin-bottom:.7rem;font-style:italic}
-
-/* quote box */
 .q-quote{background:#faf5e8;border-left:3px solid #b8963c;
   padding:.75rem 1rem;border-radius:0 var(--radius) var(--radius) 0;
   font-size:14px;line-height:1.7;margin:.5rem 0 .7rem}
 .q-quote .ul{text-decoration:underline;font-weight:700;
   text-decoration-color:#d97706;text-underline-offset:3px}
 .q-quote .pref{font-size:11px;color:var(--muted);display:block;margin-top:.25rem}
-
-/* MCQ — no box */
 .mcq{margin:.5rem 0}
 .mcq-row{display:grid;grid-template-columns:1fr 1fr;gap:0}
 .mcq-opt{padding:.38rem .5rem;font-size:14px;cursor:pointer;
@@ -133,8 +111,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 .mcq-opt.show-correct{background:#e8f4ee;color:#1a5c3a;font-weight:600;border-radius:6px}
 .mcq-done .mcq-opt{pointer-events:none}
 @media(max-width:600px){.mcq-row{grid-template-columns:1fr}}
-
-/* sentence clinic */
 .clinic-box{background:#f8fafc;border:1px solid var(--border);
   border-radius:var(--radius);padding:1rem 1.1rem;margin-bottom:.8rem}
 .clinic-box .cl-label{font-size:11px;font-weight:700;letter-spacing:.08em;
@@ -157,13 +133,9 @@ details.cl-detail summary::-webkit-details-marker{display:none}
 .cl-ko{background:#edf4f9;border:1px solid #a8c8de;border-radius:6px;
   padding:.75rem .9rem;margin:.6rem 0;font-size:13.5px;line-height:1.75}
 .cl-ko strong{color:#1e5a7a}
-
-/* open answer */
 .open-ans{width:100%;border:1px solid var(--border);border-radius:var(--radius);
   padding:.6rem .8rem;font-size:14px;resize:vertical;min-height:68px;
   font-family:inherit;background:#fff}
-
-/* fill-in table */
 .fill-tbl{width:100%;border-collapse:collapse;font-size:14px;margin:.5rem 0}
 .fill-tbl th{background:var(--navy);color:#fff;padding:.5rem .75rem;
   text-align:left;font-size:12px;font-weight:600}
@@ -174,8 +146,6 @@ details.cl-detail summary::-webkit-details-marker{display:none}
   background:transparent;font-size:13.5px;padding:.1rem .3rem;
   width:90%;outline:none;font-family:inherit}
 .fill-in:focus{border-bottom-color:var(--blue)}
-
-/* show answer */
 details.ans-d{margin:.6rem 0}
 details.ans-d summary{cursor:pointer;font-size:13px;font-weight:600;
   color:var(--blue);list-style:none;display:inline-flex;align-items:center;gap:.3rem}
@@ -189,11 +159,9 @@ details.ans-d summary::-webkit-details-marker{display:none}
 .ans-tbl th{background:#2d6e4e;color:#fff;padding:.4rem .7rem;text-align:left;font-size:12px}
 .ans-tbl td{padding:.45rem .7rem;border-bottom:1px solid #bbf7d0;vertical-align:top}
 .ans-tbl tr:nth-child(even) td{background:#f2f8f5}
-
-/* T/F/NG */
 .tfng-tbl{width:100%;border-collapse:collapse;font-size:14px}
 .tfng-tbl th{background:var(--navy);color:#fff;padding:.5rem .75rem;
-  text-align:left;font-size:12px}
+  text-align:left;font-size:12px;white-space:nowrap}
 .tfng-tbl td{padding:.55rem .75rem;border-bottom:1px solid var(--border);vertical-align:top}
 .tfng-tbl tr:nth-child(even) td{background:var(--blue-ltr)}
 .tfng-btns{display:flex;gap:5px;margin-top:.35rem}
@@ -209,8 +177,6 @@ details.ans-d summary::-webkit-details-marker{display:none}
   background:var(--navy);color:#fff;border:none;border-radius:var(--radius);
   cursor:pointer;transition:.15s}
 .check-btn:hover{background:#2a4fa8}
-
-/* nav */
 .sec-nav-btns{display:flex;justify-content:space-between;margin-top:1.5rem;
   padding-top:1rem;border-top:1px solid var(--border)}
 .nav-btn{padding:.45rem 1rem;font-size:13px;font-weight:600;
@@ -218,15 +184,11 @@ details.ans-d summary::-webkit-details-marker{display:none}
   cursor:pointer;background:#fff;color:var(--navy);transition:.15s}
 .nav-btn:hover{background:#2a4fa8;color:#fff;border-color:#2a4fa8}
 .nav-btn:disabled{opacity:.3;cursor:default}
-
-/* q block */
 .q-block{margin-bottom:1.5rem}
 .q-stem{font-weight:600;margin-bottom:.5rem;font-size:14.5px}
-
 .badge{display:inline-block;font-size:11px;font-weight:700;padding:.15rem .55rem;
   border-radius:20px;letter-spacing:.04em;margin-bottom:.7rem}
 .badge-blue{background:#dce8f7;color:#2a4fa8}
-
 .sec-submit-row{margin-top:1rem;display:flex;align-items:center;flex-wrap:wrap;gap:.8rem}
 .sec-submit-btn{padding:.45rem 1.1rem;font-size:13px;font-weight:700;
   background:#2a4fa8;color:#fff;border:none;border-radius:var(--radius);cursor:pointer;transition:.15s}
@@ -257,7 +219,7 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
   <button class="tab-btn" onclick="showTab('read',this)">📖 Comprehension Questions</button>
 </div>
 
-<!-- ═══════════ PRE-READING ═══════════ -->
+<!-- PRE-READING -->
 <div id="panel-pre" class="panel active">
   <div class="pre-tabs">
     <button class="pre-tab active" onclick="showPre('headline',this)">A. Headline</button>
@@ -265,7 +227,6 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
     <button class="pre-tab" onclick="showPre('vocab',this)">C. Vocabulary</button>
   </div>
 
-  <!-- A -->
   <div id="pre-headline" class="pre-section active">
     <div class="card">
       <div class="headline-box">
@@ -285,7 +246,6 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
     </div>
   </div>
 
-  <!-- B -->
   <div id="pre-background" class="pre-section">
     <div class="card">
       <div class="card-label">B. Background Knowledge — 알아두면 도움이 되는 배경 지식</div>
@@ -296,17 +256,16 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
         </div>
         <div class="bg-card b">
           <h4>📉 Libertarianism — 자유지상주의</h4>
-          <p>Libertarianism is the belief that the government should interfere as little as possible in individuals’ lives and in the marketplace. The article describes the lack of AI regulation is “a libertarian’s dream,” but uses the phrase ironically. The writer does not view this positively; rather, It suggests that the technology is developing without sufficient safety oversight.</p>
+          <p>Libertarianism is the belief that the government should interfere as little as possible in individuals' lives and in the marketplace. The article describes the lack of AI regulation is "a libertarian's dream," but uses the phrase ironically. The writer does not view this positively; rather, it suggests that the technology is developing without sufficient safety oversight.</p>
         </div>
         <div class="bg-card c">
           <h4>🌍 The EU AI Act</h4>
-          <p>The EU AI Act (2024) is the world’s first comprehensive law regulating AI. It classifies AI systems into risk categories: “unacceptable risk” (banned), “high risk” (strictly regulated), and “low risk” (largely unrestricted). The law applies to any AI system used in the EU, regardless of where it was developed. The article describes it as one of the few serious efforts to regulate AI globally.</p>
+          <p>The EU AI Act (2024) is the world's first comprehensive law regulating AI. It classifies AI systems into risk categories: "unacceptable risk" (banned), "high risk" (strictly regulated), and "low risk" (largely unrestricted). The law applies to any AI system used in the EU, regardless of where it was developed. The article describes it as one of the few serious efforts to regulate AI globally.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- C -->
   <div id="pre-vocab" class="pre-section">
     <div class="card">
       <div class="card-label">C. Vocabulary — 모두 풀고 Submit을 누르면 정오답이 표시됩니다.</div>
@@ -333,7 +292,7 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
   </div>
 </div>
 
-<!-- ═══════════ COMPREHENSION ═══════════ -->
+<!-- COMPREHENSION -->
 <div id="panel-read" class="panel">
   <div class="sec-nav" id="sec-nav"></div>
 
@@ -347,9 +306,9 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
       <p><span class="pnum">[2]</span> Altman blogged last weekend: "The fear and anxiety about AI is justified; we are in the process of witnessing the largest change to society in a long time, and perhaps ever." That could be corporate hype, or true, or both. He called for a collective debate on safety, saying: "I do not think it is right that a few AI labs would make the most consequential decisions about the shape of our future." He might mean that sincerely, <span class="ul-phrase">or not</span>. Either way, we already know what is going to happen. A few AI labs will make the most consequential decisions about our future. We won't regulate AI for safety's sake. That's not how modern societies handle innovation.</p>
     </div>
 
-    <!-- Q1 clinic -->
     <div class="card">
       <div class="card-label">구조 분석 &amp; 어휘 · Sentence Clinic</div>
+
       <div class="clinic-box">
         <div class="cl-label">Q1에 나오는 표현</div>
         <div class="clinic-sent">"Public engagement with AI remains, <strong>shall we say, limited</strong>."</div>
@@ -380,27 +339,23 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
             <div class="cl-struct">
               Mo Salah &nbsp;→ 선행사 (antecedent)<br>
               ( &nbsp;→ 괄호 — 삽입적 관계절 시작<br>
-              who &nbsp;→ 관계대명사 주격 (= Mo Salah)<br>
+              who &nbsp;→ 관계대명사 (= Mo Salah)<br>
               's &nbsp;→ is의 축약형<br>
               a 33-year-old reserve &nbsp;→ 주격 보어 (명사구)<br>
               , for crying out loud &nbsp;→ 감탄 삽입구 ("정말이지, 세상에")<br>
               ) &nbsp;→ 괄호 닫기
             </div>
             <div class="cl-ko">
-              <strong>관계대명사 who (주격):</strong><br>
-              선행사가 사람일 때 사용합니다. 주격 관계대명사이므로 절 안에서 주어 역할을 합니다.<br>
-              ✅ Mo Salah, <em>who is</em> a 33-year-old reserve = Mo Salah, 그는 33세의 후보 선수다<br>
-              ✅ The man <em>who created</em> ChatGPT = ChatGPT를 만든 그 남자<br><br>
               <strong>비제한적 관계절 (Non-restrictive relative clause):</strong><br>
-              쉼표나 괄호로 분리된 관계절은 선행사를 "한정"하지 않고 "부연"합니다. 삽입구처럼 제거해도 주문장이 완전합니다. 이 문장에서 핵심은 "a 33-year-old reserve(33세 후보 선수)"라는 정보로, Salah가 이미 전성기를 지났음을 강조합니다.<br><br>
-              <strong>"for crying out loud":</strong> 구어체 감탄 표현으로 "정말이지!, 세상에!"에 해당합니다. 기자가 독자에게 직접 말을 거는 듯한 친근하고 코믹한 효과를 줍니다. AI의 가장 유명한 인물이 이미 한물간 축구 선수보다도 검색량이 적다는 사실의 황당함을 강조합니다.<br><br>
+              쉼표나 괄호로 분리된 관계절은 선행사를 "한정"하지 않고 "부연"합니다. 삽입구처럼 제거해도 주문장이 완전합니다. 이 문장에서 핵심은 "a 33-year-old reserve(33세 후보 선수)"라는 정보로, Salah가 현재 주전이 아님을 짚어줍니다.<br><br>
+              <strong>"for crying out loud":</strong> 구어체 감탄 표현으로 "정말이지!, 세상에!"에 해당합니다. 기자가 독자에게 직접 말을 거는 듯한 친근하고 코믹한 효과를 줍니다. AI의 가장 유명한 인물이 후보 선수보다도 검색량이 적다는 사실의 황당함을 강조합니다.<br><br>
               <strong>전체 번역:</strong> "…모 살라 (그는 33세의 후보 선수인데, 정말이지!)"
             </div>
           </div>
         </details>
       </div>
 
-            <div class="clinic-box">
+      <div class="clinic-box">
         <div class="cl-label">Q4에 나오는 표현</div>
         <div class="clinic-sent">"He might mean that sincerely, <strong>or not</strong>. Either way, we already know what is going to happen."</div>
         <details class="cl-detail">
@@ -413,7 +368,7 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
             </div>
             <div class="cl-ko">
               <strong>"or not"의 수사적 효과:</strong><br>
-              Altman의 진심 여부를 묻는 척하면서, 바로 "Either way(어느 쪽이든)"로 그 질문 자체를 무의미하게 만들어버립니다. 이것은 <strong>dismissal(일축)</strong>의 수사 기법입니다. 기자는 개인의 진심보다 구조적 결과가 더 중요하다고 주장합니다.<br><br>
+              Altman의 진심 여부에 대해 언급하면서, 바로 "Either way(어느 쪽이든)"로 그 질문 자체를 무의미하게 만들어버립니다. 기자는 개인의 진심보다 구조적 결과가 더 중요하다고 주장합니다.<br><br>
               <strong>전체 번역:</strong> "그가 진심으로 그 말을 했는지, 아닌지. 어느 쪽이든, 우리는 이미 무슨 일이 일어날지 알고 있다."
             </div>
           </div>
@@ -503,6 +458,7 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
 
     <div class="card">
       <div class="card-label">구조 분석 &amp; 어휘 · Sentence Clinic</div>
+
       <div class="clinic-box">
         <div class="cl-label">Q6에 나오는 표현</div>
         <div class="clinic-sent">"<strong>The whole thing is a libertarian's dream.</strong>"</div>
@@ -523,10 +479,7 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
           </div>
         </details>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="card-label">구조 분석 &amp; 어휘 · Sentence Clinic</div>
       <div class="clinic-box">
         <div class="cl-label">Q7에 나오는 표현</div>
         <div class="clinic-sent">"Aside from the EU's AI Act, <strong>hardly any jurisdiction</strong> has even attempted comprehensive regulation."</div>
@@ -538,7 +491,6 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
               &nbsp;&nbsp;└ aside from: "~을 제외하면"<br>
               hardly any jurisdiction &nbsp;→ 주어<br>
               &nbsp;&nbsp;└ hardly: 부정 부사 ("거의 ~하지 않다")<br>
-              &nbsp;&nbsp;└ any: hardly와 결합하여 강한 부정<br>
               &nbsp;&nbsp;└ jurisdiction: 명사 "관할권, (법이 적용되는) 나라·기관"<br>
               has even attempted &nbsp;→ 동사 (현재완료)<br>
               &nbsp;&nbsp;└ even: 동사 강조 ("시도조차")<br>
@@ -550,12 +502,35 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
               ✅ Aside from a few exceptions, the rule applies to everyone.<br><br>
               <strong>"hardly any" — 강한 부정:</strong><br>
               "almost no(거의 없는)"의 의미로, "few"보다 강합니다. hardly는 부정 부사이므로 not과 함께 쓰지 않습니다.<br>
-              ✅ Hardly any country has passed an AI law. (거의 어떤 나라도 AI 법을 통과시키지 않았다)<br>
-              ❌ Hardly any country hasn't passed... (이중 부정 — 오류)<br><br>
+              ✅ Hardly any country has passed an AI law.<br>
+              ❌ Hardly any country hasn't passed… (이중 부정 — 오류)<br><br>
               <strong>"even attempted" — even의 강조:</strong><br>
               동사 앞의 "even"은 "~조차도"로 강조합니다. "시도조차 하지 않았다"는 뜻으로, 규제 부재의 심각성을 강조합니다.<br><br>
-              <strong>jurisdiction(관할권):</strong> 법이나 규제가 적용되는 지역 또는 법적 권한을 가진 기관·나라. "country or legal authority"에 가깝습니다.<br><br>
               <strong>전체 번역:</strong> "EU의 AI 법을 제외하면, 포괄적인 규제를 시도조차 한 관할권은 거의 없다."
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="clinic-box">
+        <div class="cl-label">추가 표현 분석</div>
+        <div class="clinic-sent">"Shareholders don't always defeat democracy, <strong>but that's the way to bet on it</strong>."</div>
+        <details class="cl-detail">
+          <summary>구조 분석 보기 &nbsp;🇰🇷 한국어 설명</summary>
+          <div class="cl-body">
+            <div class="cl-struct">
+              Shareholders don't always defeat democracy, &nbsp;<span class="hl">주절 — 표면적 양보</span><br>
+              but &nbsp;<span class="hl">역접 접속사</span><br>
+              that's the way to bet on it &nbsp;<span class="hl">종속절 — 실질적 주장</span>
+            </div>
+            <div class="cl-ko">
+              <strong>"that's the way to bet on it"의 의미:</strong><br>
+              도박 용어에서 온 관용 표현으로, "그쪽에 베팅하는 것이 현명하다", 즉 "실제로는 그렇게 될 가능성이 높다"는 뜻입니다. 직역하면 어색하지만, 문맥상 <strong>"주주들이 민주주의를 이기는 게 보통은 아니지만, 현실에서는 그렇게 되는 경우가 많다"</strong>는 냉소적인 예측을 담고 있습니다.<br><br>
+              <strong>구조적 효과 — concession + reversal:</strong><br>
+              "don't always" → 표면적으로 예외를 인정하는 척합니다. 그러나 "but that's the way to bet on it" → 현실적으로는 기업(주주)이 규제(민주주의)를 이긴다는 방향으로 결론을 내립니다. 형식은 양보이지만 실질은 단호한 주장입니다.<br><br>
+              <strong>"defeat democracy"의 함의:</strong><br>
+              민주주의가 "규제 입법"을 통해 공공 이익을 대변한다는 전제 위에, 주주(기업 이익)가 로비·정치 헌금 등으로 그 과정을 무력화한다는 비판적 시각이 담겨 있습니다.<br><br>
+              <strong>전체 번역:</strong> "주주들이 항상 민주주의를 이기는 건 아니다. 하지만 그쪽에 베팅하는 게 맞다." <em>(= 현실에서는 기업 이익이 규제를 막는 경우가 많다)</em>
             </div>
           </div>
         </details>
@@ -567,21 +542,21 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
       <div class="q-block">
         <div class="q-stem">Q5. The article mentions several historical examples of regulatory lag. Fill in the table. (Para. 3)</div>
         <table class="fill-tbl">
-          <thead><tr><th>Technology / Issue</th><th>When the danger was first known</th><th>What happened next? Still unresolved?</th></tr></thead>
+          <thead><tr><th>Technology / Issue</th><th>When danger was first known / What happened &amp; is it still unresolved?</th></tr></thead>
           <tbody>
-            <tr><td class="fw">CO₂ / Climate</td><td><input class="fill-in" placeholder="…"></td><td><input class="fill-in" placeholder="…"></td></tr>
-            <tr><td class="fw">Cigarettes</td><td><input class="fill-in" placeholder="…"></td><td><input class="fill-in" placeholder="…"></td></tr>
-            <tr><td class="fw">Social media / Smartphones</td><td><input class="fill-in" placeholder="…"></td><td><input class="fill-in" placeholder="…"></td></tr>
+            <tr><td class="fw">CO₂ / Climate</td><td><input class="fill-in" style="width:95%" placeholder="…"></td></tr>
+            <tr><td class="fw">Cigarettes</td><td><input class="fill-in" style="width:95%" placeholder="…"></td></tr>
+            <tr><td class="fw">Social media / Smartphones</td><td><input class="fill-in" style="width:95%" placeholder="…"></td></tr>
           </tbody>
         </table>
         <details class="ans-d"><summary>정답 보기</summary>
           <div class="ans-body">
             <table class="ans-tbl">
-              <thead><tr><th>Technology / Issue</th><th>When first known</th><th>What happened / Still unresolved?</th></tr></thead>
+              <thead><tr><th>Technology / Issue</th><th>When danger was first known / What happened &amp; is it still unresolved?</th></tr></thead>
               <tbody>
-                <tr><td><strong>CO₂ / Climate</strong></td><td>1856 — Eunice Newton Foote demonstrated CO₂ warms the planet</td><td>Still largely unresolved today</td></tr>
-                <tr><td><strong>Cigarettes</strong></td><td>1950s — British scientists showed they cause cancer</td><td>Smoking legally killed hundreds of millions before strong regulation came</td></tr>
-                <tr><td><strong>Social media / Smartphones</strong></td><td>~Two decades ago (2000s)</td><td>Only now starting to regulate, at least for children</td></tr>
+                <tr><td><strong>CO₂ / Climate</strong></td><td>1856년 Eunice Newton Foote가 CO₂가 지구를 온난화한다는 것을 증명했지만, 오늘날까지도 문제가 해결되지 않고 있다.</td></tr>
+                <tr><td><strong>Cigarettes</strong></td><td>1950년대 영국 과학자들이 흡연과 암의 연관성을 밝혔지만, 강력한 규제가 도입되기까지 수억 명이 사망했다.</td></tr>
+                <tr><td><strong>Social media / Smartphones</strong></td><td>수십 년간 사용된 뒤 최근에야 부작용이 인식되기 시작했으며, 현재 특히 아동을 위한 규제를 이제 막 시도하고 있다.</td></tr>
               </tbody>
             </table>
           </div>
@@ -636,6 +611,33 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
 
     <div class="card">
       <div class="card-label">구조 분석 &amp; 어휘 · Sentence Clinic</div>
+
+      <div class="clinic-box">
+        <div class="cl-label">Q8에 나오는 표현</div>
+        <div class="clinic-sent">"They're more comfortable arguing about identity, or <strong>the perceived personalities of politicians</strong>, though they often <strong>misjudge those too</strong>."</div>
+        <details class="cl-detail">
+          <summary>구조 분석 보기 &nbsp;🇰🇷 한국어 설명</summary>
+          <div class="cl-body">
+            <div class="cl-struct">
+              They're more comfortable arguing about identity &nbsp;<span class="hl">주절 — 비교급 "more comfortable"</span><br>
+              or the perceived personalities of politicians &nbsp;<span class="hl">병렬 목적어 — 또 다른 논쟁 대상</span><br>
+              though they often misjudge those too &nbsp;<span class="hl">양보 부사절 — 반전·아이러니</span>
+            </div>
+            <div class="cl-ko">
+              <strong>"perceived personalities"의 의미:</strong><br>
+              "perceived"는 "실제로 그런지와 무관하게 사람들이 그렇다고 인식하는"이라는 뜻입니다. 즉 정치인의 성격이나 됨됨이를 <em>실제</em>가 아닌 <em>이미지</em>로 판단한다는 의미입니다. 유권자들이 정책보다 인물의 인상과 이미지에 집중한다는 비판입니다.<br><br>
+              <strong>"though they often misjudge those too"의 효과:</strong><br>
+              이 양보절이 문장 전체에 묘한 아이러니를 추가합니다. 사람들은 AI 같은 복잡한 주제 대신 정치인의 성격을 논하는 것을 더 편안하게 느끼는데 — 그마저도 자주 틀린다는 것입니다. "too"는 AI도 이해 못하고, 정치인의 성격도 이해 못한다는 이중의 실패를 강조합니다.<br><br>
+              <strong>비교급 구조 "more comfortable -ing":</strong><br>
+              "be comfortable -ing" = "~하는 것을 편안하게 여기다"<br>
+              "more comfortable A than B" = "B보다 A를 더 편안하게 느끼다"<br>
+              여기서는 than 이하가 생략되어 있지만, 앞 문장 문맥상 "AI의 사회적 함의를 생각하는 것보다"가 비교 대상입니다.<br><br>
+              <strong>전체 번역:</strong> "그들은 정체성 문제나 정치인의 (실제와 다를 수 있는) 성격에 대해 논쟁하는 것이 더 편하다 — 비록 그것조차 자주 잘못 판단하지만."
+            </div>
+          </div>
+        </details>
+      </div>
+
       <div class="clinic-box">
         <div class="cl-label">Q9에 나오는 표현</div>
         <div class="clinic-sent">"It's a <strong>closed-source</strong> technology, <strong>advancing at unprecedented speed</strong>, and developed by a tiny group of experts who themselves <strong>don't fully understand it</strong>."</div>
@@ -651,12 +653,11 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
             <div class="cl-ko">
               <strong>세 겹 수식 구조:</strong> 하나의 명사(technology)에 세 가지 특성을 연속으로 붙여 독자가 AI의 위험성을 차례로 인식하게 만드는 점층적 효과가 있습니다.<br><br>
               <strong>"closed-source":</strong> 소스 코드가 공개되지 않는 기술. 외부에서 AI가 어떻게 작동하는지 들여다볼 수 없습니다. ↔ open-source(공개형)<br><br>
-              <strong>"unprecedented":</strong> "전례가 없는" — un(없는) + precedent(선례) + -ed. 역사상 이런 일이 없었다는 강한 표현입니다.<br><br>
-              <strong>"who themselves don't fully understand it":</strong> 여기서 <em>themselves</em>는 재귀대명사가 아니라 <strong>강조 용법(emphatic pronoun)</strong>입니다. "the experts themselves" = "바로 그 전문가들 스스로가"라는 뜻으로, 주어를 강조합니다. 즉 "다른 누군가도 아닌, AI를 만드는 당사자들조차 이해하지 못한다"는 역설을 강조하는 표현입니다.<br><br>
-              <strong>분사구(Participial Phrase) vs 관계절:</strong><br>
-              "advancing at unprecedented speed"는 <em>현재분사구</em>로 형용사 역할을 합니다. 관계절 "which is advancing at unprecedented speed"와 같은 의미이지만 더 간결합니다.<br>
-              "developed by a tiny group"는 <em>과거분사구</em> (수동 의미)로 "which is developed by..."와 동일합니다.<br>
-              분사구는 쉼표 없이 쓰면 필수 수식(제한적), 쉼표와 함께 쓰면 부가 설명(비제한적)입니다.<br><br>
+              <strong>"unprecedented":</strong> "전례가 없는" — un(없는) + precedent(선례) + -ed.<br><br>
+              <strong>"who themselves don't fully understand it":</strong> 여기서 <em>themselves</em>는 <strong>강조 용법(emphatic pronoun)</strong>입니다. "바로 그 전문가들 스스로가"라는 뜻으로, "다른 누군가도 아닌, AI를 만드는 당사자들조차 이해하지 못한다"는 역설을 강조합니다.<br><br>
+              <strong>분사구(Participial Phrase):</strong><br>
+              "advancing at unprecedented speed"는 <em>현재분사구</em>로 "which is advancing at…"과 같은 의미이지만 더 간결합니다.<br>
+              "developed by a tiny group"는 <em>과거분사구</em> (수동 의미)로 "which is developed by…"와 동일합니다.<br><br>
               <strong>전체 번역:</strong> "그것은 폐쇄형 기술로서, 전례 없는 속도로 발전하고 있으며, 자신들도 그것을 완전히 이해하지 못하는 소수의 전문가 집단에 의해 개발되고 있다."
             </div>
           </div>
@@ -695,7 +696,7 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
           <thead><tr><th>#</th><th>Reason (fill in the blank)</th></tr></thead>
           <tbody>
             <tr><td><strong>1)</strong></td><td>It is a <input class="fill-in" style="width:130px" placeholder="________"> technology, not open to external inspection.</td></tr>
-            <tr><td><strong>2)</strong></td><td>It is advancing at <input class="fill-in" style="width:130px" placeholder="________"> speed.</td></tr>
+            <tr><td><strong>2)</strong></td><td>It is advancing at an <input class="fill-in" style="width:130px" placeholder="________"> speed.</td></tr>
             <tr><td><strong>3)</strong></td><td>It is developed by experts who themselves <input class="fill-in" style="width:200px" placeholder="________">.</td></tr>
           </tbody>
         </table>
@@ -715,9 +716,12 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
       <div class="q-block" style="margin-bottom:0">
         <div class="q-stem">Q10. True (T), False (F), or Not Given (NG)?</div>
         <table class="tfng-tbl" id="tfng-10">
-          <thead><tr><th>Statement</th><th style="width:170px">T / F / NG</th></tr></thead>
+          <thead><tr>
+            <th style="width:70%">Statement</th>
+            <th style="width:30%">T / F / NG</th>
+          </tr></thead>
           <tbody>
-            <tr data-ans="T"><td>(1) Sam Altman writes in his blog that AI labs should not make decisions about our future alone, and the article says he is sincere.</td><td></td></tr>
+            <tr data-ans="T"><td>(1) Sam Altman writes in his blog that AI labs should not make decisions about our future alone, though the writer is not sure about his sincerity.</td><td></td></tr>
             <tr data-ans="F"><td>(2) In 2023, more than a thousand industry executives called for a permanent ban on further AI development.</td><td></td></tr>
             <tr data-ans="T"><td>(3) Anthropic's CEO states that the lack of understanding of AI is essentially unprecedented in the history of technology.</td><td></td></tr>
             <tr data-ans="NG"><td>(4) The article states that academics in the humanities are the most effective group currently opposing AI.</td><td></td></tr>
@@ -726,7 +730,7 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
         <button class="check-btn" onclick="checkTFNG('tfng-10')">답 확인</button>
         <details class="ans-d" style="margin-top:.5rem"><summary>정답 설명 보기</summary>
           <div class="ans-body">
-            <strong>(1) T</strong> — Altman's blog: "I do not think it is right that a few AI labs would make the most consequential decisions…" 단, 기사는 그가 진심인지 의문을 표합니다 ("might mean that sincerely, or not").<br><br>
+            <strong>(1) T</strong> — Altman's blog: "I do not think it is right that a few AI labs would make the most consequential decisions…" 단, 기사는 그가 진심인지 확신하지 않습니다 ("might mean that sincerely, or not").<br><br>
             <strong>(2) F</strong> — 영구적 금지(permanent ban)가 아닌 <em>pause(일시 중단)</em>를 요청했습니다.<br><br>
             <strong>(3) T</strong> — Amodei: "this lack of understanding is essentially unprecedented in the history of technology."<br><br>
             <strong>(4) NG</strong> — 인문학 교수들이 반대하고 있다는 언급은 있지만, 가장 효과적이라는 내용은 없습니다.
@@ -762,14 +766,13 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
           <summary>구조 분석 보기 &nbsp;🇰🇷 한국어 설명</summary>
           <div class="cl-body">
             <div class="cl-struct">
-              But as outsiders understand even less, &nbsp;<span class="hl">양보·대조 부사절 — "외부인들이 더 이해 못할수록"</span><br>
+              But as outsiders understand even less, &nbsp;<span class="hl">이유 부사절 — "외부인들이 더 이해 못할수록"</span><br>
               the loudest warnings against AI &nbsp;<span class="hl">주어 — 최상급 "loudest" 강조</span><br>
               come from insiders like Amodei &nbsp;<span class="hl">동사구 — 역설의 핵심</span>
             </div>
             <div class="cl-ko">
               <strong>역설(Paradox):</strong> 가장 위험을 잘 아는 사람(insiders)이 동시에 그 위험을 만들어내는 사람들이라는 아이러니입니다. 외부인이 이해를 못할수록, 경고는 오히려 내부인에게서 나옵니다.<br><br>
-              <strong>"But as outsiders understand even less"의 구조:</strong> 여기서 "as"는 비교급이 아니라 <em>이유</em>를 나타내는 접속사입니다. "외부인들이 AI를 더더욱 이해하지 못하기 때문에"라는 뜻으로, 그러므로 경고가 내부자들로부터 나온다는 논리를 이어줍니다. "even less"는 이미 이해가 부족한 상태를 "even(더욱)"으로 강조한 표현입니다.<br><br>
-              <strong>"insiders like Amodei":</strong> Amodei는 Anthropic의 CEO — AI를 직접 만드는 사람. 이 사람들이 경고를 가장 크게 외친다는 것이 역설적입니다.<br><br>
+              <strong>"as outsiders understand even less"의 구조:</strong> 여기서 "as"는 <em>이유</em>를 나타내는 접속사입니다. "외부인들이 AI를 더더욱 이해하지 못하기 때문에"라는 뜻으로, 경고가 내부자들로부터 나온다는 논리를 이어줍니다. "even less"는 이미 이해가 부족한 상태를 "even(더욱)"으로 강조한 표현입니다.<br><br>
               <strong>전체 번역:</strong> "그러나 외부인들이 AI를 더 이해하지 못할수록, AI에 대한 가장 큰 경고는 Amodei 같은 내부자들로부터 나온다."
             </div>
           </div>
@@ -792,11 +795,9 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
               • <em>autocomplete</em> = 스마트폰이나 검색창에서 단어를 예측해 완성해주는 기능. 매우 단순한 기술.<br>
               • <em>glorified</em> = "화려하게 포장된, 과대평가된". glorify(미화하다)의 과거분사.<br>
               • 합치면: "그저 멋있게 포장된 자동완성 기능에 불과하다" — AI를 매우 낮게 평가하는 표현입니다.<br><br>
-              <strong>누가 이 말을 하는가:</strong> 인문학 교수들이 AI를 진지하게 받아들이지 않을 때 쓰는 표현입니다. 기자는 이것이 <em>bias(편견)</em>에서 비롯된 잘못된 평가라고 주장합니다.<br><br>
               <strong>"dismiss A as B" 구문:</strong> "A를 B라고 무시하다, 일축하다"<br>
               ✅ They dismissed his idea as nonsense. = 그들은 그의 아이디어를 헛소리라고 무시했다.<br>
-              ✅ Critics dismissed the film as predictable. = 비평가들은 그 영화를 진부하다며 무시했다.<br>
-              이 구문은 "as + 명사/형용사"로 누군가의 평가·판단을 표현합니다. "as" 뒤에 오는 말이 화자의 (종종 부정적인) 분류입니다.<br><br>
+              ✅ Critics dismissed the film as predictable. = 비평가들은 그 영화를 진부하다며 무시했다.<br><br>
               <strong>전체 번역:</strong> "당신은 아직도 AI를 '화려하게 포장된 자동완성 기능'에 불과하다며 무시하고 있을지도 모른다."
             </div>
           </div>
@@ -870,6 +871,36 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
 
     <div class="card">
       <div class="card-label">구조 분석 &amp; 어휘 · Sentence Clinic</div>
+
+      <div class="clinic-box">
+        <div class="cl-label">추가 표현 분석</div>
+        <div class="clinic-sent">"Even if we did, <strong>there's no hope of global regulation of anything any more</strong>."</div>
+        <details class="cl-detail">
+          <summary>구조 분석 보기 &nbsp;🇰🇷 한국어 설명</summary>
+          <div class="cl-body">
+            <div class="cl-struct">
+              Even if we did &nbsp;<span class="hl">가정 부사절 — "설령 그렇게 할 수 있다 해도"</span><br>
+              &nbsp;&nbsp;└ "we did" = we knew enough to push for regulation (앞 문장 대동사)<br>
+              there's no hope &nbsp;<span class="hl">주절 — 강한 부정</span><br>
+              of global regulation of anything &nbsp;<span class="hl">전치사구 — 희망의 내용</span><br>
+              any more &nbsp;<span class="hl">부사 — "이제는, 더 이상"</span>
+            </div>
+            <div class="cl-ko">
+              <strong>"Even if" — 가정법 양보:</strong><br>
+              "Even if + 주어 + 동사"는 "설령 ~하더라도"라는 뜻의 양보 가정 구문입니다. 실제로 일어날 가능성을 완전히 부정하지는 않지만, 그 결과가 의미 없다는 것을 강조합니다.<br>
+              ✅ Even if we tried, it would be too late. = 설령 시도한다 해도, 이미 늦었을 것이다.<br><br>
+              <strong>"we did"의 대동사(pro-verb) 용법:</strong><br>
+              앞 문장의 "push for regulating AI"라는 행위 전체를 "did"로 받아줍니다. 영어에서 동사 반복을 피하기 위해 do/does/did를 대동사로 사용하는 전형적인 패턴입니다.<br><br>
+              <strong>"no hope of global regulation of anything"의 함의:</strong><br>
+              단순히 AI 규제만이 아니라 "어떤 것에 대한(of anything)" 글로벌 규제도 더 이상 가능하지 않다는 훨씬 더 비관적인 주장입니다. 국민국가(state)들이 글로벌 기업처럼 초국가적으로 행동하지 못한다는 현실 진단이 담겨 있습니다.<br><br>
+              <strong>"any more" (= anymore):</strong><br>
+              "이제는, 더 이상"의 의미로, 과거에는 어느 정도 가능했던 것이 현재는 그렇지 않다는 뉘앙스를 담습니다.<br><br>
+              <strong>전체 번역:</strong> "설령 우리가 그렇게 할 수 있다 해도, 이제는 어떤 것에 대한 글로벌 규제도 더 이상 기대할 수 없다."
+            </div>
+          </div>
+        </details>
+      </div>
+
       <div class="clinic-box">
         <div class="cl-label">Q14–Q15에 나오는 표현</div>
         <div class="clinic-sent">"We're essentially <strong>speeding along the highway at 300 miles an hour in an autonomous vehicle without seatbelts or headlights</strong>, and we'll see what happens."</div>
@@ -891,12 +922,12 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
               ③ <em>without seatbelts</em> = 안전 규제 없음 — 사고 나도 보호 장치 없음<br>
               ④ <em>without headlights</em> = 앞이 어두움 — AI가 어디로 향하는지 아무도 모름 (Amodei의 발언과 연결)<br><br>
               <strong>"we'll see what happens":</strong> 체념(resignation)과 아이러니가 섞인 마무리입니다. 심각한 경고를 던지면서도 변화를 기대하지 않는다는 태도 — 기사 전체의 tone을 한 문장에 압축합니다.<br><br>
-              <strong>"essentially":</strong> "본질적으로" — 정확히 저 상황은 아니지만, 본질적으로 그와 같다는 뜻의 hedging 부사입니다.<br><br>
               <strong>전체 번역:</strong> "우리는 본질적으로 안전벨트도 전조등도 없는 자율주행 차량을 타고 시속 300마일로 고속도로를 달리고 있으며, 무슨 일이 일어날지 볼 것이다."
             </div>
           </div>
         </details>
       </div>
+
       <div class="clinic-box">
         <div class="cl-label">Q15에 나오는 표현</div>
         <div class="clinic-sent">"The effect of AI will be determined by a few AI labs, <strong>or perhaps by the products themselves</strong>."</div>
@@ -964,7 +995,6 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1rem 0}
 </div><!-- /shell -->
 
 <script>
-/* tabs */
 function showTab(id,btn){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
@@ -978,7 +1008,6 @@ function showPre(id,btn){
   if(btn) btn.classList.add('active');
 }
 
-/* section nav */
 const SECS=['§1 Para 1–2','§2 Para 3–4','§3 Para 5–6','§4 Para 7–8','§5 Para 9'];
 const sn=document.getElementById('sec-nav');
 SECS.forEach((l,i)=>{
@@ -994,7 +1023,6 @@ function showSec(n){
   window.scrollTo({top:document.querySelector('.tab-nav').offsetTop-10,behavior:'smooth'});
 }
 
-/* MCQ: select only (no feedback until submit) */
 function selMCQ(el){
   const block=el.closest('.mcq');
   if(block.classList.contains('mcq-done')) return;
@@ -1024,7 +1052,6 @@ function submitSection(btn){
   if(total>0){sc.textContent=correct+' / '+total+' correct';sc.style.display='inline';}
 }
 
-/* Vocabulary — submit-based scoring */
 const VOCAB=[
   {sent:'Many academics still dismiss AI as "<b>glorified</b> autocomplete" and refuse to take it seriously.',
    correct:3, opts:['simplified','celebrated','technically advanced','polished and overrated']},
@@ -1061,14 +1088,10 @@ VOCAB.forEach((v,vi)=>{
 function selVocab(btn,vi,oi){
   const grp=document.getElementById('vg-'+vi);
   if(grp.dataset.submitted) return;
-  grp.querySelectorAll('.vocab-btn').forEach(b=>b.style.borderColor='');
+  grp.querySelectorAll('.vocab-btn').forEach(b=>{b.style.borderColor='';b.style.color='';});
   btn.style.borderColor='var(--blue)';
   btn.style.color='var(--blue)';
   selectedAnswers[vi]=oi;
-  // deselect others
-  grp.querySelectorAll('.vocab-btn').forEach(b=>{
-    if(parseInt(b.dataset.oi)!==oi){b.style.borderColor='';b.style.color='';}
-  });
 }
 function submitVocab(){
   let score=0;
@@ -1090,7 +1113,6 @@ function submitVocab(){
   document.getElementById('vocab-submit').disabled=true;
 }
 
-/* T/F/NG */
 function buildTFNG(){
   document.querySelectorAll('.tfng-tbl tbody tr[data-ans]').forEach(row=>{
     const td=document.createElement('td');
@@ -1118,6 +1140,11 @@ function checkTFNG(id){
     if(r) r.textContent=chosen===ans?'✓':'✗ → '+ans;
     row.dataset.done=1;
   });
+}
+buildTFNG();
+</script>
+</body>
+</html>
 }
 buildTFNG();
 </script>
