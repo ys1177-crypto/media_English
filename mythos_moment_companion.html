@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>America Wakes Up to AI's Dangerous Power — Reading Companion</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.7; color: #1a1a1a; background: #f0f2f5; }
+.app { max-width: 900px; margin: 0 auto; padding: 0 0 80px; }
+.header { background: #1a2744; color: white; padding: 18px 28px; }
+.header .label { font-size: 11px; color: #8ba3d4; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 4px; }
+.header h1 { font-size: 20px; font-weight: 700; }
+.header .sub { font-size: 12px; color: #8ba3d4; margin-top: 3px; }
+.top-nav { display: flex; background: #111d36; }
+.top-btn { flex: 1; padding: 13px 10px; font-size: 13px; font-weight: 600; border: none; cursor: pointer; color: #8ba3d4; background: none; border-bottom: 3px solid transparent; transition: all 0.2s; letter-spacing: 0.3px; }
+.top-btn.active { color: #fff; border-bottom-color: #5b9bd5; background: rgba(255,255,255,0.05); }
+.sec-nav { display: flex; background: white; border-bottom: 2px solid #ddd; overflow-x: auto; }
+.sec-btn { padding: 10px 16px; font-size: 12.5px; border: none; background: none; cursor: pointer; color: #777; border-bottom: 3px solid transparent; margin-bottom: -2px; white-space: nowrap; transition: all 0.2s; }
+.sec-btn.active { color: #1a2744; border-bottom-color: #1a2744; font-weight: 700; }
+.sec-btn.done { color: #2060a8; }
+.sec-btn:hover:not(.active):not(:disabled) { background: #f5f5f5; }
+.sec-btn:disabled { opacity: 0.4; cursor: default; }
+.top-panel { display: none; }
+.top-panel.active { display: block; }
+.sec-panel { display: none; }
+.sec-panel.active { display: block; }
+
+/* Article */
+.article-block { background: white; border-left: 4px solid #1a2744; padding: 22px 26px; }
+.article-block .art-meta { font-size: 12px; color: #888; margin-bottom: 10px; }
+.article-block h2 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+.article-block h3 { font-size: 14px; font-weight: 400; color: #555; margin-bottom: 18px; }
+.article-block p { font-size: 14.5px; line-height: 2.0; color: #222; margin-bottom: 14px; }
+.article-block p:last-child { margin-bottom: 0; }
+.article-block .subhead { font-style: italic; font-weight: 700; color: #1a2744; font-size: 14px; margin-bottom: 10px; }
+.para-num { display: inline-block; font-size: 10px; font-weight: 700; color: #8ba3d4; background: #eef2f8; border-radius: 3px; padding: 1px 5px; margin-right: 5px; letter-spacing: 0.5px; vertical-align: middle; }
+.u { text-decoration: underline; text-decoration-color: #c0003a; text-decoration-thickness: 2px; text-underline-offset: 2px; font-weight: 600; color: #c0003a; }
+
+/* Strip */
+.strip { background: #1a2744; color: white; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 26px; font-weight: 700; }
+.strip.yellow { background: #6b4e00; }
+
+/* Clinic */
+.clinic { background: #eef2f8; padding: 20px 26px; border-top: 1px solid #c5d3e8; }
+.clinic-title { font-size: 13px; color: #1a2744; font-weight: 700; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #b0c4de; }
+.sent-card { background: white; border-radius: 8px; padding: 18px 20px; margin-bottom: 16px; border: 1px solid #c5d3e8; }
+.sent-label { font-size: 10.5px; font-weight: 700; color: #5b9bd5; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.sent-text { font-size: 14.5px; font-style: italic; color: #1a1a1a; margin-bottom: 14px; line-height: 1.85; border-left: 3px solid #5b9bd5; padding-left: 12px; }
+.sent-text em { font-style: normal; font-weight: 700; color: #1a2744; }
+.analysis-btn { font-size: 12px; background: #1a2744; color: white; border: none; padding: 6px 14px; border-radius: 4px; cursor: pointer; margin-right: 8px; margin-bottom: 6px; }
+.analysis-btn:hover { background: #263d6a; }
+.analysis-content { display: none; margin-top: 12px; background: #f4f7fc; border-radius: 6px; padding: 14px 16px; border: 1px solid #c5d3e8; }
+.analysis-content.open { display: block; }
+.tag { display: inline-block; padding: 1px 7px; border-radius: 3px; font-size: 11.5px; font-weight: 700; margin: 0 2px 4px; }
+.tag-s { background: #D4EDDA; color: #155724; }
+.tag-v { background: #D1ECF1; color: #0c5460; }
+.tag-o { background: #FFF3CD; color: #856404; }
+.tag-m { background: #F8D7DA; color: #721c24; }
+.tag-c { background: #E2D9F3; color: #4a235a; }
+.tag-p { background: #FDEBD0; color: #784212; }
+.tag-conj { background: #d0e8ff; color: #003c78; }
+.atxt { font-size: 13.5px; color: #2a2a2a; line-height: 1.85; margin-top: 10px; }
+.atxt strong { color: #1a2744; }
+.kr-toggle { font-size: 11.5px; background: none; border: 1px solid #aaa; color: #555; padding: 4px 10px; border-radius: 4px; cursor: pointer; margin-bottom: 6px; }
+.kr-box { display: none; background: #eaf0fa; border: 1px solid #b0c4de; border-radius: 6px; padding: 13px 15px; margin-top: 8px; font-size: 13.2px; line-height: 1.9; color: #1a2744; }
+.kr-box.open { display: block; }
+
+/* Questions */
+.questions { padding: 22px 26px; background: white; border-top: 1px solid #eee; }
+.q-header { font-size: 12px; color: #1a2744; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #eee; }
+.question { margin-bottom: 24px; }
+.q-num { font-weight: 700; color: #1a2744; font-size: 13px; margin-bottom: 6px; }
+.q-text { font-size: 14px; color: #2a2a2a; margin-bottom: 10px; line-height: 1.75; }
+.q-quote { background: #f4f7fc; border-left: 3px solid #5b9bd5; padding: 10px 14px; margin-bottom: 10px; font-size: 13.5px; font-style: italic; color: #222; border-radius: 0 6px 6px 0; line-height: 1.75; }
+.choices { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 6px; }
+@media(max-width:580px){ .choices { grid-template-columns: 1fr; } }
+.choice { padding: 10px 13px; border: 1.5px solid #ccc; border-radius: 6px; cursor: pointer; font-size: 13px; color: #2a2a2a; background: white; text-align: left; transition: all 0.15s; line-height: 1.5; }
+.choice:hover:not(:disabled) { border-color: #1a2744; background: #eef2f8; }
+.choice.correct { border-color: #28a745; background: #d4edda; color: #155724; }
+.choice.wrong   { border-color: #dc3545; background: #f8d7da; color: #721c24; }
+.fb { font-size: 13px; margin-top: 5px; min-height: 18px; }
+.fb.ok { color: #155724; }
+.fb.no { color: #721c24; }
+.tfrow { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px; }
+.tfstmt { flex: 1; font-size: 13.5px; line-height: 1.6; }
+.tfbtns { display: flex; gap: 4px; flex-shrink: 0; }
+.tfbtn { padding: 5px 10px; border: 1.5px solid #ccc; border-radius: 4px; cursor: pointer; font-size: 12px; background: white; font-weight: 700; }
+.tfbtn:hover { background: #f0f0f0; }
+.tfbtn.correct { background: #d4edda; border-color: #28a745; color: #155724; }
+.tfbtn.wrong   { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+.fill-tbl { width: 100%; border-collapse: collapse; font-size: 13.5px; margin-bottom: 10px; }
+.fill-tbl th { background: #1a2744; color: white; padding: 9px 12px; text-align: left; font-weight: 600; }
+.fill-tbl td { padding: 9px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+.fill-tbl tr:hover td { background: #f4f7fc; }
+.td-input { width: 100%; border: none; border-bottom: 1.5px solid #bbb; padding: 3px 2px; font-size: 13px; font-family: inherit; background: transparent; }
+.td-input:focus { outline: none; border-bottom-color: #1a2744; }
+.short-ans { width: 100%; padding: 10px 12px; border: 1.5px solid #ccc; border-radius: 6px; font-size: 13.5px; font-family: inherit; resize: vertical; min-height: 72px; }
+.short-ans:focus { outline: none; border-color: #1a2744; }
+.check-btn { padding: 8px 18px; background: #1a2744; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 13px; margin-top: 8px; }
+.check-btn:hover { background: #263d6a; }
+.reveal { display: none; background: #eef2f8; border-left: 3px solid #1a2744; padding: 11px 14px; margin-top: 8px; font-size: 13.5px; line-height: 1.8; border-radius: 0 6px 6px 0; }
+.reveal.open { display: block; }
+.fill-q { font-size: 14px; line-height: 2.5; margin-bottom: 6px; }
+.fi { border: none; border-bottom: 1.5px solid #888; padding: 2px 5px; font-size: 14px; font-family: inherit; width: 170px; background: transparent; }
+.fi:focus { outline: none; border-bottom-color: #1a2744; }
+.fi.ok  { border-bottom-color: #28a745; color: #155724; }
+.fi.no  { border-bottom-color: #dc3545; color: #721c24; }
+.next-wrap { text-align: center; padding: 24px; background: #f9f9f9; border-top: 1px solid #eee; }
+.next-btn { padding: 12px 36px; background: #1a2744; color: white; border: none; border-radius: 6px; font-size: 15px; font-weight: 600; cursor: pointer; }
+.next-btn:hover { background: #263d6a; }
+.completion { text-align: center; padding: 60px 30px; background: white; }
+.completion h2 { font-size: 22px; color: #1a2744; margin-bottom: 10px; }
+
+/* Pre-Reading */
+.pre-tab-nav { display: flex; background: white; border-bottom: 2px solid #ddd; overflow-x: auto; }
+.pre-btn { padding: 11px 18px; font-size: 12.5px; border: none; background: none; cursor: pointer; color: #777; border-bottom: 3px solid transparent; margin-bottom: -2px; white-space: nowrap; transition: all 0.2s; }
+.pre-btn.active { color: #1a2744; border-bottom-color: #1a2744; font-weight: 700; }
+.pre-panel { display: none; }
+.pre-panel.active { display: block; }
+.pre-content { padding: 22px 26px; background: white; }
+.headline-box { background: #1a2744; color: white; border-radius: 8px; padding: 18px 22px; margin-bottom: 20px; }
+.headline-box h3 { font-size: 18px; font-weight: 700; margin-bottom: 5px; }
+.headline-box p { font-size: 13px; color: #8ba3d4; }
+.bg-card { background: #f4f7fc; border: 1px solid #c5d3e8; border-radius: 8px; padding: 16px 18px; margin-bottom: 14px; }
+.bg-card h4 { font-size: 14px; font-weight: 700; color: #1a2744; margin-bottom: 8px; }
+.bg-card p { font-size: 13.5px; line-height: 1.75; color: #333; }
+.word-bank { background: #eaf0f8; border: 1px solid #b0c4de; border-radius: 8px; padding: 13px 17px; margin-bottom: 16px; font-size: 13.5px; color: #1a2744; }
+.word-bank strong { display: block; margin-bottom: 5px; color: #1a2744; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+.vocab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px; }
+@media(max-width:480px){ .vocab-grid { grid-template-columns: 1fr; } }
+.vi { background: white; border-radius: 5px; padding: 8px 12px; font-size: 13px; border: 1px solid #c5d3e8; }
+.vi .en { font-weight: 700; color: #1a2744; }
+.vi .kr { color: #555; font-size: 12.5px; }
+.pred-input { width: 100%; padding: 10px 12px; border: 1.5px solid #ccc; border-radius: 6px; font-size: 13.5px; font-family: inherit; resize: vertical; min-height: 62px; }
+.pred-input:focus { outline: none; border-color: #1a2744; }
+.vocab-item { margin-bottom: 16px; }
+.vocab-item .v-num { font-size: 12px; font-weight: 700; color: #5b9bd5; margin-bottom: 4px; }
+.vocab-item .v-sent { font-size: 13.5px; line-height: 1.75; color: #222; }
+.vocab-set-label { font-size: 11px; color: #1a2744; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; margin-top: 4px; padding: 6px 0; border-bottom: 1px solid #c5d3e8; }
+</style>
+</head>
+<body>
+<div class="app">
+
+<div class="header">
+  <div class="label">Media English Reading 10 · May 6, 2026</div>
+  <h1>"America wakes up to AI's dangerous power"</h1>
+  <div class="sub">The Economist · April 16, 2026</div>
+</div>
+<div class="top-nav">
+  <button class="top-btn active" onclick="topTab('pre')">📋 Pre-Reading</button>
+  <button class="top-btn" onclick="topTab('reading')">📖 Reading + Questions</button>
+</div>
+
+<!-- ══ PRE-READING ══ -->
+<div class="top-panel active" id="top-pre">
+  <div class="pre-tab-nav">
+    <button class="pre-btn active" onclick="preTab('pa')">A. Headline</button>
+    <button class="pre-btn" onclick="preTab('pb')">B. Background</button>
+    <button class="pre-btn" onclick="preTab('pc1')">C-1. Vocab</button>
+    <button class="pre-btn" onclick="preTab('pc2')">C-2. Vocab</button>
+    <button class="pre-btn" onclick="preTab('pd')">D. Vocab Ref</button>
+  </div>
+
+  <div class="pre-panel active" id="pre-pa">
+    <div class="strip">A — Headline Analysis · 헤드라인 분석 &amp; 내용 예측</div>
+    <div class="pre-content">
+      <div class="headline-box">
+        <h3>America wakes up to AI's dangerous power</h3>
+        <p>After Mythos, a laissez-faire approach is no longer politically tenable or strategically wise</p>
+      </div>
+      <div class="question">
+        <div class="q-num">Q1</div>
+        <div class="q-text">The headline says America "wakes up" to AI's dangerous power. What does this phrase imply about what America was doing before?</div>
+        <textarea class="pred-input" placeholder="Your answer…"></textarea>
+        <button class="check-btn" onclick="rev('ha1')">예시 답안 보기</button>
+        <div class="reveal" id="ha1"><strong>Sample answer:</strong> "Wakes up" implies America was previously asleep — unaware, complacent, or deliberately ignoring the dangers of AI. It suggests the country failed to take AI's risks seriously until a dramatic event (the Mythos announcement) forced it to act.</div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q2</div>
+        <div class="q-text">The sub-headline describes the old approach as "laissez-faire." What does this French term mean? Before reading, predict reasons why it might no longer be "tenable."</div>
+        <textarea class="pred-input" placeholder="Your answer…"></textarea>
+        <button class="check-btn" onclick="rev('ha2')">예시 답안 보기</button>
+        <div class="reveal" id="ha2"><strong>Sample answer:</strong> "Laissez-faire" (French: "let it be") means allowing markets and companies to operate without government interference. It may no longer be tenable because: AI poses national security threats; AI companies gain unchecked power; public pressure is growing; rivals like China are advancing rapidly.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pre-panel" id="pre-pb">
+    <div class="strip">B — Background Knowledge · 알아두면 도움이 되는 배경 지식</div>
+    <div class="pre-content">
+      <div class="bg-card"><h4>🤖 Claude Mythos</h4><p>Anthropic의 가장 강력한 AI 모델로 2026년 4월 7일 발표되었습니다. 소프트웨어 취약점 탐지에 매우 효과적이어서, 잘못된 손에 들어갈 경우 은행·병원 등 핵심 인프라를 위협할 수 있습니다. 이 발표는 "Mythos moment"를 만들었고, 미국 정부가 AI 안보 문제에 본격적으로 행동을 취하게 된 전환점이 되었습니다. (<em>moment</em>는 "Sputnik moment," "9/11 moment," "ChatGPT moment"처럼 역사적 전환점을 묘사할 때 쓰입니다.)</p></div>
+      <div class="bg-card"><h4>🏛️ America's Laissez-Faire AI Policy</h4><p>Laissez-faire (French: "let it be")는 정부 개입 없이 시장과 기업이 자율적으로 운영되도록 허용하는 것을 말합니다. 트럼프 행정부는 민간 기업 간의 자유 경쟁이 중국 대비 미국의 AI 리더십을 보장하는 최선책이라 믿어 이 접근 방식을 취했으나, Mythos 이후 완전한 불간섭을 유지하기 어려워졌습니다.</p></div>
+      <div class="bg-card"><h4>🏭 America's Industrial History: Standard Oil to AT&amp;T</h4><p>기사는 미국 산업사의 익숙한 패턴을 끌어옵니다. 변혁적 기술이 소수의 강력한 인물들에 의해 이끌리다가, 결국 그들이 너무 지배적이 되면 정부가 개입해 권력을 제한하는 패턴입니다 (예: Standard Oil 분할, AT&amp;T 분할, 연방준비제도 창설). 기사는 AI도 같은 패턴을 따를지 묻습니다.</p></div>
+    </div>
+  </div>
+
+  <div class="pre-panel" id="pre-pc1">
+    <div class="strip">C-1 — Vocabulary · Word Bank Set 1</div>
+    <div class="pre-content">
+      <div class="word-bank"><strong>Word Bank 1</strong>backlash &nbsp;·&nbsp; potent &nbsp;·&nbsp; jaw-dropping &nbsp;·&nbsp; unfettered &nbsp;·&nbsp; unnerving &nbsp;·&nbsp; tenable &nbsp;·&nbsp; watershed &nbsp;·&nbsp; scamming &nbsp;·&nbsp; wield</div>
+      <div class="vocab-item"><div class="v-num">1.</div><div class="v-sent">AI models increasingly pose serious risks, from biosecurity hazards to industrial-scale <input class="fi" id="c1q1" placeholder="________"> that could victimise millions of ordinary people.</div><button class="check-btn" style="margin-top:6px;" onclick="chk('c1q1',['scamming'],'c1f1')">Check</button><div class="fb" id="c1f1"></div></div>
+      <div class="vocab-item"><div class="v-num">2.</div><div class="v-sent">The speed of AI's advance left observers speechless: models were gaining <input class="fi" id="c1q2" placeholder="________"> capabilities at a pace that few had predicted.</div><button class="check-btn" style="margin-top:6px;" onclick="chk('c1q2',['jaw-dropping'],'c1f2')">Check</button><div class="fb" id="c1f2"></div></div>
+      <div class="vocab-item"><div class="v-num">3.</div><div class="v-sent">AI is widely regarded as the most <input class="fi" id="c1q3" placeholder="________"> new technology in human history — so powerful that some compare it to fire or electricity.</div><button class="check-btn" style="margin-top:6px;" onclick="chk('c1q3',['potent'],'c1f3')">Check</button><div class="fb" id="c1f3"></div></div>
+      <div class="vocab-item"><div class="v-num">4.</div><div class="v-sent">A hands-off approach to AI is no longer politically <input class="fi" id="c1q4" placeholder="________"> or strategically wise, given how rapidly the technology is advancing.</div><button class="check-btn" style="margin-top:6px;" onclick="chk('c1q4',['tenable'],'c1f4')">Check</button><div class="fb" id="c1f4"></div></div>
+      <div class="vocab-item"><div class="v-num">5.</div><div class="v-sent">What concerned the administration most was the sheer power a single private firm could <input class="fi" id="c1q5" placeholder="________"> over a technology central to national security.</div><button class="check-btn" style="margin-top:6px;" onclick="chk('c1q5',['wield'],'c1f5')">Check</button><div class="fb" id="c1f5"></div></div>
+      <div class="vocab-item"><div class="v-num">6.</div><div class="v-sent">The announcement of Claude Mythos marked a(n) <input class="fi" id="c1q6" placeholder="________"> — the first time an AI model was judged too dangerous for public release.</div><button class="check-btn" style="margin-top:6px;" onclick="chk('c1q6',['watershed'],'c1f6')">Check</button><div class="fb" id="c1f6"></div></div>
+      <div class="vocab-item"><div class="v-num">7.</div><div class="v-sent">Many believed that <input class="fi" id="c1q7" placeholder="________"> competition between private firms is the best way to keep America ahead in the AI race.</div><button class="check-btn" style="margin-top:6px;" onclick="chk('c1q7',['unfettered'],'c1f7')">Check</button><div class="fb" id="c1f7"></div></div>
+      <div class="vocab-item"><div class="v-num">8.</div><div class="v-sent">Public anger over AI's effects on jobs has triggered a growing <input class="fi" id="c1q8" placeholder="________"> among voters, turning AI into one of the defining political issues heading into the 2028 elections.</div><button class="check-btn" style="margin-top:6px;" onclick="chk('c1q8',['backlash'],'c1f8')">Check</button><div class="fb" id="c1f8"></div></div>
+      <div class="vocab-item"><div class="v-num">9.</div><div class="v-sent">Mythos's ability to exploit software vulnerabilities is <input class="fi" id="c1q9" placeholder="________"> even to members of the Trump administration who had previously worried more about overregulation.</div><button class="check-btn" style="margin-top:6px;" onclick="chk('c1q9',['unnerving'],'c1f9')">Check</button><div class="fb" id="c1f9"></div></div>
+    </div>
+  </div>
+
+  <div class="pre-panel" id="pre-pc2">
+    <div class="strip">C-2 — Vocabulary · Word Bank Set 2</div>
+    <div class="pre-content">
+      <div class="word-bank"><strong>Word Bank 2</strong>fraught &nbsp;·&nbsp; malevolent &nbsp;·&nbsp; perilous &nbsp;·&nbsp; daunting &nbsp;·&nbsp; vetted &nbsp;·&nbsp; clout &nbsp;·&nbsp; entrenched &nbsp;·&nbsp; deprive &nbsp;·&nbsp; aggravate</div>
+      <div class="vocab-item"><div class="v-num">10.</div><div class="v-sent">Doing nothing could leave America exposed to deliberately harmful, <input class="fi" id="c2q10" placeholder="________"> AI-induced chaos, whether from hostile states, criminal networks, or rogue actors.</div><button class="check-btn" style="margin-top:6px;" onclick="chk('c2q10',['malevolent'],'c2f10')">Check</button><div class="fb" id="c2f10"></div></div>
+      <div class="vocab-item"><div class="v-num">11.</div><div class="v-sent">OpenAI is following Anthropic's lead by rolling out its latest model only to <input class="fi" id="c2q11" placeholder="________"> cyber-security professionals.</div><button class="check-btn" style="margin-top:6px;" onclick="chk('c2q11',['vetted'],'c2f11')">Check</button><div class="fb" id="c2f11"></div></div>
+      <div class="vocab-item"><div class="v-num">12.</div><div class="v-sent">Such exclusive policy may leave many firms <input class="fi" id="c2q12" placeholder="________"> of privileged early access to powerful new models.</div><button class="check-btn" style="margin-top:6px;" onclick="chk('c2q12',['deprived','deprive'],'c2f12')">Check</button><div class="fb" id="c2f12"></div></div>
+      <div class="vocab-item"><div class="v-num">13.</div><div class="v-sent">The technical hurdles to an interventionist approach are <input class="fi" id="c2q13" placeholder="________">, as engineers can move freely between firms and computing power is widely available.</div><button class="check-btn" style="margin-top:6px;" onclick="chk('c2q13',['daunting'],'c2f13')">Check</button><div class="fb" id="c2f13"></div></div>
+      <div class="vocab-item"><div class="v-num">14.</div><div class="v-sent">The proposed regulatory scheme risks strengthening a few deeply rooted, <input class="fi" id="c2q14" placeholder="________"> AI companies, which already enjoy privileged early access.</div><button class="check-btn" style="margin-top:6px;" onclick="chk('c2q14',['entrenched'],'c2f14')">Check</button><div class="fb" id="c2f14"></div></div>
+      <div class="vocab-item"><div class="v-num">15.</div><div class="v-sent">Limited release will hand even more political weight and lobbying power — in short, the <input class="fi" id="c2q15" placeholder="________"> — to the handful of AI companies that already dominate the industry.</div><button class="check-btn" style="margin-top:6px;" onclick="chk('c2q15',['clout'],'c2f15')">Check</button><div class="fb" id="c2f15"></div></div>
+      <div class="vocab-item"><div class="v-num">16.</div><div class="v-sent">Controlling any world-changing technology is <input class="fi" id="c2q16" placeholder="________"> with difficulty and unintended consequences, and AI is no exception.</div><button class="check-btn" style="margin-top:6px;" onclick="chk('c2q16',['fraught'],'c2f16')">Check</button><div class="fb" id="c2f16"></div></div>
+      <div class="vocab-item"><div class="v-num">17.</div><div class="v-sent">Concentrating more power among the AI elite risks <input class="fi" id="c2q17" placeholder="________"> the political backlash that is starting to alarm Washington.</div><button class="check-btn" style="margin-top:6px;" onclick="chk('c2q17',['aggravating','aggravate'],'c2f17')">Check</button><div class="fb" id="c2f17"></div></div>
+      <div class="vocab-item"><div class="v-num">18.</div><div class="v-sent">These competing pressures make this a genuinely <input class="fi" id="c2q18" placeholder="________"> moment for policymakers.</div><button class="check-btn" style="margin-top:6px;" onclick="chk('c2q18',['perilous'],'c2f18')">Check</button><div class="fb" id="c2f18"></div></div>
+    </div>
+  </div>
+
+  <div class="pre-panel" id="pre-pd">
+    <div class="strip">D — Vocabulary Reference · 어휘 한국어 참고</div>
+    <div class="pre-content">
+      <div class="vocab-set-label">Set 1</div>
+      <div class="vocab-grid">
+        <div class="vi"><span class="en">potent</span><br><span class="kr">강력한, 효력 있는</span></div>
+        <div class="vi"><span class="en">jaw-dropping</span><br><span class="kr">입이 떡 벌어지는, 충격적인</span></div>
+        <div class="vi"><span class="en">unfettered</span><br><span class="kr">구속받지 않는, 자유로운</span></div>
+        <div class="vi"><span class="en">unnerving</span><br><span class="kr">불안하게 하는, 당황스러운</span></div>
+        <div class="vi"><span class="en">tenable</span><br><span class="kr">유지할 수 있는, 방어할 수 있는</span></div>
+        <div class="vi"><span class="en">watershed</span><br><span class="kr">전환점, 분수령</span></div>
+        <div class="vi"><span class="en">scamming</span><br><span class="kr">사기 치기, 속이기</span></div>
+        <div class="vi"><span class="en">wield</span><br><span class="kr">휘두르다, 행사하다</span></div>
+        <div class="vi"><span class="en">backlash</span><br><span class="kr">강한 반발, 역풍</span></div>
+      </div>
+      <div class="vocab-set-label" style="margin-top:18px;">Set 2</div>
+      <div class="vocab-grid">
+        <div class="vi"><span class="en">fraught</span><br><span class="kr">가득한, 위험/어려움이 따르는</span></div>
+        <div class="vi"><span class="en">malevolent</span><br><span class="kr">악의적인, 해를 끼치려는</span></div>
+        <div class="vi"><span class="en">perilous</span><br><span class="kr">위험한</span></div>
+        <div class="vi"><span class="en">daunting</span><br><span class="kr">버거운, 기가 꺾이는</span></div>
+        <div class="vi"><span class="en">vetted</span><br><span class="kr">검증된, 심사를 거친</span></div>
+        <div class="vi"><span class="en">clout</span><br><span class="kr">영향력, 권력</span></div>
+        <div class="vi"><span class="en">entrenched</span><br><span class="kr">뿌리 깊은, 확고히 자리 잡은</span></div>
+        <div class="vi"><span class="en">deprive</span><br><span class="kr">빼앗다, 주지 않다</span></div>
+        <div class="vi"><span class="en">aggravate</span><br><span class="kr">악화시키다, 심화시키다</span></div>
+      </div>
+    </div>
+  </div>
+</div><!-- end top-pre -->
+
+<!-- ══ READING ══ -->
+<div class="top-panel" id="top-reading">
+  <div class="sec-nav">
+    <button class="sec-btn active" onclick="secTab(0)">Part 1 · Q1–5</button>
+    <button class="sec-btn" id="sbtn1" onclick="secTab(1)" disabled>Part 2 · Q6–10</button>
+    <button class="sec-btn" id="sbtn2" onclick="secTab(2)" disabled>Part 3 · Q11–15</button>
+    <button class="sec-btn" id="sbtn3" onclick="secTab(3)" disabled>Part 4 · Q16–20</button>
+    <button class="sec-btn" id="sbtn4" onclick="secTab(4)" disabled>✓ Complete</button>
+  </div>
+
+  <!-- ════════ PART 1 ════════ -->
+  <div class="sec-panel active" id="sec0">
+    <div class="strip">Part 1 · Paragraphs 1–3 · The Mythos Watershed · Q1–5</div>
+    <div class="article-block">
+      <div class="art-meta">Technology &amp; Society · The Economist · April 16, 2026</div>
+      <h2>America wakes up to AI's dangerous power</h2>
+      <h3>After Mythos, a laissez-faire approach is no longer politically tenable or strategically wise</h3>
+      <p><span class="para-num">[1]</span> Should a handful of men be entrusted with the world's most potent new technology? Five geeks so famous that they can be identified by their first names—Dario, Demis, Elon, Mark and Sam—exercise almost <span class="u">godlike command</span> over the artificial-intelligence models that will shape the future. The Trump administration has stood aside even as those models have gained jaw-dropping capabilities, convinced that unfettered competition between private firms is the best way to ensure America wins the AI race against China.</p>
+      <p><span class="para-num">[2]</span> Until now. Suddenly, America's free-wheeling treatment of AI looks as if it is coming to an end. The reason is that the models' dizzying progress also poses a threat to America's own national security, unnerving members of the Trump administration previously more inclined to worry about overregulation. At the same time, growing resentment among American voters is turning AI into a political <span class="u">lightning-rod</span>. A laissez-faire approach is no longer politically tenable or strategically wise.</p>
+      <p><span class="para-num">[3]</span> The watershed was Anthropic's announcement of Claude Mythos on April 7th. The model-maker's latest creation is so startlingly good at finding software vulnerabilities that, in the wrong hands, it would threaten critical infrastructure, from banks to hospitals. AI models increasingly pose other risks, too, from biosecurity hazards to industrial-scale scamming.</p>
+    </div>
+
+    <div class="strip yellow">📝 Sentence Clinic — 핵심 구문 분석</div>
+    <div class="clinic">
+      <div class="clinic-title">Part 1의 주요 구문을 단계별로 분석합니다.</div>
+
+      <div class="sent-card">
+        <div class="sent-label">Sentence A · Para. 1</div>
+        <div class="sent-text">"Five geeks … exercise almost <em>godlike command</em> over the artificial-intelligence models that will shape the future."</div>
+        <button class="analysis-btn" onclick="tog('sc1a')">구문 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('kr1a')">🇰🇷 한국어 해설</button>
+        <div class="analysis-content" id="sc1a">
+          <span class="tag tag-s">S</span> Five geeks &nbsp;<span class="tag tag-v">V</span> exercise &nbsp;<span class="tag tag-o">O</span> godlike command &nbsp;<span class="tag tag-p">over</span> the AI models &nbsp;<span class="tag tag-c">Rel. Cl.</span> that will shape the future
+          <div class="atxt"><strong>exercise command over ~</strong>: ~에 대한 지배권을 행사하다. <strong>godlike</strong>는 과장법(hyperbole)으로, 민주적 통제를 벗어난 거의 절대적 권력을 비판적으로 묘사합니다.<br><br><strong>that will shape the future</strong>: "AI models"를 수식하는 관계절 — 단순히 강력한 게 아니라 <em>미래 자체를 형성할</em> 기술이라는 점을 강조합니다.</div>
+        </div>
+        <div class="kr-box" id="kr1a">"다섯 명의 괴짜들은 미래를 형성할 인공지능 모델들에 대해 신과 같은 지배권을 행사한다."<br><br>▸ <strong>exercise command over</strong>: 단순히 '사용한다'가 아니라 '지배권·통제권을 행사한다'는 강한 표현입니다.<br>▸ <strong>godlike</strong>: 민주적·법적 견제를 받지 않는 절대적 권력이라는 필자의 비판적 시각이 담겨 있습니다.</div>
+      </div>
+
+      <div class="sent-card">
+        <div class="sent-label">Sentence B · Para. 1</div>
+        <div class="sent-text">"The Trump administration has stood aside <em>even as</em> those models have gained jaw-dropping capabilities, <em>convinced that</em> unfettered competition between private firms is the best way to ensure America wins the AI race against China."</div>
+        <button class="analysis-btn" onclick="tog('sc1b')">구문 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('kr1b')">🇰🇷 한국어 해설</button>
+        <div class="analysis-content" id="sc1b">
+          <span class="tag tag-s">S</span> The Trump administration &nbsp;<span class="tag tag-v">V</span> has stood aside &nbsp;<span class="tag tag-conj">even as</span> … &nbsp;<span class="tag tag-m">Participle</span> convinced that …
+          <div class="atxt"><strong>has stood aside</strong>: 현재완료 — 과거부터 지금까지 계속 방관해 왔음을 나타냅니다.<br><br><strong>even as</strong>: "~하는 동안에도, ~하는 바로 그 순간에도"라는 접속사. 모델의 능력이 충격적으로 성장하는 상황에서도 방관했다는 역설적 구조를 만듭니다.<br><br><strong>convinced that</strong>: 분사구문 — 주어(행정부)의 신념을 나타내는 부대 상황. 방관의 이유를 설명합니다.</div>
+        </div>
+        <div class="kr-box" id="kr1b">"트럼프 행정부는 민간 기업 간의 자유로운 경쟁이 미국이 중국과의 AI 경쟁에서 이기는 최선의 방법이라 확신한 채, 그 모델들이 충격적인 능력을 갖추는 동안에도 방관해 왔다."<br><br>▸ <strong>stand aside</strong>: '개입하지 않고 방관하다, 팔짱 끼고 있다'는 의미입니다.<br>▸ <strong>jaw-dropping</strong>: 문자 그대로 '턱이 떨어질 만큼' — 너무 놀라워서 입이 다물어지지 않을 정도를 뜻합니다.</div>
+      </div>
+
+      <div class="sent-card">
+        <div class="sent-label">Sentence C · Para. 2</div>
+        <div class="sent-text">"A laissez-faire approach is <em>no longer</em> politically tenable or strategically wise."</div>
+        <button class="analysis-btn" onclick="tog('sc1c')">구문 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('kr1c')">🇰🇷 한국어 해설</button>
+        <div class="analysis-content" id="sc1c">
+          <span class="tag tag-s">S</span> A laissez-faire approach &nbsp;<span class="tag tag-v">V</span> is &nbsp;<span class="tag tag-m">no longer</span> &nbsp;<span class="tag tag-c">politically tenable or strategically wise</span>
+          <div class="atxt"><strong>no longer</strong>: "더 이상 ~하지 않다" — 과거에는 가능했지만 지금은 아니라는 변화를 강조합니다.<br><br><strong>tenable</strong>: 논리적·정치적으로 지지받을 수 있는 입장. 군사 용어에서 파생(지킬 수 있는 진지)된 표현입니다.<br><br><strong>두 가지 기준</strong>: politically tenable(정치적 측면)과 strategically wise(전략적 측면) — 양쪽 모두에서 실패했다고 지적합니다.</div>
+        </div>
+        <div class="kr-box" id="kr1c">"자유방임적 접근법은 더 이상 정치적으로 유지할 수 있거나 전략적으로 현명하지 않다."<br><br>▸ 이 문장은 기사 전체의 핵심 논지(thesis)이자 헤드라인을 그대로 반영합니다.<br>▸ <strong>laissez-faire</strong>: 프랑스어 "내버려 두다" — 정부 불개입 원칙을 뜻합니다.</div>
+      </div>
+    </div>
+
+    <div class="questions">
+      <div class="q-header">Comprehension Questions · Q1–5</div>
+      <div class="question">
+        <div class="q-num">Q1</div>
+        <div class="q-quote">"Five geeks … exercise almost <strong><u>godlike command</u></strong> over the artificial-intelligence models that will shape the future." (Para. 1)</div>
+        <div class="q-text">What does this phrase imply about the five AI leaders' power?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong','q1f')">Their expertise puts them beyond the reach of any meaningful democratic oversight.</button>
+          <button class="choice" onclick="mc(this,'wrong','q1f')">Their influence feels earned, which is why calls for regulation seem unnecessary.</button>
+          <button class="choice" onclick="mc(this,'wrong','q1f')">The public trusts them because they understand the risks better than anyone in government.</button>
+          <button class="choice" onclick="mc(this,'correct','q1f')">They hold near-absolute power over a technology that affects everyone's lives.</button>
+        </div>
+        <div class="fb" id="q1f"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q2</div>
+        <div class="q-text">Which statement best describes the Trump administration's original attitude toward AI? (Para. 1)</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong','q2f')">It pushed for tight regulation to ensure AI was developed safely.</button>
+          <button class="choice" onclick="mc(this,'correct','q2f')">It stood aside, trusting that private competition would secure American leadership.</button>
+          <button class="choice" onclick="mc(this,'wrong','q2f')">It called for international agreements to prevent AI from being misused.</button>
+          <button class="choice" onclick="mc(this,'wrong','q2f')">It demanded that AI companies release their models first only to a vetted group.</button>
+        </div>
+        <div class="fb" id="q2f"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q3</div>
+        <div class="q-text">According to the article, what changed America's previously laissez-faire approach to AI? (Para. 2–3)</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'correct','q3f')">AI's growing capabilities started posing a direct threat to national security.</button>
+          <button class="choice" onclick="mc(this,'wrong','q3f')">The EU's AI law put pressure on Washington to pass something similar.</button>
+          <button class="choice" onclick="mc(this,'wrong','q3f')">Voter anger pushed politicians who had backed a hands-off approach to change course.</button>
+          <button class="choice" onclick="mc(this,'wrong','q3f')">China unveiled a rival model that narrowed the gap with leading American systems.</button>
+        </div>
+        <div class="fb" id="q3f"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q4</div>
+        <div class="q-text">Why did Dario Amodei decide not to release Mythos to the general public? (Para. 3)</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong','q4f')">The model hadn't passed Anthropic's own internal safety checks for public release.</button>
+          <button class="choice" onclick="mc(this,'wrong','q4f')">The government quietly asked for a delay while security agencies assessed the risks.</button>
+          <button class="choice" onclick="mc(this,'correct','q4f')">In the wrong hands, it could be used to attack critical infrastructure like banks and hospitals.</button>
+          <button class="choice" onclick="mc(this,'wrong','q4f')">Anthropic wanted to limit supply so it could charge higher prices in a premium market.</button>
+        </div>
+        <div class="fb" id="q4f"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q5</div>
+        <div class="q-text">According to the article, to which kinds of companies did Anthropic's boss reserve access to Mythos? (Para. 4)</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong','q5f')">Government agencies and military contractors only.</button>
+          <button class="choice" onclick="mc(this,'wrong','q5f')">Universities and non-profit research institutions.</button>
+          <button class="choice" onclick="mc(this,'correct','q5f')">Around 50 big firms in computing, software, and finance.</button>
+          <button class="choice" onclick="mc(this,'wrong','q5f')">Cyber-security firms vetted directly by the Pentagon.</button>
+        </div>
+        <div class="fb" id="q5f"></div>
+      </div>
+    </div>
+    <div class="next-wrap"><button class="next-btn" onclick="unlock(1)">Next: Q6–10 →</button></div>
+  </div><!-- end sec0 -->
+
+  <!-- ════════ PART 2 ════════ -->
+  <div class="sec-panel" id="sec1">
+    <div class="strip">Part 2 · Paragraphs 4–6 · Reactions &amp; Political Backlash · Q6–10</div>
+    <div class="article-block">
+      <p><span class="para-num">[4]</span> Anthropic's boss, Dario Amodei, wisely thought Mythos too dangerous for general release. Instead he has reserved it for use by around 50 big firms, in computing, software and finance, so that they can boost their own defences. America's treasury secretary, Scott Bessent, was so <span class="u">unnerved</span> that he summoned the biggest banks for urgent talks.</p>
+      <p><span class="para-num">[5]</span> It was not the first time the administration had acted. Only weeks ago the Pentagon stepped in after Mr Amodei refused to allow Anthropic's model to be used in fully autonomous weapons or for mass domestic surveillance. Then, too, the Trump administration was alarmed—because of the power a single firm wielded over a technology central to national security.</p>
+      <p><span class="para-num">[6]</span> A <span class="u">backlash</span> among voters will add to the pressure on the administration to intervene. Opinion polls are leading ever more politicians to think that AI will be one of the big issues in elections in 2028. Americans are far more sceptical of AI than people in other countries. Seven out of ten think AI will hurt job opportunities, a sharp rise from a year ago (and well before they have good evidence). Grassroots opposition to data centres is surging, even though AI has little or nothing to do with rising electricity prices. In a sign of the times, the house of Sam Altman, the head of OpenAI, has been attacked twice in recent days.</p>
+    </div>
+
+    <div class="strip yellow">📝 Sentence Clinic — 핵심 구문 분석</div>
+    <div class="clinic">
+      <div class="clinic-title">Part 2의 주요 구문을 단계별로 분석합니다.</div>
+      <div class="sent-card">
+        <div class="sent-label">Sentence A · Para. 4</div>
+        <div class="sent-text">"America's treasury secretary, Scott Bessent, was <em>so unnerved that</em> he summoned the biggest banks for urgent talks."</div>
+        <button class="analysis-btn" onclick="tog('sc2a')">구문 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('kr2a')">🇰🇷 한국어 해설</button>
+        <div class="analysis-content" id="sc2a">
+          <span class="tag tag-s">S</span> Scott Bessent &nbsp;<span class="tag tag-v">V</span> was … unnerved &nbsp;<span class="tag tag-conj">so … that</span> 결과절
+          <div class="atxt"><strong>so … that ~</strong>: "너무 ~해서 …하다" — 정도와 결과를 동시에 나타내는 구문입니다.<br><br><strong>unnerved</strong>: 단순히 놀란(surprised)이 아니라 심리적 안정감이 흔들릴 정도로 불안해진 상태. 재무장관이라는 고위 관료가 이 정도로 동요했다는 것이 핵심입니다.<br><br><strong>summoned</strong>: '초대했다'(invited)가 아닌 '긴급 소환했다' — 권위와 긴박감이 담긴 단어입니다.</div>
+        </div>
+        <div class="kr-box" id="kr2a">"미국 재무장관 스콧 베선트는 너무 불안해진 나머지 최대 은행들을 긴급 면담에 소환했다."<br><br>▸ <strong>unnerved</strong>: '신경이 흔들린, 자신감을 잃을 정도로 불안해진' — 강한 심리적 동요를 나타냅니다.<br>▸ <strong>summon</strong>: 권위자가 관계자를 '호출·소환하다' — 사태의 긴박성을 강조합니다.</div>
+      </div>
+      <div class="sent-card">
+        <div class="sent-label">Sentence B · Para. 5</div>
+        <div class="sent-text">"The Pentagon <em>stepped in</em> after Mr Amodei refused to allow Anthropic's model to be used in fully autonomous weapons or for mass domestic surveillance."</div>
+        <button class="analysis-btn" onclick="tog('sc2b')">구문 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('kr2b')">🇰🇷 한국어 해설</button>
+        <div class="analysis-content" id="sc2b">
+          <span class="tag tag-s">S</span> The Pentagon &nbsp;<span class="tag tag-v">V</span> stepped in &nbsp;<span class="tag tag-conj">after</span> Mr Amodei refused to allow … to be used in …
+          <div class="atxt"><strong>step in</strong>: 구동사 — '개입하다, 끼어들다'. 문제가 생겼을 때 외부 권위자가 나서는 뉘앙스입니다.<br><br><strong>refused to allow … to be used</strong>: Amodei가 허용(allow)을 거부(refuse)했다는 것 = 그는 Anthropic 모델이 자율무기에 사용되는 것을 막았습니다.<br><br><strong>fully autonomous weapons</strong>: 인간의 판단 없이 스스로 공격 결정을 내리는 무기 — 국제법상 매우 민감한 개념입니다.</div>
+        </div>
+        <div class="kr-box" id="kr2b">"Amodei 씨가 Anthropic 모델이 완전 자율 무기나 대규모 국내 감시에 사용되는 것을 허용하기를 거부한 후, 국방부가 개입했다."<br><br>▸ <strong>step in</strong>: '개입하다' — 상황이 통제를 벗어날 조짐일 때 권위자가 나서는 뉘앙스입니다.<br>▸ 아이러니: 국방부가 개입한 이유는 AI가 위험해서가 아니라, <em>민간 기업이 국가 안보 기술을 독점 통제한다는 사실</em> 때문입니다.</div>
+      </div>
+      <div class="sent-card">
+        <div class="sent-label">Sentence C · Para. 6</div>
+        <div class="sent-text">"Growing resentment among American voters is turning AI into a political <em>lightning-rod</em>."</div>
+        <button class="analysis-btn" onclick="tog('sc2c')">구문 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('kr2c')">🇰🇷 한국어 해설</button>
+        <div class="analysis-content" id="sc2c">
+          <span class="tag tag-s">S</span> Growing resentment &nbsp;<span class="tag tag-v">V</span> is turning &nbsp;<span class="tag tag-o">O</span> AI &nbsp;<span class="tag tag-p">into</span> a political lightning-rod
+          <div class="atxt"><strong>turn A into B</strong>: A를 B로 변화시키다<br><br><strong>lightning-rod</strong>: 원래는 건물의 피뢰침. 비유적으로 '비난이나 논란이 집중되는 대상'을 뜻합니다. AI가 다양한 사회적 불만(일자리, 전기세, 불평등)을 흡수하는 표적이 됐다는 의미입니다.<br><br><strong>growing resentment</strong>: 점점 커지는 분노가 주체 — 상황의 진행성을 강조합니다.</div>
+        </div>
+        <div class="kr-box" id="kr2c">"미국 유권자들 사이에서 커지고 있는 반감이 AI를 정치적 논란의 표적으로 만들고 있다."<br><br>▸ <strong>lightning-rod</strong>: '피뢰침 → 비난·논란의 표적'으로 쓰이는 비유적 표현입니다.<br>▸ <strong>resentment</strong>: 단순한 불만(dissatisfaction)보다 강한 '억울함, 분개'의 감정입니다.</div>
+      </div>
+    </div>
+
+    <div class="questions">
+      <div class="q-header">Comprehension Questions · Q6–10</div>
+      <div class="question">
+        <div class="q-num">Q6</div>
+        <div class="q-quote">"America's treasury secretary, Scott Bessent, was so <strong><u>unnerved</u></strong> that he summoned the biggest banks for urgent talks." (Para. 4)</div>
+        <div class="q-text">What does "unnerved" tell us about Bessent's reaction?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong','q6f')">He was mildly surprised but confident the government could handle the situation.</button>
+          <button class="choice" onclick="mc(this,'correct','q6f')">He was genuinely alarmed enough to call an emergency meeting with the banks.</button>
+          <button class="choice" onclick="mc(this,'wrong','q6f')">He was confused about the technical details and needed experts to brief him.</button>
+          <button class="choice" onclick="mc(this,'wrong','q6f')">He recognised a chance to use Mythos to build closer ties with the financial sector.</button>
+        </div>
+        <div class="fb" id="q6f"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q7</div>
+        <div class="q-text">According to the article, what did the Pentagon do when Amodei refused to allow Anthropic's model in fully autonomous weapons? (Para. 5)</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong','q7f')">It pushed through emergency legislation banning AI from military use.</button>
+          <button class="choice" onclick="mc(this,'wrong','q7f')">It set up an independent review to assess the risks of autonomous AI weapons.</button>
+          <button class="choice" onclick="mc(this,'wrong','q7f')">It issued a formal warning and threatened to cancel Anthropic's government contracts.</button>
+          <button class="choice" onclick="mc(this,'correct','q7f')">It stepped in directly, alarmed that a private firm controlled a technology central to national security.</button>
+        </div>
+        <div class="fb" id="q7f"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q8</div>
+        <div class="q-quote">"Growing resentment among American voters is turning AI into a political <strong><u>lightning-rod</u></strong>." (Para. 6)</div>
+        <div class="q-text">What does "lightning-rod" mean in this context?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'correct','q8f')">AI is attracting intense controversy and anger, becoming a focus for public frustration.</button>
+          <button class="choice" onclick="mc(this,'wrong','q8f')">AI is putting enormous political power into the hands of a few unelected people.</button>
+          <button class="choice" onclick="mc(this,'wrong','q8f')">The speed of AI development is producing unpredictable shocks across the economy.</button>
+          <button class="choice" onclick="mc(this,'wrong','q8f')">Politicians are using AI as a distraction from more pressing domestic issues.</button>
+        </div>
+        <div class="fb" id="q8f"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q9</div>
+        <div class="q-text">What do opinion polls reveal about American attitudes toward AI's effect on employment? (Para. 6)</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'correct','q9f')">Concern about AI hurting job opportunities has risen sharply.</button>
+          <button class="choice" onclick="mc(this,'wrong','q9f')">Most Americans believe AI will create more jobs than it destroys in the long run.</button>
+          <button class="choice" onclick="mc(this,'wrong','q9f')">Americans are less worried about AI job losses than people in other countries.</button>
+          <button class="choice" onclick="mc(this,'wrong','q9f')">Fear of AI unemployment has stayed roughly the same over the past year.</button>
+        </div>
+        <div class="fb" id="q9f"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q10</div>
+        <div class="q-text">True (T), False (F), or Not Given (NG)?</div>
+        <div class="tfrow"><div class="tfstmt">(1) Seven out of ten Americans think AI will hurt job opportunities, up sharply from a year ago.</div><div class="tfbtns"><button class="tfbtn" onclick="tfng(this,'T','tf10a1','T')">T</button><button class="tfbtn" onclick="tfng(this,'F','tf10a1','T')">F</button><button class="tfbtn" onclick="tfng(this,'NG','tf10a1','T')">NG</button></div></div><div class="fb" id="tf10a1"></div>
+        <div class="tfrow"><div class="tfstmt">(2) The article suggests that grassroots opposition to data centres is driven mainly by AI's role in rising electricity prices.</div><div class="tfbtns"><button class="tfbtn" onclick="tfng(this,'T','tf10a2','F')">T</button><button class="tfbtn" onclick="tfng(this,'F','tf10a2','F')">F</button><button class="tfbtn" onclick="tfng(this,'NG','tf10a2','F')">NG</button></div></div><div class="fb" id="tf10a2"></div>
+        <div class="tfrow"><div class="tfstmt">(3) The Economist's calculations show that today's AI leaders are already more dominant than Rockefeller or Ford.</div><div class="tfbtns"><button class="tfbtn" onclick="tfng(this,'T','tf10a3','F')">T</button><button class="tfbtn" onclick="tfng(this,'F','tf10a3','F')">F</button><button class="tfbtn" onclick="tfng(this,'NG','tf10a3','F')">NG</button></div></div><div class="fb" id="tf10a3"></div>
+        <div class="tfrow"><div class="tfstmt">(4) OpenAI is following Anthropic's example by rolling out its latest model only to vetted cyber-security professionals.</div><div class="tfbtns"><button class="tfbtn" onclick="tfng(this,'T','tf10a4','T')">T</button><button class="tfbtn" onclick="tfng(this,'F','tf10a4','T')">F</button><button class="tfbtn" onclick="tfng(this,'NG','tf10a4','T')">NG</button></div></div><div class="fb" id="tf10a4"></div>
+      </div>
+    </div>
+    <div class="next-wrap"><button class="next-btn" onclick="unlock(2)">Next: Q11–15 →</button></div>
+  </div><!-- end sec1 -->
+
+  <!-- ════════ PART 3 ════════ -->
+  <div class="sec-panel" id="sec2">
+    <div class="strip">Part 3 · Paragraphs 7–11 · History &amp; Hard Trade-offs · Q11–15</div>
+    <div class="article-block">
+      <p><span class="para-num">[7]</span> History suggests that, with a technology as world-changing as AI, a Mythos moment was inevitable. From John D. Rockefeller to Henry Ford, America's great industrial innovations were led by a small number of men who grew immensely powerful. Eventually, 20th-century governments stepped in to tame over-powerful industries, from the trust-busting that broke up Standard Oil to the creation of the Federal Reserve and the breakup of AT&amp;T. Those times were at least as polarised and febrile as today's are. And our calculations suggest that the AI gods are not yet any more dominant than their historical predecessors were.</p>
+      <p><span class="para-num">[8]</span> But history also suggests that controlling AI will be fraught. That is partly because the stakes if things go wrong are so high. It is also because AI is evolving at warp speed.</p>
+      <p><span class="para-num">[9]</span> The trade-offs are acute. Economic growth will benefit from rapidly diffusing AI's benefits, but the potential backlash could easily lead to overregulation. Doing nothing could leave America vulnerable to malevolent AI-induced chaos, but regulatory overkill would ensure that China wins the AI race. That makes this a perilous moment.</p>
+      <p><span class="para-num">[10]</span> Time is short. Two years ago, during the Biden administration, discussions about regulation were largely about AI's potential risks. Today its capabilities are already alarmingly powerful and growing more so with every release. <span class="u">The pace of innovation</span> means that debates over the proper role of government, which played out over years, even decades, in the past, now need to be resolved in months.</p>
+      <p><span class="para-num">[11]</span> And the technical hurdles to a more interventionist approach are daunting. Tools of government control, such as nationalisation, are ineffective because talented engineers can <span class="u">move freely</span> between companies and computing power is a <span class="u">commodity</span>. Worse, the leading model-builders are only months ahead of their open-source competitors, including those in China. Sooner or later the capabilities of their models will be available to all.</p>
+    </div>
+
+    <div class="strip yellow">📝 Sentence Clinic — 핵심 구문 분석</div>
+    <div class="clinic">
+      <div class="clinic-title">Part 3의 주요 구문을 단계별로 분석합니다.</div>
+
+      <div class="sent-card">
+        <div class="sent-label">Sentence A · Para. 7</div>
+        <div class="sent-text">"Eventually, 20th-century governments <em>stepped in</em> to tame over-powerful industries, from the trust-busting that broke up Standard Oil to the creation of the Federal Reserve and the breakup of AT&amp;T."</div>
+        <button class="analysis-btn" onclick="tog('sc3a0')">구문 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('kr3a0')">🇰🇷 한국어 해설 + 역사 배경</button>
+        <div class="analysis-content" id="sc3a0">
+          <span class="tag tag-m">Adv.</span> Eventually &nbsp;<span class="tag tag-s">S</span> 20th-century governments &nbsp;<span class="tag tag-v">V</span> stepped in &nbsp;<span class="tag tag-p">to-inf.</span> to tame over-powerful industries &nbsp;<span class="tag tag-p">from A</span> to the creation of B and the breakup of C
+          <div class="atxt">
+            <strong>eventually</strong>: 문두에 배치되어 '결국, 마침내' — 시간이 걸리지만 역사적으로 반드시 개입이 있었다는 필연성을 강조합니다.<br><br>
+            <strong>step in</strong>: 구동사 — '개입하다'. 방관하던 정부가 마침내 행동에 나섰다는 뉘앙스.<br><br>
+            <strong>to tame</strong>: to부정사 목적(purpose) — 개입의 이유. tame = 길들이다, 통제하다 (야생동물을 길들이는 이미지)<br><br>
+            <strong>from A to B and C</strong>: 병렬 열거 구조 — 세 가지 역사적 사례를 나열합니다.<br>
+            &nbsp;&nbsp;① trust-busting → Standard Oil 해체<br>
+            &nbsp;&nbsp;② creation of the Federal Reserve (연준 창설)<br>
+            &nbsp;&nbsp;③ breakup of AT&amp;T (AT&amp;T 분할)<br><br>
+            <strong>over-powerful</strong>: 합성 형용사 — "너무 지나치게 강력한". 단순히 powerful이 아니라 통제 불가능할 정도로 비대해진 상태.
+          </div>
+        </div>
+        <div class="kr-box" id="kr3a0">
+          "결국, 20세기 정부들은 Standard Oil을 해체한 트러스트 분쇄에서부터 연방준비제도 창설, AT&amp;T 분할에 이르기까지 지나치게 강력해진 산업을 통제하기 위해 개입했다."<br><br>
+          <strong>📚 역사 배경 — 세 가지 사례를 알아야 이 문장이 들립니다</strong><br><br>
+          ▸ <strong>Standard Oil &amp; Trust-busting (1911)</strong><br>
+          존 D. 록펠러(John D. Rockefeller)가 설립한 Standard Oil은 1880~1900년대에 미국 석유 생산의 약 90%를 장악한 독점 기업이었습니다. '트러스트(trust)'란 여러 회사를 하나의 지배 구조 아래 묶는 독점 전략입니다. 루스벨트 대통령이 반(反)독점 정책(trust-busting)을 강하게 밀어붙인 결과, 1911년 연방 대법원이 Standard Oil을 34개의 독립 회사로 강제 분할했습니다. (이 중 하나가 훗날 ExxonMobil이 됩니다.)<br><br>
+          ▸ <strong>J.P. Morgan's Bailout &amp; the Federal Reserve (1907/1913)</strong><br>
+          1907년 금융 공황(Panic of 1907) 당시 미국에는 중앙은행이 없었습니다. 금융 시스템 전체가 붕괴 위기에 처하자 민간 금융인 J.P. 모건이 사재를 털어 수십 개 은행에 긴급 유동성을 공급하며 시스템을 구했습니다. 그런데 한 민간인이 국가 경제 전체를 좌우할 수 있다는 사실 자체가 엄청난 충격이었고, 이를 계기로 의회는 1913년 연방준비제도(Federal Reserve, 미 중앙은행)를 창설해 금융 권력을 민간에서 공적 기관으로 이전했습니다.<br><br>
+          ▸ <strong>AT&amp;T Breakup (1984)</strong><br>
+          AT&amp;T는 수십 년간 미국 전화 네트워크 전체를 독점한 거대 통신사였습니다. 1974년 법무부가 반독점 소송을 제기했고, 10년간의 법정 다툼 끝에 1984년 AT&amp;T는 '베이비 벨(Baby Bells)'이라 불리는 7개의 지역 전화 회사로 강제 분할되었습니다.<br><br>
+          <strong>🔗 기사의 논리:</strong> 역사는 반복된다 — 기술 독점 → 정부 개입 → 분할/통제. 필자는 AI도 같은 경로를 밟을 것이라고 암시합니다.
+        </div>
+      </div>
+
+      <div class="sent-card">
+        <div class="sent-label">Sentence B · Para. 9</div>
+        <div class="sent-text">"The trade-offs are <em>acute</em>. Doing nothing could <em>leave America vulnerable to</em> malevolent AI-induced chaos, but regulatory overkill would ensure that China wins the AI race."</div>
+        <button class="analysis-btn" onclick="tog('sc3a')">구문 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('kr3a')">🇰🇷 한국어 해설</button>
+        <div class="analysis-content" id="sc3a">
+          <span class="tag tag-s">S</span> Doing nothing &nbsp;<span class="tag tag-v">V</span> could leave &nbsp;<span class="tag tag-o">O</span> America &nbsp;<span class="tag tag-c">OC</span> vulnerable to … chaos
+          <div class="atxt"><strong>trade-off</strong>: 한 가지를 얻으면 다른 것을 잃어야 하는 상충 관계. <em>acute</em>(첨예한, 심각한)는 그 갈등이 극도로 날카롭다는 뜻입니다.<br><br><strong>leave + O + 형용사</strong>: O를 ~한 상태로 남겨두다/내버려두다<br><br><strong>malevolent</strong>: 단순히 해로운(harmful)이 아니라 <em>의도적으로</em> 해를 끼치려는 — 악의적인 행위자를 전제합니다.<br><br><strong>regulatory overkill</strong>: 규제가 필요 이상으로 과도해지는 상황 (overkill = 과잉 조치)</div>
+        </div>
+        <div class="kr-box" id="kr3a">"상충 관계는 첨예하다. 아무것도 하지 않으면 미국은 악의적인 AI-유발 혼란에 취약해질 수 있지만, 규제 과잉은 중국이 AI 경쟁에서 승리하게 만들 것이다."<br><br>▸ <strong>acute trade-offs</strong>: '첨예한 상충 관계' — 두 선택지 모두 위험하다는 딜레마적 상황입니다.<br>▸ <strong>leave A vulnerable to B</strong>: A를 B에 취약한 상태로 내버려두다.</div>
+      </div>
+      <div class="sent-card">
+        <div class="sent-label">Sentence C · Para. 10</div>
+        <div class="sent-text">"The pace of innovation means that debates over the proper role of government, which <em>played out</em> over years, even decades, in the past, now need to be resolved in months."</div>
+        <button class="analysis-btn" onclick="tog('sc3b')">구문 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('kr3b')">🇰🇷 한국어 해설</button>
+        <div class="analysis-content" id="sc3b">
+          <span class="tag tag-s">S</span> The pace of innovation &nbsp;<span class="tag tag-v">V</span> means that &nbsp;<span class="tag tag-c">명사절</span> debates … now need to be resolved in months
+          <div class="atxt"><strong>play out</strong>: (상황·사건이) 전개되다, 펼쳐지다<br><br><strong>which played out over years, even decades</strong>: 삽입 관계절 — 과거에는 수년·수십 년에 걸쳐 논쟁이 전개됐음을 설명합니다.<br><br>핵심 대비: <strong>years / decades (과거)</strong> vs. <strong>months (현재)</strong> — AI의 급속한 발전이 정책 논의 시간을 극단적으로 압축시켰다는 논지입니다. Q13의 핵심 근거 문장입니다.</div>
+        </div>
+        <div class="kr-box" id="kr3b">"혁신의 속도는, 과거에 수년 심지어 수십 년에 걸쳐 전개됐던 정부의 적절한 역할에 대한 논의들이 이제는 몇 달 안에 해결되어야 함을 의미한다."<br><br>▸ <strong>play out</strong>: '(시간을 두고) 전개되다, 진행되다'.<br>▸ Q13의 핵심: 필자가 "played out over years, even decades"를 삽입한 이유는 과거 논의에 충분한 시간이 있었음을 환기시켜, 지금 AI 시대에는 그 시간이 '몇 달'로 극단적으로 압축됐다는 위험성을 강조하기 위해서입니다.</div>
+      </div>
+      <div class="sent-card">
+        <div class="sent-label">Sentence D · Para. 11</div>
+        <div class="sent-text">"Tools of government control, such as nationalisation, are ineffective because talented engineers can <em>move freely between companies</em> and computing power is a <em>commodity</em>."</div>
+        <button class="analysis-btn" onclick="tog('sc3c')">구문 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('kr3c')">🇰🇷 한국어 해설</button>
+        <div class="analysis-content" id="sc3c">
+          <span class="tag tag-s">S</span> Tools of government control &nbsp;<span class="tag tag-v">V</span> are &nbsp;<span class="tag tag-c">ineffective</span> &nbsp;<span class="tag tag-conj">because</span> 이유① and 이유②
+          <div class="atxt"><strong>nationalisation</strong>: 국유화 — 정부가 민간 기업을 인수하는 것. AI 기업을 국유화해도 효과가 없다고 기사는 판단합니다.<br><br><strong>move freely between companies</strong>: 엔지니어들이 자유롭게 이직 가능 → 한 회사를 규제해도 인력이 다른 곳에서 같은 일을 합니다.<br><br><strong>commodity</strong>: 원래 '원자재, 상품' — 여기서는 컴퓨팅 파워가 특정 기업만 독점하지 않고 누구나 구매 가능하다는 의미입니다. 이 두 이유가 Q14의 정답 근거입니다.</div>
+        </div>
+        <div class="kr-box" id="kr3c">"국유화와 같은 정부 통제 수단은 효과가 없는데, 유능한 엔지니어들은 기업들 사이를 자유롭게 이동할 수 있고 컴퓨팅 파워는 범용 상품이기 때문이다."<br><br>▸ <strong>commodity</strong>: '범용 상품' — 시장에서 누구나 살 수 있어 특정 회사만 갖는 희귀 자원이 아닙니다.<br>▸ Q14의 두 빈칸 답: ① move freely / ② commodity</div>
+      </div>
+    </div>
+
+    <div class="questions">
+      <div class="q-header">Comprehension Questions · Q11–15</div>
+      <div class="question">
+        <div class="q-num">Q11</div>
+        <div class="q-text">The article draws a parallel between AI and America's industrial past. Fill in the table. (Para. 7)</div>
+        <div style="overflow-x:auto;margin-bottom:10px;">
+          <table class="fill-tbl">
+            <tr><th style="width:28%;">Industry / Company</th><th>Relevant Information</th></tr>
+            <tr><td><strong>Standard Oil</strong></td><td><input class="td-input" placeholder="Write what the article says…"></td></tr>
+            <tr><td><strong>Banking (1907)</strong></td><td><input class="td-input" placeholder="Write what the article says…"></td></tr>
+            <tr><td><strong>AT&amp;T</strong></td><td><input class="td-input" placeholder="Write what the article says…"></td></tr>
+          </table>
+        </div>
+        <button class="check-btn" onclick="rev('q11r')">예시 답안 보기</button>
+        <div class="reveal" id="q11r"><strong>Standard Oil:</strong> Trust-busting broke it up — a dominant industrial power that government dismantled for being too powerful.<br><strong>Banking (1907):</strong> The Federal Reserve was created — government stepped in to manage a powerful, unregulated financial sector.<br><strong>AT&amp;T:</strong> Broken up by antitrust action — a communications monopoly that government eventually split apart.</div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q12</div>
+        <div class="q-text">The article says "the trade-offs are acute." What are the two competing risks? <strong>한국어로 쓰세요.</strong> (Para. 9)</div>
+        <div style="overflow-x:auto;margin-bottom:10px;">
+          <table class="fill-tbl">
+            <tr><th>Risk of doing nothing</th><th>Risk of over-regulating</th></tr>
+            <tr><td><textarea class="short-ans" style="min-height:60px;" placeholder="한국어로 쓰세요…"></textarea></td><td><textarea class="short-ans" style="min-height:60px;" placeholder="한국어로 쓰세요…"></textarea></td></tr>
+          </table>
+        </div>
+        <button class="check-btn" onclick="rev('q12r')">예시 답안 보기</button>
+        <div class="reveal" id="q12r"><strong>아무것도 하지 않을 경우:</strong> 미국이 악의적인 AI 유발 혼란(적대국, 범죄 조직, 불량 행위자에 의한 사이버 공격 등)에 취약해진다.<br><br><strong>규제를 과도하게 할 경우:</strong> 규제 과잉으로 인해 중국이 AI 경쟁에서 승리하게 되고, 미국의 기술 주도권을 잃을 수 있다.</div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q13</div>
+        <div class="q-quote">"<u>The pace of innovation</u> means that debates over the proper role of government, which played out over years, even decades, in the past, now need to be resolved in months." (Para. 10)</div>
+        <div class="q-text">What does the author imply by saying debates "played out over years, even decades, in the past"?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong','q13f')">Past governments were more careful and thorough in their policymaking than today's.</button>
+          <button class="choice" onclick="mc(this,'wrong','q13f')">AI regulation is less complex than the industrial policy challenges of previous centuries.</button>
+          <button class="choice" onclick="mc(this,'correct','q13f')">The current pace of change leaves policymakers dangerously little time to get things right.</button>
+          <button class="choice" onclick="mc(this,'wrong','q13f')">Historical debates about technology were less politically divisive than today's AI debate.</button>
+        </div>
+        <div class="fb" id="q13f"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q14</div>
+        <div class="q-text">The article says tools like nationalisation are "ineffective." Fill in the two reasons. (Para. 11)</div>
+        <div class="fill-q">1) Talented engineers can <input class="fi" id="f14a" placeholder="__________"> between companies.</div>
+        <div class="fill-q">2) Computing power is a <input class="fi" id="f14b" placeholder="__________">, widely available rather than controlled by one firm.</div>
+        <button class="check-btn" onclick="chk2('f14a','move freely','f14b','commodity','f14fb')">Check</button>
+        <div class="fb" id="f14fb"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q15</div>
+        <div class="q-text">According to the proposed scheme, what would the government require before allowing powerful AI models to be broadly commercialised? (Para. 12)</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong','q15f')">A vote in Congress to approve each new model's release.</button>
+          <button class="choice" onclick="mc(this,'correct','q15f')">Certification from industry-led bodies that have tested the models for different uses.</button>
+          <button class="choice" onclick="mc(this,'wrong','q15f')">A six-month review period during which intelligence agencies assess the model.</button>
+          <button class="choice" onclick="mc(this,'wrong','q15f')">Written consent from foreign governments, starting with China.</button>
+        </div>
+        <div class="fb" id="q15f"></div>
+      </div>
+    </div>
+    <div class="next-wrap"><button class="next-btn" onclick="unlock(3)">Next: Q16–20 →</button></div>
+  </div><!-- end sec2 -->
+
+  <!-- ════════ PART 4 ════════ -->
+  <div class="sec-panel" id="sec3">
+    <div class="strip">Part 4 · Paragraphs 12–17 · The Scheme's Risks &amp; Global Stakes · Q16–20</div>
+    <div class="article-block">
+      <p><span class="para-num">[12]</span> Even so the Mythos moment could be when a workable scheme to control AI starts to take shape. Trusted users would get early access to the most powerful new models: OpenAI is following Anthropic by rolling out its latest tool to a limited group of vetted cyber-security professionals. Before allowing these models to be broadly commercialised, the government could demand certification from industry-led bodies that have tested them for different uses.</p>
+      <p class="subhead">Beware geeks with gifts</p>
+      <p><span class="para-num">[13]</span> This idea has advantages for the big model-builders and the government alike. It avoids the lengthy process of creating a new regulator. By allowing only a few premium users, it enables the model-makers to charge higher prices and limit the use of scarce computing power. Meanwhile, the government can restrict who can use the most powerful models, reducing the risk that China can copy them and catch up faster.</p>
+      <p><span class="para-num">[14]</span> But it also suffers from grave problems. Limited release will reduce competition and increase the clout of entrenched AI companies. It will slow the diffusion of AI's benefits and create a two-tier system within America's economy, disadvantaging the many firms that are repeatedly deprived of privileged early access to powerful new models. What if making AI defences takes a long time or is impossible? What about open-source models? How can you insist that they also follow these rules?</p>
+      <p><span class="para-num">[15]</span> A regulatory system built on these foundations could prove <span class="u">unjust</span>. Insiders could secure themselves against frontier threats; outsiders would have to hope for the best. The opportunities for lobbying and outsize profits would be immense. That would test the honesty and competence of the most openly corrupt administration of America's modern political era. And a fix that concentrates power and wealth yet further among the handful of AI gods risks aggravating the very political backlash that is starting to worry Washington.</p>
+      <p><span class="para-num">[17]</span> Moreover, the Mythos approach can be only half the solution. AI safety cannot be secured nationally. Eventually it will demand international co-operation, starting with China. The new focus on cyber-security also needs to be matched by urgent thinking about the economic and social effects of AI. Dealing with the disruption to jobs and designing an AI-adapted tax system that favours labour are huge problems for which no one yet has good answers. This needs to change. The Mythos moment is a <span class="u">wake-up call</span> for AI safety. It demands hard thinking in other areas, too. ■</p>
+    </div>
+
+    <div class="strip yellow">📝 Sentence Clinic — 핵심 구문 분석</div>
+    <div class="clinic">
+      <div class="clinic-title">Part 4의 주요 구문을 단계별로 분석합니다.</div>
+      <div class="sent-card">
+        <div class="sent-label">Sentence A · Sub-heading</div>
+        <div class="sent-text">"<em>Beware geeks with gifts</em>"</div>
+        <button class="analysis-btn" onclick="tog('sc4a')">구문 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('kr4a')">🇰🇷 한국어 해설</button>
+        <div class="analysis-content" id="sc4a">
+          <div class="atxt">고전 라틴어 경구 <strong>"Beware of Greeks bearing gifts"</strong> (그리스인이 선물을 가져오면 조심하라)의 패러디입니다. 트로이 목마 이야기에서 나온 표현으로, '선물처럼 보이는 것이 실은 위협일 수 있다'는 경고입니다.<br><br><strong>geeks</strong>: 여기서는 앞서 언급한 다섯 명의 AI 수장들 (Dario, Sam 등)<br><br><strong>gifts</strong>: AI 기술 공유처럼 보이는 제한 배포 방식 — 겉으로는 도움이 되는 것 같지만 실은 이미 지배적인 AI 기업들에게 더 많은 권력을 주는 구조라는 경고입니다.</div>
+        </div>
+        <div class="kr-box" id="kr4a">"선물을 가져오는 괴짜들을 조심하라"<br><br>▸ 고대 트로이 목마 경고 "그리스인의 선물을 조심하라"를 패러디한 소제목입니다.<br>▸ 의미: AI 기업들이 제한적 배포(Mythos scheme)라는 '선물'을 주는 것처럼 보이지만, 실제로는 그들의 권력을 더욱 강화하는 트로이 목마일 수 있다는 경고입니다.</div>
+      </div>
+      <div class="sent-card">
+        <div class="sent-label">Sentence B · Para. 15</div>
+        <div class="sent-text">"Insiders could secure themselves against frontier threats; outsiders would have to <em>hope for the best</em>."</div>
+        <button class="analysis-btn" onclick="tog('sc4b')">구문 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('kr4b')">🇰🇷 한국어 해설</button>
+        <div class="analysis-content" id="sc4b">
+          <span class="tag tag-s">S1</span> Insiders &nbsp;<span class="tag tag-v">V1</span> could secure themselves &nbsp;<span class="tag tag-p">against frontier threats</span> &nbsp;<strong>;</strong>&nbsp; <span class="tag tag-s">S2</span> outsiders &nbsp;<span class="tag tag-v">V2</span> would have to hope for the best
+          <div class="atxt"><strong>세미콜론(;)</strong>: 두 대조적인 결과를 나란히 놓아 불평등을 강조합니다.<br><br><strong>frontier threats</strong>: 최첨단 AI가 가져오는 새로운 유형의 위협<br><br><strong>hope for the best</strong>: 관용표현 — '되는 대로 되길 바라다, 행운에 기대다'. 능동적 보호 없이 운에 맡기는 상황.<br><br>이 대비가 Q18의 핵심 — "unjust"의 구체적 내용입니다.</div>
+        </div>
+        <div class="kr-box" id="kr4b">"내부자들은 최첨단 위협으로부터 자신을 보호할 수 있지만, 외부자들은 그저 최선의 결과를 바라며 운에 기댈 수밖에 없을 것이다."<br><br>▸ <strong>insider vs. outsider</strong>: 제한 배포 시스템에서 초기 접근권을 얻은 소수 vs. 그렇지 못한 다수.<br>▸ <strong>hope for the best</strong>: '운에 맡기다' — 적극적 보호 없이 나쁜 일이 안 일어나길 바라는 수동적 상황.</div>
+      </div>
+      <div class="sent-card">
+        <div class="sent-label">Sentence C · Para. 17</div>
+        <div class="sent-text">"The Mythos moment is a <em>wake-up call</em> for AI safety. It demands hard thinking in other areas, too."</div>
+        <button class="analysis-btn" onclick="tog('sc4c')">구문 분석 보기</button>
+        <button class="kr-toggle" onclick="tog('kr4c')">🇰🇷 한국어 해설</button>
+        <div class="analysis-content" id="sc4c">
+          <div class="atxt"><strong>wake-up call</strong>: 원래 호텔에서 아침에 전화로 깨워주는 서비스. 비유적으로 '경각심을 일깨우는 사건, 경고음' — 헤드라인의 "wakes up"과 수미상관(circular structure)을 이룹니다.<br><br><strong>hard thinking</strong>: 단순한 생각이 아니라 '어렵지만 반드시 해야 할 진지한 고민'<br><br><strong>in other areas, too</strong>: 사이버 보안 너머 — 고용 혼란, 조세 제도, 국제 협력 등. 기사 전체의 결론이자 열린 과제를 제시하는 마무리입니다.</div>
+        </div>
+        <div class="kr-box" id="kr4c">"Mythos moment는 AI 안전에 대한 경각심을 일깨우는 사건이다. 그것은 다른 분야에서도 어렵지만 진지한 사고를 요구한다."<br><br>▸ <strong>wake-up call</strong>: 헤드라인 "wakes up"과 연결되는 수미상관 구조 — 기사 전체가 이 '깨어남'의 내러티브입니다.<br>▸ "other areas" = 고용 문제, AI 세금 제도, 중국과의 국제 협력 등 사이버 보안 이외의 영역.</div>
+      </div>
+    </div>
+
+    <div class="questions">
+      <div class="q-header">Comprehension Questions · Q16–20</div>
+      <div class="question">
+        <div class="q-num">Q16</div>
+        <div class="q-quote">"<strong><u>Beware geeks with gifts</u></strong>" (Sub-heading before Para. 13)</div>
+        <div class="q-text">What does this sub-heading imply about the proposed regulatory scheme?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong','q16f')">The engineers building AI should be given more say in how it is regulated.</button>
+          <button class="choice" onclick="mc(this,'wrong','q16f')">Governments should stop relying on technical experts who have no policy experience.</button>
+          <button class="choice" onclick="mc(this,'correct','q16f')">The scheme sounds helpful but gives more power to the very firms it aims to control.</button>
+          <button class="choice" onclick="mc(this,'wrong','q16f')">By limiting access to Mythos, Anthropic is in effect doing the public a favour.</button>
+        </div>
+        <div class="fb" id="q16f"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q17</div>
+        <div class="q-text">The article outlines the proposed limited-release scheme. Fill in the table in Korean. (Para. 13–14)</div>
+        <div style="overflow-x:auto;margin-bottom:10px;">
+          <table class="fill-tbl">
+            <tr><th>Advantages of the scheme</th><th>Problems / criticism</th></tr>
+            <tr><td><textarea class="short-ans" style="min-height:54px;" placeholder="장점을 쓰세요…"></textarea></td><td><textarea class="short-ans" style="min-height:54px;" placeholder="문제점을 쓰세요…"></textarea></td></tr>
+            <tr><td><textarea class="short-ans" style="min-height:54px;" placeholder="장점을 쓰세요…"></textarea></td><td><textarea class="short-ans" style="min-height:54px;" placeholder="문제점을 쓰세요…"></textarea></td></tr>
+          </table>
+        </div>
+        <button class="check-btn" onclick="rev('q17r')">예시 답안 보기</button>
+        <div class="reveal" id="q17r"><strong>Advantages:</strong><br>• 새로운 규제 기관을 만드는 긴 과정을 피할 수 있다.<br>• 소수의 프리미엄 사용자만 허용해 모델 제작자들이 더 높은 가격을 받고 희소한 컴퓨팅 자원을 제한할 수 있다.<br>• 정부가 중국이 모델을 복제해 더 빠르게 따라잡을 위험을 줄일 수 있다.<br><br><strong>Problems / criticism:</strong><br>• 경쟁을 줄이고 이미 자리를 잡은(entrenched) AI 기업들의 권력(clout)을 강화시킨다.<br>• AI 혜택의 확산을 늦추고 미국 경제 내 2계층 체제를 만든다.<br>• 내부자는 보호받고 외부자는 그렇지 못해 불공정한 시스템이 될 수 있다.</div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q18</div>
+        <div class="q-quote">"A regulatory system built on these foundations could prove <strong><u>unjust</u></strong>." (Para. 15)</div>
+        <div class="q-text">What injustice does the article describe?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong','q18f')">Larger AI companies would pay more tax, putting them at a disadvantage against smaller rivals.</button>
+          <button class="choice" onclick="mc(this,'correct','q18f')">Insiders get protected from the most dangerous AI, while outsiders are left to hope for the best.</button>
+          <button class="choice" onclick="mc(this,'wrong','q18f')">Open-source developers would be free from the same rules, giving them an unfair advantage.</button>
+          <button class="choice" onclick="mc(this,'wrong','q18f')">Ordinary users pay more while AI companies pocket the profits from restricted access.</button>
+        </div>
+        <div class="fb" id="q18f"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q19</div>
+        <div class="q-text">What does the article conclude about the scope of AI safety as a challenge? (Para. 17)</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'wrong','q19f')">AI safety is essentially a domestic problem that each country must resolve for itself.</button>
+          <button class="choice" onclick="mc(this,'wrong','q19f')">The US and China should form a joint AI authority to share oversight responsibilities.</button>
+          <button class="choice" onclick="mc(this,'correct','q19f')">AI safety ultimately requires international co-operation and cannot be secured nationally.</button>
+          <button class="choice" onclick="mc(this,'wrong','q19f')">The cyber-security threat from AI has already been resolved by the limited-release scheme.</button>
+        </div>
+        <div class="fb" id="q19f"></div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q20</div>
+        <div class="q-quote">"The Mythos moment is a <strong><u>wake-up call</u></strong> for AI safety. It demands hard thinking in other areas, too." (Para. 17)</div>
+        <div class="q-text">What does this part mean?</div>
+        <div class="choices">
+          <button class="choice" onclick="mc(this,'correct','q20f')">Mythos demands action beyond cyber-security — on jobs, tax, and working with China.</button>
+          <button class="choice" onclick="mc(this,'wrong','q20f')">The crisis is serious but can still be handled with the tools government already has.</button>
+          <button class="choice" onclick="mc(this,'wrong','q20f')">The article suggests the worst AI safety risks are now known and are being dealt with.</button>
+          <button class="choice" onclick="mc(this,'wrong','q20f')">The writer implies that economic and social harm from AI is a more urgent problem than safety.</button>
+        </div>
+        <div class="fb" id="q20f"></div>
+      </div>
+    </div>
+    <div class="next-wrap"><button class="next-btn" onclick="unlock(4)">Finish →</button></div>
+  </div><!-- end sec3 -->
+
+  <div class="sec-panel" id="sec4">
+    <div class="completion">
+      <div style="font-size:44px;margin-bottom:14px;">✓</div>
+      <h2>Reading Companion Complete</h2>
+      <p style="margin-top:10px;color:#555;line-height:1.8;">모든 섹션을 완료했습니다.<br>Pre-Reading 탭으로 돌아가 어휘를 복습해 보세요.</p>
+    </div>
+  </div>
+</div><!-- end top-reading -->
+</div><!-- end app -->
+
+<script>
+function topTab(which) {
+  document.querySelectorAll('.top-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.top-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('top-' + which).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0,0);
+}
+function preTab(id) {
+  document.querySelectorAll('.pre-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.pre-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('pre-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+let unlocked = [true,false,false,false,false];
+function secTab(n) {
+  if (!unlocked[n]) return;
+  document.querySelectorAll('.sec-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.sec-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('sec' + n).classList.add('active');
+  document.querySelectorAll('.sec-btn')[n].classList.add('active');
+  window.scrollTo(0,0);
+}
+function unlock(n) {
+  unlocked[n] = true;
+  const btn = document.querySelectorAll('.sec-btn')[n];
+  btn.disabled = false;
+  if (n === 4) btn.classList.add('done');
+  secTab(n);
+}
+function tog(id) { document.getElementById(id).classList.toggle('open'); }
+function rev(id) { document.getElementById(id).classList.toggle('open'); }
+function mc(btn, result, fbId) {
+  const parent = btn.closest('.question');
+  parent.querySelectorAll('.choice').forEach(c => { c.classList.remove('correct','wrong'); c.disabled = true; });
+  btn.classList.add(result);
+  const fb = document.getElementById(fbId);
+  if (result === 'correct') {
+    fb.textContent = '✅ Correct!'; fb.className = 'fb ok';
+  } else {
+    fb.textContent = '❌ Not quite — review the passage and try again.'; fb.className = 'fb no';
+    parent.querySelectorAll('.choice').forEach(c => c.disabled = false);
+    btn.disabled = true;
+  }
+}
+function tfng(btn, chosen, fbId, correct) {
+  const row = btn.closest('.tfrow');
+  row.querySelectorAll('.tfbtn').forEach(b => b.classList.remove('correct','wrong'));
+  const fb = document.getElementById(fbId);
+  if (chosen === correct) {
+    btn.classList.add('correct'); fb.textContent = '✅ ' + correct; fb.className = 'fb ok';
+  } else {
+    btn.classList.add('wrong'); fb.textContent = '❌ Answer: ' + correct; fb.className = 'fb no';
+  }
+}
+function chk(id, accepted, fbId) {
+  const val = document.getElementById(id).value.trim().toLowerCase();
+  const fb = document.getElementById(fbId);
+  const ok = accepted.some(a => val === a.toLowerCase());
+  document.getElementById(id).classList.toggle('ok', ok);
+  document.getElementById(id).classList.toggle('no', !ok);
+  fb.textContent = ok ? '✅ Correct!' : '❌ Try again. (Hint: ' + accepted[0] + ')';
+  fb.className = 'fb ' + (ok ? 'ok' : 'no');
+}
+function chk2(id1, ans1, id2, ans2, fbId) {
+  const v1 = document.getElementById(id1).value.trim().toLowerCase();
+  const v2 = document.getElementById(id2).value.trim().toLowerCase();
+  const ok1 = v1.includes(ans1.toLowerCase());
+  const ok2 = v2.includes(ans2.toLowerCase());
+  document.getElementById(id1).classList.toggle('ok', ok1); document.getElementById(id1).classList.toggle('no', !ok1);
+  document.getElementById(id2).classList.toggle('ok', ok2); document.getElementById(id2).classList.toggle('no', !ok2);
+  const fb = document.getElementById(fbId);
+  fb.textContent = (ok1 && ok2) ? '✅ Both correct!' : '❌ Check: ' + ans1 + ' / ' + ans2;
+  fb.className = 'fb ' + ((ok1 && ok2) ? 'ok' : 'no');
+}
+</script>
+</body>
+</html>
