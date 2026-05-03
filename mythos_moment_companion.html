@@ -263,10 +263,10 @@ body { font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 15px; line
 <div class="top-panel" id="top-reading">
   <div class="sec-nav">
     <button class="sec-btn active" onclick="secTab(0)">Part 1 · Q1–5</button>
-    <button class="sec-btn" id="sbtn1" onclick="secTab(1)" disabled>Part 2 · Q6–10</button>
-    <button class="sec-btn" id="sbtn2" onclick="secTab(2)" disabled>Part 3 · Q11–15</button>
-    <button class="sec-btn" id="sbtn3" onclick="secTab(3)" disabled>Part 4 · Q16–20</button>
-    <button class="sec-btn" id="sbtn4" onclick="secTab(4)" disabled>✓ Complete</button>
+    <button class="sec-btn" id="sbtn1" onclick="secTab(1)">Part 2 · Q6–10</button>
+    <button class="sec-btn" id="sbtn2" onclick="secTab(2)">Part 3 · Q11–15</button>
+    <button class="sec-btn" id="sbtn3" onclick="secTab(3)">Part 4 · Q16–20</button>
+    <button class="sec-btn" id="sbtn4" onclick="secTab(4)">✓ Complete</button>
   </div>
 
   <!-- ════════ PART 1 ════════ -->
@@ -316,7 +316,7 @@ body { font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 15px; line
         <button class="kr-toggle" onclick="tog('kr1c')">🇰🇷 한국어 해설</button>
         <div class="analysis-content" id="sc1c">
           <span class="tag tag-s">S</span> A laissez-faire approach &nbsp;<span class="tag tag-v">V</span> is &nbsp;<span class="tag tag-m">no longer</span> &nbsp;<span class="tag tag-c">politically tenable or strategically wise</span>
-          <div class="atxt"><strong>no longer</strong>: "더 이상 ~하지 않다" — 과거에는 가능했지만 지금은 아니라는 변화를 강조합니다.<br><br><strong>tenable</strong>: 논리적·정치적으로 지지받을 수 있는 입장. 군사 용어에서 파생(지킬 수 있는 진지)된 표현입니다.<br><br><strong>두 가지 기준</strong>: politically tenable(정치적 측면)과 strategically wise(전략적 측면) — 양쪽 모두에서 실패했다고 지적합니다.</div>
+          <div class="atxt"><strong>no longer</strong>: "더 이상 ~하지 않다" — 과거에는 가능했지만 지금은 아니라는 변화를 강조합니다.<br><br><strong>tenable</strong>: 논리적·정치적으로 지지받을 수 있는 입장.<br><br><strong>두 가지 기준</strong>: politically tenable(정치적 측면)과 strategically wise(전략적 측면) — 양쪽 모두에서 실패했다고 지적합니다.</div>
         </div>
         <div class="kr-box" id="kr1c">"자유방임적 접근법은 더 이상 정치적으로 유지할 수 있거나 전략적으로 현명하지 않다."<br><br>▸ 이 문장은 기사 전체의 핵심 논지(thesis)이자 헤드라인을 그대로 반영합니다.<br>▸ <strong>laissez-faire</strong>: 프랑스어 "내버려 두다" — 정부 불개입 원칙을 뜻합니다.</div>
       </div>
@@ -773,7 +773,7 @@ function preTab(id) {
   document.getElementById('pre-' + id).classList.add('active');
   event.target.classList.add('active');
 }
-let unlocked = [true,false,false,false,false];
+let unlocked = [true,true,true,true,true];
 function secTab(n) {
   if (!unlocked[n]) return;
   document.querySelectorAll('.sec-panel').forEach(p => p.classList.remove('active'));
